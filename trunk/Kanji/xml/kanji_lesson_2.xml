@@ -1,0 +1,1604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lesson>
+  <char uid="u+56fd" ch="国">
+    <reading type="on">コク</reading>
+    <reading type="kun">くに</reading>
+    <translation>country</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4f1a" ch="会">
+    <reading type="on">カイ, エ</reading>
+    <reading type="kun">あ.う, あ.わせる, あつ.まる</reading>
+    <translation>meeting, meet, party, association, interview, join</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9577" ch="長">
+    <reading type="on">チョウ</reading>
+    <reading type="kun">なが.い, おさ</reading>
+    <translation>long, leader</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+540c" ch="同">
+    <reading type="on">ドウ</reading>
+    <reading type="kun">おな.じ</reading>
+    <translation>same, agree, equal</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6642" ch="時">
+    <reading type="on">ジ</reading>
+    <reading type="kun">とき, -どき</reading>
+    <translation>time, hour</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+81ea" ch="自">
+    <reading type="on">ジ, シ</reading>
+    <reading type="kun">みずか.ら, おの.ずから, おの.ずと</reading>
+    <translation>oneself</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+884c" ch="行">
+    <reading type="on" />
+    <reading type="kun">い.く, ゆ.く, -ゆ.き, -ゆき, -い.き, -いき, おこな.う, おこ.なう</reading>
+    <translation>going, journey</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+793e" ch="社">
+    <reading type="on">シャ</reading>
+    <reading type="kun">やしろ</reading>
+    <translation>company, firm, office, association, shrine</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5206" ch="分">
+    <reading type="on">ブン, フン, ブ</reading>
+    <reading type="kun">わ.ける, わ.け, わ.かれる, わ.かる, わ.かつ</reading>
+    <translation>part, minute of time, segment, share, degree, one's lot, duty, understand, know, rate, 1%, chances, shaku/100</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5f8c" ch="後">
+    <reading type="on">ゴ, コウ</reading>
+    <reading type="kun">のち, うし.ろ, うしろ, あと, おく.れる</reading>
+    <translation>behind, back, later</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+524d" ch="前">
+    <reading type="on">ゼン</reading>
+    <reading type="kun">まえ, -まえ</reading>
+    <translation>in front, before</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9593" ch="間">
+    <reading type="on">カン, ケン</reading>
+    <reading type="kun">あいだ, ま, あい</reading>
+    <translation>interval, space</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6771" ch="東">
+    <reading type="on">トウ</reading>
+    <reading type="kun">ひがし</reading>
+    <translation>east</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5730" ch="地">
+    <reading type="on">チ, ジ</reading>
+    <reading type="kun" />
+    <translation>ground, earth</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5408" ch="合">
+    <reading type="on">ゴウ, ガッ, カッ</reading>
+    <reading type="kun">あ.う, -あ.う, あ.い, あい-, -あ.い, -あい, あ.わす, あ.わせる, -あ.わせる</reading>
+    <translation>fit, suit, join, 0.1</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5e02" ch="市">
+    <reading type="on">シ</reading>
+    <reading type="kun">いち</reading>
+    <translation>market, city, town</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5185" ch="内">
+    <reading type="on">ナイ, ダイ</reading>
+    <reading type="kun">うち</reading>
+    <translation>inside, within, between, among, house, home</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+65b9" ch="方">
+    <reading type="on">ホウ</reading>
+    <reading type="kun">かた, -かた, -がた</reading>
+    <translation>direction, person, alternative</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4eca" ch="今">
+    <reading type="on">コン, キン</reading>
+    <reading type="kun">いま</reading>
+    <translation>now</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+56de" ch="回">
+    <reading type="on">カイ, エ</reading>
+    <reading type="kun">まわ.る, -まわ.る, -まわ.り, まわ.す, -まわ.す, まわ.し-, -まわ.し, もとお.る, か.える</reading>
+    <translation>-times, round, game, revolve, counter for occurrences</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+65b0" ch="新">
+    <reading type="on">シン</reading>
+    <reading type="kun">あたら.しい, あら.た, あら-, にい-</reading>
+    <translation>new</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5834" ch="場">
+    <reading type="on">ジョウ, チョウ</reading>
+    <reading type="kun">ば</reading>
+    <translation>location, place</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7c73" ch="米">
+    <reading type="on">ベイ, マイ, メエトル</reading>
+    <reading type="kun">こめ, よね</reading>
+    <translation>rice, USA, metre</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9ad8" ch="高">
+    <reading type="on">コウ</reading>
+    <reading type="kun">たか.い, たか, -だか, たか.まる, たか.める</reading>
+    <translation>tall, high, expensive</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+660e" ch="明">
+    <reading type="on">メイ, ミョウ, ミン</reading>
+    <reading type="kun">あ.かり, あか.るい, あか.るむ, あか.らむ, あき.らか, あ.ける, -あ.け, あ.く, あ.くる, あ.かす</reading>
+    <translation>bright, light</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4eac" ch="京">
+    <reading type="on">キョウ, ケイ, キン</reading>
+    <reading type="kun">みやこ</reading>
+    <translation>capital, 10**16</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+901a" ch="通">
+    <reading type="on">ツウ, ツ</reading>
+    <reading type="kun">とお.る, とお.り, -とお.り, -どお.り, とお.す, とお.し, -どお.し, かよ.う</reading>
+    <translation>traffic, pass through, avenue, commute, counter for letters, notes, documents, etc.</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5916" ch="外">
+    <reading type="on">ガイ, ゲ</reading>
+    <reading type="kun">そと, ほか, はず.す, はず.れる, と-</reading>
+    <translation>outside</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8a00" ch="言">
+    <reading type="on">ゲン, ゴン</reading>
+    <reading type="kun">い.う, こと</reading>
+    <translation>say</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7406" ch="理">
+    <reading type="on">リ</reading>
+    <reading type="kun">ことわり</reading>
+    <translation>logic, arrangement, reason, justice, truth</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4f53" ch="体">
+    <reading type="on">タイ, テイ</reading>
+    <reading type="kun">からだ, かたち</reading>
+    <translation>body, substance, object, reality, counter for images</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5f53" ch="当">
+    <reading type="on">トウ</reading>
+    <reading type="kun">あ.たる, あ.たり, あ.てる, あ.て, まさ.に, まさ.にべし</reading>
+    <translation>hit, right, appropriate, himself</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9996" ch="首">
+    <reading type="on">シュ</reading>
+    <reading type="kun">くび</reading>
+    <translation>neck, counter for songs and poems</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6765" ch="来">
+    <reading type="on">ライ, タイ</reading>
+    <reading type="kun">く.る, きた.る, きた.す, き.たす, き.たる, き, こ</reading>
+    <translation>come, due, next, cause, become</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4f5c" ch="作">
+    <reading type="on">サク, サ</reading>
+    <reading type="kun">つく.る, つく.り, -づく.り</reading>
+    <translation>make, production, prepare, build</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7528" ch="用">
+    <reading type="on">ヨウ</reading>
+    <reading type="kun">もち.いる</reading>
+    <translation>utilize, business, service, use, employ</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5f37" ch="強">
+    <reading type="on">キョウ, ゴウ</reading>
+    <reading type="kun">つよ.い, つよ.まる, つよ.める, し.いる, こわ.い</reading>
+    <translation>strong</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+516c" ch="公">
+    <reading type="on">コウ, ク</reading>
+    <reading type="kun">おおやけ</reading>
+    <translation>public, prince, official, governmental</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+91ce" ch="野">
+    <reading type="on">ヤ, ショ</reading>
+    <reading type="kun">の, の-</reading>
+    <translation>plains, field, rustic, civilian life</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+601d" ch="思">
+    <reading type="on">シ</reading>
+    <reading type="kun">おも.う, おもえら.く, おぼ.す</reading>
+    <translation>think</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5bb6" ch="家">
+    <reading type="on">カ, ケ</reading>
+    <reading type="kun">いえ, や, うち</reading>
+    <translation>house, home</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8a71" ch="話">
+    <reading type="on">ワ</reading>
+    <reading type="kun">はな.す, はなし</reading>
+    <translation>tale, talk</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+591a" ch="多">
+    <reading type="on">タ</reading>
+    <reading type="kun">おお.い, まさ.に, まさ.る</reading>
+    <translation>many, frequent, much</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6570" ch="数">
+    <reading type="on">スウ, ス, サク, ソク, シュ</reading>
+    <reading type="kun">かず, かぞ.える, しばしば, せ.める, わずらわ.しい</reading>
+    <translation>number, strength, fate, law, figures</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8a18" ch="記">
+    <reading type="on">キ</reading>
+    <reading type="kun">しる.す</reading>
+    <translation>scribe, account, narrative</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5317" ch="北">
+    <reading type="on">ホク</reading>
+    <reading type="kun">きた</reading>
+    <translation>north</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5348" ch="午">
+    <reading type="on">ゴ</reading>
+    <reading type="kun">うま</reading>
+    <translation>noon, sign of the horse, 11AM-1PM, seventh sign of Chinese zodiac</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5fc3" ch="心">
+    <reading type="on">シン</reading>
+    <reading type="kun">こころ, -ごころ</reading>
+    <translation>heart, mind, spirit</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+70b9" ch="点">
+    <reading type="on">テン</reading>
+    <reading type="kun">つ.ける, つ.く, た.てる, さ.す, とぼ.す, とも.す, ぼち</reading>
+    <translation>spot, point, mark, speck, decimal point</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6559" ch="教">
+    <reading type="on">キョウ</reading>
+    <reading type="kun">おし.える, おそ.わる</reading>
+    <translation>teach, faith, doctrine</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+66f8" ch="書">
+    <reading type="on">ショ</reading>
+    <reading type="kun">か.く, -が.き, -がき</reading>
+    <translation>write</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6d3b" ch="活">
+    <reading type="on">カツ</reading>
+    <reading type="kun">い.きる, い.かす, い.ける</reading>
+    <translation>lively, resuscitation, being helped, living</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+539f" ch="原">
+    <reading type="on">ゲン</reading>
+    <reading type="kun">はら</reading>
+    <translation>meadow, original, primitive, field, plain, prairie, tundra, wilderness</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4ea4" ch="交">
+    <reading type="on">コウ</reading>
+    <reading type="kun">まじ.わる, まじ.える, ま.じる, まじ.る, ま.ざる, ま.ぜる, -か.う, か.わす, かわ.す, こもごも</reading>
+    <translation>mingle, mixing, association, coming &amp; going</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5143" ch="元">
+    <reading type="on">ゲン, ガン</reading>
+    <reading type="kun">もと</reading>
+    <translation>beginning, former time, origin</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8fd1" ch="近">
+    <reading type="on">キン, コン</reading>
+    <reading type="kun">ちか.い</reading>
+    <translation>near, early, akin, tantamount</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8003" ch="考">
+    <reading type="on">コウ</reading>
+    <reading type="kun">かんが.える, かんが.え</reading>
+    <translation>consider, think over</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+753b" ch="画">
+    <reading type="on">ガ, カク, エ, カイ</reading>
+    <reading type="kun">えが.く, かく.する, かぎ.る, はかりごと, はか.る</reading>
+    <translation>brush-stroke, picture</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6d77" ch="海">
+    <reading type="on">カイ</reading>
+    <reading type="kun">うみ</reading>
+    <translation>sea, ocean</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+58f2" ch="売">
+    <reading type="on">バイ</reading>
+    <reading type="kun">う.る, う.れる</reading>
+    <translation>sell</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7d44" ch="組">
+    <reading type="on">ソ</reading>
+    <reading type="kun">く.む, くみ, -ぐみ</reading>
+    <translation>association, braid, plait, construct, assemble, unite, cooperate, grapple</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+77e5" ch="知">
+    <reading type="on">チ</reading>
+    <reading type="kun">し.る, し.らせる</reading>
+    <translation>know, wisdom</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9053" ch="道">
+    <reading type="on">ドウ, トウ</reading>
+    <reading type="kun">みち</reading>
+    <translation>road-way, street, district, journey, course, moral, teachings</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5f15" ch="引">
+    <reading type="on">イン</reading>
+    <reading type="kun">ひ.く, ひ.き, ひ.き-, -び.き, ひ.ける</reading>
+    <translation>pull, tug, jerk, admit, install, quote, refer to</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+534a" ch="半">
+    <reading type="on">ハン</reading>
+    <reading type="kun">なか.ば</reading>
+    <translation>half, middle, odd number, semi-, part-</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8a08" ch="計">
+    <reading type="on">ケイ</reading>
+    <reading type="kun">はか.る, はか.らう</reading>
+    <translation>plot, plan, scheme, measure</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+76f4" ch="直">
+    <reading type="on">チョク, ジキ, ジカ</reading>
+    <reading type="kun">ただ.ちに, なお.す, -なお.す, なお.る, なお.き, す.ぐ</reading>
+    <translation>straightaway, honesty, frankness, fix, repair</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+671d" ch="朝">
+    <reading type="on">チョウ</reading>
+    <reading type="kun">あさ</reading>
+    <translation>morning, dynasty, regime, epoch, period, (North) Korea</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+897f" ch="西">
+    <reading type="on">セイ, サイ, ス</reading>
+    <reading type="kun">にし</reading>
+    <translation>west, Spain</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+53f0" ch="台">
+    <reading type="on">ダイ, タイ</reading>
+    <reading type="kun">うてな, われ, つかさ</reading>
+    <translation>pedestal, a stand, counter for machines and vehicles</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5e83" ch="広">
+    <reading type="on">コウ</reading>
+    <reading type="kun">ひろ.い, ひろ.まる, ひろ.める, ひろ.がる, ひろ.げる</reading>
+    <translation>wide, broad, spacious</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+96fb" ch="電">
+    <reading type="on">デン</reading>
+    <reading type="kun" />
+    <translation>electricity</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5c11" ch="少">
+    <reading type="on">ショウ</reading>
+    <reading type="kun">すく.ない, すこ.し</reading>
+    <translation>few, little</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5de5" ch="工">
+    <reading type="on">コウ, ク, グ</reading>
+    <reading type="kun" />
+    <translation>craft, construction</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8a9e" ch="語">
+    <reading type="on">ゴ</reading>
+    <reading type="kun">かた.る, かた.らう</reading>
+    <translation>word, speech, language</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6b62" ch="止">
+    <reading type="on">シ</reading>
+    <reading type="kun">と.まる, -ど.まり, と.める, -と.める, -ど.め, とど.める, とど.め, とど.まる, や.める, や.む, -や.む, よ.す, -さ.す, -さ.し</reading>
+    <translation>stop, halt</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+805e" ch="聞">
+    <reading type="on">ブン, モン</reading>
+    <reading type="kun">き.く, き.こえる</reading>
+    <translation>hear, ask, listen</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5207" ch="切">
+    <reading type="on">セツ, サイ</reading>
+    <reading type="kun">き.る, -き.る, き.り, -き.り, -ぎ.り, き.れる, -き.れる, き.れ, -き.れ, -ぎ.れ</reading>
+    <translation>cut, cutoff, be sharp</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+98df" ch="食">
+    <reading type="on">ショク, ジキ</reading>
+    <reading type="kun">く.う, く.らう, た.べる, は.む</reading>
+    <translation>eat, food</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4f55" ch="何">
+    <reading type="on">カ</reading>
+    <reading type="kun">なに, なん, なに-, なん-</reading>
+    <translation>what</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5357" ch="南">
+    <reading type="on">ナン, ナ</reading>
+    <reading type="kun">みなみ</reading>
+    <translation>south</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+756a" ch="番">
+    <reading type="on">バン</reading>
+    <reading type="kun">つが.い</reading>
+    <translation>turn, number in a series</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7b97" ch="算">
+    <reading type="on">サン</reading>
+    <reading type="kun">そろ</reading>
+    <translation>calculate, divining, number, abacus, probability</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+697d" ch="楽">
+    <reading type="on">ガク, ラク, ゴウ</reading>
+    <reading type="kun">たの.しい, たの.しむ, この.む</reading>
+    <translation>music, comfort, ease</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4e07" ch="万">
+    <reading type="on">マン, バン</reading>
+    <reading type="kun">よろず</reading>
+    <translation>ten thousand</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5e97" ch="店">
+    <reading type="on">テン</reading>
+    <reading type="kun">みせ, たな</reading>
+    <translation>store, shop</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7dda" ch="線">
+    <reading type="on">セン</reading>
+    <reading type="kun">すじ</reading>
+    <translation>line, track</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+58f0" ch="声">
+    <reading type="on">セイ, ショウ</reading>
+    <reading type="kun">こえ, こわ-</reading>
+    <translation>voice</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+89aa" ch="親">
+    <reading type="on">シン</reading>
+    <reading type="kun">おや, おや-, した.しい, した.しむ</reading>
+    <translation>parent, intimacy, relative, familiarity, dealer (cards)</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5f62" ch="形">
+    <reading type="on">ケイ, ギョウ</reading>
+    <reading type="kun">かた, -がた, かたち, なり</reading>
+    <translation>shape, form, style</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+982d" ch="頭">
+    <reading type="on">トウ, ズ, ト</reading>
+    <reading type="kun">あたま, かしら, -がしら, かぶり</reading>
+    <translation>head, counter for large animals</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6bce" ch="毎">
+    <reading type="on">マイ</reading>
+    <reading type="kun">ごと, -ごと.に</reading>
+    <translation>every</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9580" ch="門">
+    <reading type="on">モン</reading>
+    <reading type="kun">かど, と</reading>
+    <translation>gate, counter for cannons</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7b54" ch="答">
+    <reading type="on">トウ</reading>
+    <reading type="kun">こた.える, こた.え</reading>
+    <translation>solution, answer</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+591c" ch="夜">
+    <reading type="on">ヤ</reading>
+    <reading type="kun">よ, よる</reading>
+    <translation>night, evening</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5e30" ch="帰">
+    <reading type="on">キ</reading>
+    <reading type="kun">かえ.る, かえ.す, おく.る, とつ.ぐ</reading>
+    <translation>homecoming, arrive at, lead to, result in</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8c37" ch="谷">
+    <reading type="on">コク</reading>
+    <reading type="kun">たに, きわ.まる</reading>
+    <translation>valley</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+53e4" ch="古">
+    <reading type="on">コ</reading>
+    <reading type="kun">ふる.い, ふる-, -ふる.す</reading>
+    <translation>old</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6b4c" ch="歌">
+    <reading type="on">カ</reading>
+    <reading type="kun">うた, うた.う</reading>
+    <translation>song, sing</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8cb7" ch="買">
+    <reading type="on">バイ</reading>
+    <reading type="kun">か.う</reading>
+    <translation>buy</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5149" ch="光">
+    <reading type="on">コウ</reading>
+    <reading type="kun">ひか.る, ひかり</reading>
+    <translation>ray, light</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+79d1" ch="科">
+    <reading type="on">カ</reading>
+    <reading type="kun" />
+    <translation>department, course, section</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7d30" ch="細">
+    <reading type="on">サイ</reading>
+    <reading type="kun">ほそ.い, ほそ.る, こま.か, こま.かい</reading>
+    <translation>dainty, get thin, taper, slender, narrow</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+56f3" ch="図">
+    <reading type="on">ズ, ト</reading>
+    <reading type="kun">え, はか.る</reading>
+    <translation>map, drawing, plan, unexpected, accidentally</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9031" ch="週">
+    <reading type="on">シュウ</reading>
+    <reading type="kun" />
+    <translation>week</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+4e38" ch="丸">
+    <reading type="on">ガン</reading>
+    <reading type="kun">まる, まる.める, まる.い</reading>
+    <translation>round, full, month, perfection, -ship, pills, make round, roll up, curl up, seduce, explain away</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5ba4" ch="室">
+    <reading type="on">シツ</reading>
+    <reading type="kun">むろ</reading>
+    <translation>room, apartment, chamber, greenhouse, cellar</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+592a" ch="太">
+    <reading type="on">タイ, タ</reading>
+    <reading type="kun">ふと.い, ふと.る</reading>
+    <translation>plump, thick, big around</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6b69" ch="歩">
+    <reading type="on">ホ, ブ, フ</reading>
+    <reading type="kun">ある.く, あゆ.む</reading>
+    <translation>walk, counter for steps</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+98a8" ch="風">
+    <reading type="on">フウ, フ</reading>
+    <reading type="kun">かぜ, かざ-, -かぜ</reading>
+    <translation>wind, air, style, manner</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7d19" ch="紙">
+    <reading type="on">シ</reading>
+    <reading type="kun">かみ</reading>
+    <translation>paper</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6bcd" ch="母">
+    <reading type="on">ボ</reading>
+    <reading type="kun">はは, も</reading>
+    <translation>mama, mother</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9ed2" ch="黒">
+    <reading type="on">コク</reading>
+    <reading type="kun">くろ, くろ.ずむ, くろ.い</reading>
+    <translation>black</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6238" ch="戸">
+    <reading type="on">コ</reading>
+    <reading type="kun">と</reading>
+    <translation>door, counter for houses</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6625" ch="春">
+    <reading type="on">シュン</reading>
+    <reading type="kun">はる</reading>
+    <translation>springtime, spring (season)</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8aad" ch="読">
+    <reading type="on">ドク, トク, トウ</reading>
+    <reading type="kun">よ.む, -よ.み</reading>
+    <translation>read</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8272" ch="色">
+    <reading type="on">ショク, シキ</reading>
+    <reading type="kun">いろ</reading>
+    <translation>color</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+53cb" ch="友">
+    <reading type="on">ユウ</reading>
+    <reading type="kun">とも</reading>
+    <translation>friend</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8d70" ch="走">
+    <reading type="on">ソウ</reading>
+    <reading type="kun">はし.る</reading>
+    <translation>run</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5712" ch="園">
+    <reading type="on">エン</reading>
+    <reading type="kun">その</reading>
+    <translation>park, garden, yard, farm</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+79cb" ch="秋">
+    <reading type="on">シュウ</reading>
+    <reading type="kun">あき, とき</reading>
+    <translation>autumn</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+99ac" ch="馬">
+    <reading type="on">バ</reading>
+    <reading type="kun">うま, うま-, ま</reading>
+    <translation>horse</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7236" ch="父">
+    <reading type="on">フ</reading>
+    <reading type="kun">ちち</reading>
+    <translation>father</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+590f" ch="夏">
+    <reading type="on">カ, ガ, ゲ</reading>
+    <reading type="kun">なつ</reading>
+    <translation>summer</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9854" ch="顔">
+    <reading type="on">ガン</reading>
+    <reading type="kun">かお</reading>
+    <translation>face, expression</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8239" ch="船">
+    <reading type="on">セン</reading>
+    <reading type="kun">ふね, ふな-</reading>
+    <translation>ship, boat</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7fbd" ch="羽">
+    <reading type="on">ウ</reading>
+    <reading type="kun">は, わ, はね</reading>
+    <translation>feathers, counter for birds, rabbits</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5ca9" ch="岩">
+    <reading type="on">ガン</reading>
+    <reading type="kun">いわ</reading>
+    <translation>boulder, rock, cliff</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+89d2" ch="角">
+    <reading type="on">カク</reading>
+    <reading type="kun">かど, つの</reading>
+    <translation>angle, corner, square, horn, antlers</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6c60" ch="池">
+    <reading type="on">チ</reading>
+    <reading type="kun">いけ</reading>
+    <translation>pond, cistern, pool, reservoir</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+661f" ch="星">
+    <reading type="on">セイ, ショウ</reading>
+    <reading type="kun">ほし, -ぼし</reading>
+    <translation>star, spot, dot, mark</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5bfa" ch="寺">
+    <reading type="on">ジ</reading>
+    <reading type="kun">てら</reading>
+    <translation>Buddhist temple</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9060" ch="遠">
+    <reading type="on">エン, オン</reading>
+    <reading type="kun">とお.い</reading>
+    <translation>distant, far</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+7d75" ch="絵">
+    <reading type="on">カイ, エ</reading>
+    <reading type="kun" />
+    <translation>picture, drawing, painting, sketch</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+66dc" ch="曜">
+    <reading type="on">ヨウ</reading>
+    <reading type="kun" />
+    <translation>weekday</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5f31" ch="弱">
+    <reading type="on">ジャク</reading>
+    <reading type="kun">よわ.い, よわ.る, よわ.まる, よわ.める</reading>
+    <translation>weak, frail</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8089" ch="肉">
+    <reading type="on">ニク</reading>
+    <reading type="kun">しし</reading>
+    <translation>meat</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6674" ch="晴">
+    <reading type="on">セイ</reading>
+    <reading type="kun">は.れる, は.れ, は.れ-, -ば.れ, は.らす</reading>
+    <translation>clear up</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9ce5" ch="鳥">
+    <reading type="on">チョウ</reading>
+    <reading type="kun">とり</reading>
+    <translation>bird, chicken</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+51ac" ch="冬">
+    <reading type="on">トウ</reading>
+    <reading type="kun">ふゆ</reading>
+    <translation>winter</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+91cc" ch="里">
+    <reading type="on">リ</reading>
+    <reading type="kun">さと</reading>
+    <translation>ri, village, parent's home, league</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+663c" ch="昼">
+    <reading type="on">チュウ</reading>
+    <reading type="kun">ひる</reading>
+    <translation>daytime, noon</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+8336" ch="茶">
+    <reading type="on">チャ, サ</reading>
+    <reading type="kun" />
+    <translation>tea</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+96ea" ch="雪">
+    <reading type="on">セツ</reading>
+    <reading type="kun">ゆき</reading>
+    <translation>snow</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5f1f" ch="弟">
+    <reading type="on">テイ, ダイ, デ</reading>
+    <reading type="kun">おとうと</reading>
+    <translation>younger brother, faithful service to elders</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6bdb" ch="毛">
+    <reading type="on">モウ</reading>
+    <reading type="kun">け</reading>
+    <translation>fur, hair, feather, down</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+725b" ch="牛">
+    <reading type="on">ギュウ</reading>
+    <reading type="kun">うし</reading>
+    <translation>cow</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9b5a" ch="魚">
+    <reading type="on">ギョ</reading>
+    <reading type="kun">うお, さかな, -ざかな</reading>
+    <translation>fish</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5144" ch="兄">
+    <reading type="on">ケイ, キョウ</reading>
+    <reading type="kun">あに</reading>
+    <translation>elder brother, big brother</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9ec4" ch="黄">
+    <reading type="on">コウ, オウ</reading>
+    <reading type="kun">き, こ-</reading>
+    <translation>yellow</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+96f2" ch="雲">
+    <reading type="on">ウン</reading>
+    <reading type="kun">くも, -ぐも</reading>
+    <translation>cloud</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9cf4" ch="鳴">
+    <reading type="on">メイ</reading>
+    <reading type="kun">な.く, な.る, な.らす</reading>
+    <translation>chirp, cry, bark, sound, ring, echo, honk</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+77e2" ch="矢">
+    <reading type="on">シ</reading>
+    <reading type="kun">や</reading>
+    <translation>dart, arrow</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+59b9" ch="妹">
+    <reading type="on">マイ</reading>
+    <reading type="kun">いもうと</reading>
+    <translation>younger sister</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+59c9" ch="姉">
+    <reading type="on">シ</reading>
+    <reading type="kun">あね, はは</reading>
+    <translation>elder sister</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+624d" ch="才">
+    <reading type="on">サイ</reading>
+    <reading type="kun" />
+    <translation>genius, years old, cubic shaku</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+9ea6" ch="麦">
+    <reading type="on">バク</reading>
+    <reading type="kun">むぎ</reading>
+    <translation>barley, wheat</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5200" ch="刀">
+    <reading type="on">トウ</reading>
+    <reading type="kun">かたな, そり</reading>
+    <translation>sword, saber, knife</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+5f13" ch="弓">
+    <reading type="on">キュウ</reading>
+    <reading type="kun">ゆみ</reading>
+    <translation>bow, bow (archery, violin)</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+6c7d" ch="汽">
+    <reading type="on">キ</reading>
+    <reading type="kun" />
+    <translation>vapor, steam</translation>
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+</lesson>
+

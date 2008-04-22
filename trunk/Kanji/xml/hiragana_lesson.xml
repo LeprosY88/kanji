@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lesson>
+  <char uid="u+3042" ch="あ">
+    <reading type="kun">a</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3044" ch="い">
+    <reading type="kun">i</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3046" ch="う">
+    <reading type="kun">u</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3048" ch="え">
+    <reading type="kun">e</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304a" ch="お">
+    <reading type="kun">o</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304b" ch="か">
+    <reading type="kun">ka</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304d" ch="き">
+    <reading type="kun">ki</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304f" ch="く">
+    <reading type="kun">ku</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3051" ch="け">
+    <reading type="kun">ke</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3053" ch="こ">
+    <reading type="kun">ko</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304d" ch="きゃ">
+    <reading type="kun">kya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304d" ch="きゅ">
+    <reading type="kun">kyu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304d" ch="きょ">
+    <reading type="kun">kyo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3055" ch="さ">
+    <reading type="kun">sa</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3057" ch="し">
+    <reading type="kun">shi</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3059" ch="す">
+    <reading type="kun">su</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+305b" ch="せ">
+    <reading type="kun">se</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+305d" ch="そ">
+    <reading type="kun">so</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3057" ch="しゃ">
+    <reading type="kun">sha</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3057" ch="しゅ">
+    <reading type="kun">shu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3057" ch="しょ">
+    <reading type="kun">sho</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+305f" ch="た">
+    <reading type="kun">ta</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3061" ch="ち">
+    <reading type="kun">chi</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3064" ch="つ">
+    <reading type="kun">tsu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3066" ch="て">
+    <reading type="kun">te</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3068" ch="と">
+    <reading type="kun">to</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3061" ch="ちゃ">
+    <reading type="kun">cha</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3061" ch="ちゅ">
+    <reading type="kun">chu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3061" ch="ちょ">
+    <reading type="kun">cho</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306a" ch="な">
+    <reading type="kun">na</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306b" ch="に">
+    <reading type="kun">ni</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306c" ch="ぬ">
+    <reading type="kun">nu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306d" ch="ね">
+    <reading type="kun">ne</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306e" ch="の">
+    <reading type="kun">no</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306b" ch="にゃ">
+    <reading type="kun">nya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306b" ch="にゅ">
+    <reading type="kun">nyu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306b" ch="にょ">
+    <reading type="kun">nyo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+306f" ch="は">
+    <reading type="kun">ha</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3072" ch="ひ">
+    <reading type="kun">hi</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3075" ch="ふ">
+    <reading type="kun">fu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3078" ch="へ">
+    <reading type="kun">he</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307b" ch="ほ">
+    <reading type="kun">ho</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3072" ch="ひゃ">
+    <reading type="kun">hya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3072" ch="ひゅ">
+    <reading type="kun">hyu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3072" ch="ひょ">
+    <reading type="kun">hyo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307e" ch="ま">
+    <reading type="kun">ma</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307f" ch="み">
+    <reading type="kun">mi</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3080" ch="む">
+    <reading type="kun">mu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3081" ch="め">
+    <reading type="kun">me</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3082" ch="も">
+    <reading type="kun">mo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307f" ch="みゃ">
+    <reading type="kun">mya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307f" ch="みゅ">
+    <reading type="kun">myu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307f" ch="みょ">
+    <reading type="kun">myo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3084" ch="や">
+    <reading type="kun">ya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3086" ch="ゆ">
+    <reading type="kun">yu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3088" ch="よ">
+    <reading type="kun">yo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3089" ch="ら">
+    <reading type="kun">ra</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+308a" ch="り">
+    <reading type="kun">ri</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+308b" ch="る">
+    <reading type="kun">ru</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+308c" ch="れ">
+    <reading type="kun">re</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+308d" ch="ろ">
+    <reading type="kun">ro</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+308a" ch="りゃ">
+    <reading type="kun">rya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+308a" ch="りゅ">
+    <reading type="kun">ryu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+308a" ch="りょ">
+    <reading type="kun">ryo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+308f" ch="わ">
+    <reading type="kun">wa</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3090" ch="ゐ">
+    <reading type="kun">wi</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3091" ch="ゑ">
+    <reading type="kun">we</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3092" ch="を">
+    <reading type="kun">wo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3093" ch="ん">
+    <reading type="kun">n</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304c" ch="が">
+    <reading type="kun">ga</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304e" ch="ぎ">
+    <reading type="kun">gi</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3050" ch="ぐ">
+    <reading type="kun">gu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3052" ch="げ">
+    <reading type="kun">ge</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3054" ch="ご">
+    <reading type="kun">go</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304e" ch="ぎゃ">
+    <reading type="kun">gya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304e" ch="ぎゅ">
+    <reading type="kun">gyu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+304e" ch="ぎょ">
+    <reading type="kun">gyo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3056" ch="ざ">
+    <reading type="kun">za</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3058" ch="じ">
+    <reading type="kun">ji</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+305a" ch="ず">
+    <reading type="kun">zu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+305c" ch="ぜ">
+    <reading type="kun">ze</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+305e" ch="ぞ">
+    <reading type="kun">zo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3058" ch="じゃ">
+    <reading type="kun">ja</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3058" ch="じゅ">
+    <reading type="kun">ju</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3058" ch="じょ">
+    <reading type="kun">jo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3060" ch="だ">
+    <reading type="kun">da</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3062" ch="ぢ">
+    <reading type="kun">(ji)</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3065" ch="づ">
+    <reading type="kun">(zu)</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3067" ch="で">
+    <reading type="kun">de</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3069" ch="ど">
+    <reading type="kun">do</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3062" ch="ぢゃ">
+    <reading type="kun">(ja)</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3062" ch="ぢゅ(ju)">
+    <reading type="kun">ぢょ(jo)</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3070" ch="ば">
+    <reading type="kun">ba</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3073" ch="び">
+    <reading type="kun">bi</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3076" ch="ぶ">
+    <reading type="kun">bu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3079" ch="べ">
+    <reading type="kun">be</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307c" ch="ぼ">
+    <reading type="kun">bo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3073" ch="びゃ">
+    <reading type="kun">bya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3073" ch="びゅ">
+    <reading type="kun">byu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3073" ch="びょ">
+    <reading type="kun">byo</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3071" ch="ぱ">
+    <reading type="kun">pa</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3074" ch="ぴ">
+    <reading type="kun">pi</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3077" ch="ぷ">
+    <reading type="kun">pu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307a" ch="ぺ">
+    <reading type="kun">pe</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+307d" ch="ぽ">
+    <reading type="kun">po</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3074" ch="ぴゃ">
+    <reading type="kun">pya</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+  <char uid="u+3074" ch="ぴゅ">
+    <reading type="kun">pyu</reading>
+    <translation />
+    <example>
+      <text />
+      <reading />
+      <translation />
+    </example>
+  </char>
+</lesson>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<chapter id="kanji">
+		<lesson id="1">kanji_lesson_1.xml</lesson>
+	</chapter>
+	<chapter id="hiragana">
+	</chapter>
+	<chapter id="katakana">
+	</chapter>
+</index>

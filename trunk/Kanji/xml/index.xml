@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<chapter id="kanji">
+		<lesson id="1" name="kanji lesson #1">xml\kanji_lesson_1.xml</lesson>
+		<lesson id="2" name="kanji lesson #2">xml\kanji_lesson_2.xml</lesson>
+		<lesson id="3" name="kanji lesson #3">xml\kanji_lesson_3.xml</lesson>
+		<lesson id="4" name="kanji lesson #4">xml\kanji_lesson_4.xml</lesson>
+		<lesson id="5" name="kanji lesson #5">xml\kanji_lesson_5.xml</lesson>
+		<lesson id="6" name="kanji lesson #6">xml\kanji_lesson_6.xml</lesson>
+	</chapter>
+	<chapter id="hiragana">
+		<lesson name="hiragana lesson">xml\hiragana_lesson.xml</lesson>
+	</chapter>
+	<chapter id="katakana">
+		<lesson name="katakana lesson">xml\katakana_lesson.xml</lesson>
+	</chapter>
+</index>
