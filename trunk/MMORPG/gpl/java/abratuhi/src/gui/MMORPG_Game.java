@@ -53,24 +53,4 @@ public class MMORPG_Game extends JFrame{
 		pack();
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		/*String l="login_default",p="password_default";
-		Integer r=0;
-		MMORPG_Login login = new MMORPG_Login(l,p,r);
-		
-		System.out.println("out: "+r+", "+l+", "+p);
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		System.out.println("out: "+r+", "+l+", "+p);*/
-		
-		
-		//new MMORPG_Game(args[0]);
-	}
-
 }
