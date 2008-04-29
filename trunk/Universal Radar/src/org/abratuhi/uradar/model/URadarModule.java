@@ -93,7 +93,7 @@ public class URadarModule {
 			// create statement
 			Statement stmt = connection.createStatement();
 			// generate query string
-			String modulenameid = reqprops.getProperty(this.name+"id");
+			String modulenameid = reqprops.getProperty(this.name+"id"); // second obligatory field
 			String sql_addupdate_user = "insert into "+this.name+"(uradarid, "+(this.name+"id")+") values ("+myURadarID+","+modulenameid+");";
 			// execute query
 			stmt.executeUpdate(sql_addupdate_user);
@@ -115,7 +115,7 @@ public class URadarModule {
 			// create statement
 			Statement stmt = connection.createStatement();
 			// generate query string
-			String visibility = reqprops.getProperty("visibility");
+			String visibility = reqprops.getProperty("visibility"); // third obligatory field
 			String sql_addupdate_friend = "insert into "+this.name+"_friends"+"(uradarid, uradarid_friend, visibility)" +
 										" values ("+myURadarID+","+friendURadarID+","+visibility+");";
 			// execute query
@@ -209,7 +209,21 @@ public class URadarModule {
 	 * @param reqprops		-	module-specific information sent with the query
 	 */
 	public void removeUser(String myURadarID, Properties reqprops){
-		
+		// try to connect to DB for search
+		try{
+		// create statement
+		Statement stmt = connection.createStatement();
+		// generate query strings
+		String sql_delete_user = "delete  from "+this.name+" where uradarid='"+myURadarID+"';";	// clean <modulname> table
+		String sql_delete_friends = "delete  from "+this.name+"_friends"+" where uradarid='"+myURadarID+"';";	// clean <modulname>_friends table
+		// query DB for own info
+		stmt.executeUpdate(sql_delete_friends);
+		stmt.executeUpdate(sql_delete_user);
+		// close statement, garbage collector is not to be relied upon
+		stmt.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -219,7 +233,19 @@ public class URadarModule {
 	 * @param reqprop		-	module-specific information sent with the query
 	 */
 	public void removeFriend(String myURadarID, String friendURadarID, Properties reqprop){
-		
+		// try to connect to DB for search
+		try{
+		// create statement
+		Statement stmt = connection.createStatement();
+		// generate query string
+		String sql_delete_friend = "delete  from "+this.name+"_friends"+" where uradarid='"+myURadarID+"' and uradarid_friend='"+friendURadarID+"';";
+		// query DB for own info
+		stmt.executeUpdate(sql_delete_friend);
+		// close statement, garbage collector is not to be relied upon
+		stmt.close();
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
 	}
 	
 	/**
