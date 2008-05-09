@@ -54,7 +54,7 @@ public class URadarUpdateModule extends URadarModule{
 			}
 			else{
 				// return
-				out = INVALIDID;
+				out = INVALID_ID;
 			}
 			// close statement, garbage collector is not to be relied upon
 			stmt.close();

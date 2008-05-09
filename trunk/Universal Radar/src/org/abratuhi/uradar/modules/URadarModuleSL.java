@@ -32,8 +32,19 @@ public class URadarModuleSL extends URadarModule{
 	}
 
 	@Override
-	public String proceedRequest(Properties props) {
+	public String proceedRequest(Properties reqprops) {
+		// get requester id
+		String myURadarID = reqprops.getProperty("uradarid");
+		// get request type
+		String reqtype = reqprops.getProperty("reqtype");
+		// switch
+		if(reqtype.equals("addupdate_user")){
+			addupdateUser(reqprops);
+			return OK;
+		}
+		//return
 		return null;
+		
 	}
 	
 	public void addupdateUser(Properties props){
@@ -173,7 +184,7 @@ public class URadarModuleSL extends URadarModule{
 			}
 			else{
 				// return
-				out = INVALIDID;
+				out = INVALID_ID;
 			}
 			// close statement, garbage collector is not to be relied upon
 			stmt.close();

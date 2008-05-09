@@ -12,7 +12,8 @@ public abstract class URadarModule {
 	
 	public final static String OK = "ok";
 	public final static String CANCEL = "cancel";
-	public final static String INVALIDID = "invalid_id";
+	public final static String INVALID_MODULE_ID = "invalid_module_id";
+	public final static String INVALID_ID = "invalid_id";
 	public final static String USER_OK = "user_ok";
 	public final static String USER_CANCEL = "user cancel";
 	

@@ -3,6 +3,7 @@ package org.abratuhi.uradar.model;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -80,16 +81,18 @@ public class URadar extends HttpServlet{
 		}
 	}*/
 	
-	public void proceedRequest(Properties reqprops){
+	/*public String proceedRequest(Properties reqprops){
+		String out = new String();
 		String reqapp = reqprops.getProperty("reqapp");
 		String reqmodule = reqprops.getProperty("reqmodule");
 		if(reqapp.equals("uradar")){
 			URadarModule tmodule = findModule(reqmodule);
 			if(tmodule != null){
-				tmodule.proceedRequest(reqprops);
+				out = tmodule.proceedRequest(reqprops);
 			}
 		}
-	}
+		return out;
+	}*/
 	
 	public void addModule(URadarModule module){
 		modules.add(module);
@@ -155,6 +158,8 @@ public class URadar extends HttpServlet{
 	}
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// init response string
+		String response = new String();
 		// get request string - string after '?'
 		String request = req.getQueryString();
 		System.out.println(request);
@@ -167,10 +172,20 @@ public class URadar extends HttpServlet{
 		// find module to proceed request
 		URadarModule moduleused = findModule(reqmod);
 		if(moduleused!=null){
-			moduleused.proceedRequest(reqprops);
+			// send request to corresponding module, get response
+			response = moduleused.proceedRequest(reqprops);
+			// send response string over existing opened HTTP connection
+			PrintWriter out = res.getWriter();
+			out.println(response);
+			out.close();
 		}
 		else{
+			// print error message
 			System.out.println("Module not found:\t"+reqmod);
+			// send response string over existing opened HTTP connection
+			PrintWriter out = res.getWriter();
+			out.println(response);
+			out.close();
 		}
 	}
 	
