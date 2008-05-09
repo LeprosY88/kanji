@@ -48,14 +48,14 @@ public class URadarModuleRegistration extends URadarModule{
 			removeUser(reqprops);
 			return OK;
 		}
-		if(reqtype.equals("add_module")){
-			removeUser(reqprops);
+		/*if(reqtype.equals("add_module")){
+			addModule(reqprops);
 			return OK;
-		}
-		if(reqtype.equals("remove_module")){
-			removeUser(reqprops);
+		}*/
+		/*if(reqtype.equals("remove_module")){
+			removeModule(reqprops);
 			return OK;
-		}
+		}*/
 		return null;
 	}
 
@@ -63,6 +63,8 @@ public class URadarModuleRegistration extends URadarModule{
 	 * Add/Update user information in MySQL table of module using module-specific information from request query
 	 * @param myURadarID	-	user's U(niversal)Radar ID
 	 * @param reqprops		-	module-specific information sent with the query
+	 * @return				-	OK, if successfully added/updates user info
+	 * 						-	CANCEL, otherwise
 	 */
 	public String addupdateUser(Properties reqprops){
 		try{
@@ -98,6 +100,40 @@ public class URadarModuleRegistration extends URadarModule{
 		// extra return statement for db error cases
 		return null;
 	}
+	
+	/**
+	 * Check whether user with uradaraid is already registered in DB.
+	 * Purpose: avoid non-unique uradarids in DB
+	 * 
+	 * @param reqprops
+	 * @return 	-	USER_OK, case login not present yet
+	 * 			-	USER_CANCEL, case login already present
+	 * 			-	NULL, otherwise
+	 */
+	public String checkUser(Properties reqprops){
+		try{
+			// get information from request
+			String myURadarID = reqprops.getProperty("uradarid");
+			String myURadarPasswd = reqprops.getProperty("uradarpasswd");
+			// check whether user with this login is already registered, meaning
+			// 		login present in db
+			//		login<->password don't match
+			Statement stmt1 = connection.createStatement();
+			String sql_check_id = "select * from uradar_users where (uradarid='"+myURadarID+"' and uradarpasswd='"+myURadarPasswd+"');";
+			ResultSet rs_check_id = stmt1.executeQuery(sql_check_id);
+			if(rs_check_id.first()){	// uradarid is already in use
+				stmt1.close();
+				return USER_OK;
+			}
+			else{
+				return USER_CANCEL;
+			}
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
+		// extra return statement for db error cases
+		return null;
+	}
 
 	/**
 	 * Remove user from users of this module
@@ -123,7 +159,7 @@ public class URadarModuleRegistration extends URadarModule{
 		}
 	}
 
-	public void addModule(URadarModule module) {
+	/*public void addModule(URadarModule module) {
 		// try to connect to DB for search
 		try{
 			for(int i=0; i<module.models.size(); i++){
@@ -139,9 +175,9 @@ public class URadarModuleRegistration extends URadarModule{
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
-	}
+	}*/
 
-	public void removeModule(URadarModule module) {
+	/*public void removeModule(URadarModule module) {
 		// try to connect to DB for search
 		try{
 			// drop tables
@@ -167,6 +203,11 @@ public class URadarModuleRegistration extends URadarModule{
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
+	}*/
+
+	@Override
+	public String resolveModuleID(Properties reqprops) {
+		return reqprops.getProperty("uradarid");
 	}
 
 }

@@ -34,15 +34,17 @@ public class URadarUpdateModule extends URadarModule{
 	 * @return			-	user's U(niversal)Radar ID, if found in DB
 	 * 						null, otherwise
 	 */
-	public String resolveModuleID(String moduleID){
+	public String resolveModuleID(Properties reqprops){
 		// init return/response string
 		String out = new String();
+		// get request details
+		String moduleID = reqprops.getProperty("moduleid");
 		// try to connect to DB for search
 		try{
 			// create statement
 			Statement stmt = connection.createStatement();
 			// generate query string
-			String sql_check_moduleid = "select uradarid from "+this.name+" where "+this.name+"id='"+moduleID+"';";
+			String sql_check_moduleid = "select uradarid from "+this.name+" where moduleid='"+moduleID+"';";
 			// query DB, check whether moduleID isRegistered
 			ResultSet rs_check = stmt.executeQuery(sql_check_moduleid);
 			// check size of result -> if resultset is empty no resolution is possible
@@ -52,7 +54,7 @@ public class URadarUpdateModule extends URadarModule{
 			}
 			else{
 				// return
-				out = null;
+				out = INVALIDID;
 			}
 			// close statement, garbage collector is not to be relied upon
 			stmt.close();
@@ -71,20 +73,24 @@ public class URadarUpdateModule extends URadarModule{
 	 * @param myURadarID	-	user's U(niversal)Radar ID
 	 * @param reqprops		-	module-specific information sent with the query
 	 */
-	public void addupdateUser(String myURadarID, Properties reqprops){
+	public String addupdateUser(String myURadarID, Properties reqprops){
 		try{
 			// create statement
 			Statement stmt = connection.createStatement();
 			// generate query string
 			String modulenameid = reqprops.getProperty(this.name+"id"); // second obligatory field
-			String sql_addupdate_user = "insert into "+this.name+"(uradarid, "+(this.name+"id")+") values ("+myURadarID+","+modulenameid+");";
+			String sql_addupdate_user = "insert into "+this.name+"(uradarid, moduleid) values ("+myURadarID+","+modulenameid+");";
+			System.out.println("URadarUpdateModule addupdateUser():\t"+sql_addupdate_user);
 			// execute query
 			stmt.executeUpdate(sql_addupdate_user);
 			// close statement, garbage collector is not to be relied upon
 			stmt.close();
+			// return
+			return OK;
 		}catch (SQLException e){
 			e.printStackTrace();
 		}
+		return CANCEL;
 	}
 
 	/**
@@ -101,6 +107,7 @@ public class URadarUpdateModule extends URadarModule{
 			String visibility = reqprops.getProperty("visibility"); // third obligatory field
 			String sql_addupdate_friend = "insert into "+this.name+"_friends"+"(uradarid, uradarid_friend, visibility)" +
 			" values ("+myURadarID+","+friendURadarID+","+visibility+");";
+			System.out.println("URadarUpdateModule addupdateFriend():\t"+sql_addupdate_friend);
 			// execute query
 			stmt.executeUpdate(sql_addupdate_friend);
 			// close statement, garbage collector is not to be relied upon
@@ -147,6 +154,40 @@ public class URadarUpdateModule extends URadarModule{
 		// return null if connection to DB couldn't be established
 		return null;
 	}
+	
+	public String[] getFriendsURadarID(String myURadarID){
+		// init return/response string
+		ArrayList<String> out = new ArrayList<String>();
+		// try to connect to DB for search
+		try{
+			// create statement
+			Statement stmt = connection.createStatement();
+			// generate query string
+			String sql_get_friends = "select distinct uradarid_friend as uradarid from "+(this.name+"_friends")+" where uradarid='"+myURadarID+"' or select distinct uradarid from "+(this.name+"_friends")+" where uradarid_friend='"+myURadarID+"');";
+			// query DB for own info
+			ResultSet rs_get_friends = stmt.executeQuery(sql_get_friends);
+			// check size of result -> if resultset is empty no resolution is possible
+			if(rs_get_friends.first()){
+				// generate return/response string
+				out.add(rs_get_friends.getString("uradarid"));
+			}
+			else{
+				// return
+				out = null;
+			}
+			// close statement, garbage collector is not to be relied upon
+			stmt.close();
+
+			//return
+			System.out.println("URadarUpdateModule found friends:\t"+out.toString());
+			return out.toArray(new String[out.size()]);
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		// return null if connection to DB couldn't be established
+		return null;
+	}
 
 	/**
 	 * Get module-specific information about user's friends
@@ -183,6 +224,54 @@ public class URadarUpdateModule extends URadarModule{
 			e.printStackTrace();
 		}
 		// return null if connection to DB couldn't be established
+		return null;
+	}
+	
+	
+	public String getFriendsInfo(String myURadarID, String[] friendsURadarID){
+		// init return/response string
+		String out = new String();
+		// try to connect to DB for search
+		try{
+			// create statement
+			Statement stmt = connection.createStatement();
+			// generate query string
+			String sql_get_friends_info = "";
+			sql_get_friends_info += "select * from "+this.name+" where uradarid in (";
+			for(int i=0; i<friendsURadarID.length-1; i++){
+				sql_get_friends_info += friendsURadarID[i] + ", ";
+			}
+			sql_get_friends_info += friendsURadarID[friendsURadarID.length-1];
+			sql_get_friends_info += ");";
+			// query DB for own info
+			ResultSet rs_get_friends_info = stmt.executeQuery(sql_get_friends_info);
+			// check size of result -> if resultset is empty no resolution is possible
+			if(rs_get_friends_info.first()){
+				// generate return/response string
+				out = ResponseUtil.convertResultSet2XMLString(rs_get_friends_info);
+			}
+			else{
+				// return
+				out = null;
+			}
+			// close statement, garbage collector is not to be relied upon
+			stmt.close();
+
+			//return
+			return out;
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		// return null if connection to DB couldn't be established
+		return null;
+	}
+	
+	public String getFriendsInfoFromModule(String myURadarID, String[] friendsURadarID, String modulename){
+		URadarModule module = URadar.getInstance().findModule(modulename);
+		if(module != null && (module instanceof URadarUpdateModule)){
+			return ((URadarUpdateModule) module).getFriendsInfo(myURadarID, friendsURadarID);
+		}
 		return null;
 	}
 
@@ -238,6 +327,10 @@ public class URadarUpdateModule extends URadarModule{
 		// get request type
 		String reqtype = reqprops.getProperty("reqtype");
 		// switch
+		if(reqtype.equals("resolve_module_id")){
+			resolveModuleID(reqprops);
+			return OK;
+		}
 		if(reqtype.equals("addupdate_user")){
 			addupdateUser(myURadarID, reqprops);
 			return OK;

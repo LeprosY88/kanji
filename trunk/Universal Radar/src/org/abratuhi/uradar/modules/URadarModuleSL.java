@@ -20,7 +20,7 @@ public class URadarModuleSL extends URadarModule{
 		// custom
 		// specify the corresponding table
 		String sl_name = "sl";
-		String[] sl_fieldnames = {"uradarid", "sl_id", "sl_name", "sl_realm", "sl_position", "sl_status"};
+		String[] sl_fieldnames = {"uradarid", "moduleid", "sl_name", "sl_realm", "sl_position", "sl_status"};
 		String[] sl_fieldtypes = {"varchar(100)", "varchar(100)", "varchar(100)", "varchar(100)", "varchar(100)", "varchar(100)"};
 		URadarModuleModel sl_model = new URadarModuleModel(sl_name, sl_fieldnames, sl_fieldtypes);
 		// add
@@ -93,6 +93,48 @@ public class URadarModuleSL extends URadarModule{
 		// return null if connection to DB couldn't be established
 		return null;
 	}
+
+
+	public String getFriendsInfo(String myURadarID, String[] friendsURadarID){
+		// init return/response string
+		String out = new String();
+		// try to connect to DB for search
+		try{
+			// create statement
+			Statement stmt = connection.createStatement();
+			// generate query string
+			String sql_get_friends_info = "";
+			sql_get_friends_info += "select * from sl where uradarid in (";
+			for(int i=0; i<friendsURadarID.length-1; i++){
+				sql_get_friends_info += friendsURadarID[i] + ", ";
+			}
+			sql_get_friends_info += friendsURadarID[friendsURadarID.length-1];
+			sql_get_friends_info += ");";
+			// query DB for own info
+			ResultSet rs_get_friends_info = stmt.executeQuery(sql_get_friends_info);
+			// check size of result -> if resultset is empty no resolution is possible
+			if(rs_get_friends_info.first()){
+				// generate return/response string
+				out = ResponseUtil.convertResultSet2XMLString(rs_get_friends_info);
+			}
+			else{
+				// return
+				out = null;
+			}
+			// close statement, garbage collector is not to be relied upon
+			stmt.close();
+	
+			//return
+			return out;
+	
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		// return null if connection to DB couldn't be established
+		return null;
+	}
+
+	
 	
 	public void removeUser(String myURadarID, Properties reqprops){
 		// try to connect to DB for search
@@ -110,4 +152,38 @@ public class URadarModuleSL extends URadarModule{
 		}
 	}
 
+	@Override
+	public String resolveModuleID(Properties reqprops) {
+		// init return/response string
+		String out = new String();
+		// get request details
+		String moduleID = reqprops.getProperty("moduleid");
+		// try to connect to DB for search
+		try{
+			// create statement
+			Statement stmt = connection.createStatement();
+			// generate query string
+			String sql_check_moduleid = "select uradarid from sl where moduleid='"+moduleID+"';";
+			// query DB, check whether moduleID isRegistered
+			ResultSet rs_check = stmt.executeQuery(sql_check_moduleid);
+			// check size of result -> if resultset is empty no resolution is possible
+			if(rs_check.first()){
+				// return
+				out = rs_check.getString("uradarid");
+			}
+			else{
+				// return
+				out = INVALIDID;
+			}
+			// close statement, garbage collector is not to be relied upon
+			stmt.close();
+			// return
+			return out;
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		// return null if connection to DB couldn't be established
+		return null;
+	}
 }

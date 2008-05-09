@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.abratuhi.uradar.modules.URadarModuleFB;
 import org.abratuhi.uradar.modules.URadarModuleRegistration;
+import org.abratuhi.uradar.modules.URadarModuleSL;
 import org.abratuhi.uradar.util.RequestUtil;
 
 public class URadar extends HttpServlet{
@@ -22,7 +24,6 @@ public class URadar extends HttpServlet{
 	
 	Properties props;
 	Connection connection;
-	URadarModuleRegistration uradarregistration;
 	ArrayList<URadarModule> modules = new ArrayList<URadarModule>();
 	
 	String host;
@@ -39,8 +40,14 @@ public class URadar extends HttpServlet{
 		// open connection
 		connectDB();
 		// init uradarregistration
-		uradarregistration = new URadarModuleRegistration("base", "table containing list of all user in system", props, connection);
+		URadarModuleRegistration uradarregistration = new URadarModuleRegistration("base", "table containing list of all user in system", props, connection);
 		modules.add(uradarregistration);
+		// init fb
+		URadarModuleFB fb = new URadarModuleFB(null, null, props, connection);
+		addModule(fb);
+		// init sl
+		URadarModuleSL sl = new URadarModuleSL(null, null, props, connection);
+		addModule(sl);
 		
 	}
 
@@ -58,23 +65,20 @@ public class URadar extends HttpServlet{
 	 * Singleton: end
 	 */
 	
-	/**
-	 * 
-	 * @param module
-	 */
-	public void addModule(URadarModule module){
+	
+	/*public void addModule(URadarModule module){
 		if(uradarregistration != null && module != null){
 			modules.add(module);
 			uradarregistration.addModule(module);
 		}
-	}
+	}*/
 	
-	public void removeModule(URadarModule module){
+	/*public void removeModule(URadarModule module){
 		if(uradarregistration != null && module != null){
 			modules.remove(module);
 			uradarregistration.removeModule(module);
 		}
-	}
+	}*/
 	
 	public void proceedRequest(Properties reqprops){
 		String reqapp = reqprops.getProperty("reqapp");
@@ -85,6 +89,14 @@ public class URadar extends HttpServlet{
 				tmodule.proceedRequest(reqprops);
 			}
 		}
+	}
+	
+	public void addModule(URadarModule module){
+		modules.add(module);
+	}
+	
+	public void removeModule(URadarModule module){
+		modules.remove(module);
 	}
 	
 	public URadarModule findModule(String modulename){
@@ -162,8 +174,12 @@ public class URadar extends HttpServlet{
 		}
 	}
 	
+	/**
+	 * Extending the inherited destroy()-method with additional features
+	 * 		- disconnecting from DB
+	 */
 	public void destroy(){
-		//
+		// close connectoin to MySQL DB
 		disconnectDB();
 		// super
 		super.destroy();
