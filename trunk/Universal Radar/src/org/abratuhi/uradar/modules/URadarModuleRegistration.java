@@ -41,22 +41,12 @@ public class URadarModuleRegistration extends URadarModule{
 	public String proceedRequest(Properties reqprops) {
 		String reqtype = reqprops.getProperty("reqtype");
 		if(reqtype.equals("addupdate_user")){
-			addupdateUser(reqprops);
-			return OK;
+			return addupdateUser(reqprops);
 		}
 		if(reqtype.equals("remove_user")){
-			removeUser(reqprops);
-			return OK;
+			return removeUser(reqprops);
 		}
-		/*if(reqtype.equals("add_module")){
-			addModule(reqprops);
-			return OK;
-		}*/
-		/*if(reqtype.equals("remove_module")){
-			removeModule(reqprops);
-			return OK;
-		}*/
-		return null;
+		return INVALID_REQUEST_ID;
 	}
 
 	/**
@@ -85,8 +75,7 @@ public class URadarModuleRegistration extends URadarModule{
 				// create statement
 				Statement stmt = connection.createStatement();
 				// generate query string
-				String passwd = reqprops.getProperty("uradarpasswd");
-				String sql_addupdate_user = "insert into uradar_users(uradarid, uradarpasswd) values ('"+myURadarID+"', '"+passwd+"');";
+				String sql_addupdate_user = "insert into uradar_users(uradarid, uradarpasswd) values ('"+myURadarID+"', '"+myURadarPasswd+"');";
 				// execute query
 				stmt.executeUpdate(sql_addupdate_user);
 				// close statement, garbage collector is not to be relied upon
@@ -140,7 +129,7 @@ public class URadarModuleRegistration extends URadarModule{
 	 * @param myURadarID	-	user's U(niversal)Radar ID
 	 * @param reqprops		-	module-specific information sent with the query
 	 */
-	public void removeUser(Properties reqprops){
+	public String removeUser(Properties reqprops){
 		// try to connect to DB for search
 		try{
 			// get info
@@ -154,9 +143,13 @@ public class URadarModuleRegistration extends URadarModule{
 			stmt.executeUpdate(sql_delete_user);
 			// close statement, garbage collector is not to be relied upon
 			stmt.close();
+			// return
+			return OK;
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
+		// return
+		return CANCEL;
 	}
 
 	/*public void addModule(URadarModule module) {

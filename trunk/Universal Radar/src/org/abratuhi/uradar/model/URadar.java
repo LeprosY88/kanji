@@ -166,14 +166,14 @@ public class URadar extends HttpServlet{
 		// transform request string to request string
 		Properties reqprops = RequestUtil.request2properties(request);
 		// get basic properties of request
-		String reqtype = reqprops.getProperty("reqtype");
-		String reqapp = reqprops.getProperty("reqapp");
+		//String reqapp = reqprops.getProperty("reqapp");
 		String reqmod = reqprops.getProperty("reqmodule");
 		// find module to proceed request
 		URadarModule moduleused = findModule(reqmod);
 		if(moduleused!=null){
 			// send request to corresponding module, get response
 			response = moduleused.proceedRequest(reqprops);
+			System.out.println("response=\""+response+"\"");
 			// send response string over existing opened HTTP connection
 			PrintWriter out = res.getWriter();
 			out.println(response);
@@ -182,6 +182,7 @@ public class URadar extends HttpServlet{
 		else{
 			// print error message
 			System.out.println("Module not found:\t"+reqmod);
+			response = URadarModule.INVALID_MODULE_ID;
 			// send response string over existing opened HTTP connection
 			PrintWriter out = res.getWriter();
 			out.println(response);

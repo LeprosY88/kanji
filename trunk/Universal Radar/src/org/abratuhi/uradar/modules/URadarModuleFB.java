@@ -19,8 +19,8 @@ public class URadarModuleFB extends URadarUpdateModule{
 		// specify the corresponding table
 		// fb
 		String fb_name = "fb";
-		String[] fb_fieldnames = {"uradarid", "moduleid", "fb_name", };
-		String[] fb_fieldtypes = {"varchar(100)", "varchar(100)", "varchar(100)"};
+		String[] fb_fieldnames = {"uradarid", "moduleid" };
+		String[] fb_fieldtypes = {"varchar(100)", "varchar(100)"};
 		URadarModuleModel fb_model = new URadarModuleModel(fb_name, fb_fieldnames, fb_fieldtypes);
 		// fb_friends
 		String fb_friends_name = "fb_friends";
@@ -35,20 +35,66 @@ public class URadarModuleFB extends URadarUpdateModule{
 		// create tables if needed
 		if(!this.checkTables()) this.createTables();
 	}
-
-	public String getFriendsInfoFromModule(String myURadarID, String[] friendsURadarID, String modulename){
+	
+	public String getOwnInfoFromModule(Properties reqprops){
+		// get request info
+		String modulename = reqprops.getProperty("reqmodulefrom");
+		String myURadarID = reqprops.getProperty("uradarid");
+		// proceed request
 		if(modulename.equals("sl")){
 			URadarModule module = URadar.getInstance().findModule(modulename);
 			if(module != null && (module instanceof URadarModuleSL)){
-				return ((URadarModuleSL) module).getFriendsInfo(myURadarID, friendsURadarID);
+				//System.out.println("URadarModuleFB, getOwnInfoFromModule:\tloading info from module "+module.name);
+				//System.out.println("getowninfofroommoduleresponse=\""+((URadarModuleSL) module).getOwnInfo(myURadarID)+"\"");
+				return ((URadarModuleSL) module).getOwnInfoWithFB(myURadarID);
 			}
 			else{
 				return null;
 			}
 		}
 		else{
-			return super.getFriendsInfoFromModule(myURadarID, friendsURadarID, modulename);
+			return super.getOwnInfoFromModule(reqprops);
 		}
+	}
+
+	public String getFriendsInfoFromModule(Properties reqprops){
+		// get request info
+		String modulename = reqprops.getProperty("reqmodulefrom");
+		String myURadarID = reqprops.getProperty("uradarid");
+		String[] friendsURadarID = super.getFriendsURadarID(myURadarID);
+		// proceed request
+		if(modulename.equals("sl")){
+			URadarModule module = URadar.getInstance().findModule(modulename);
+			if(module != null && (module instanceof URadarModuleSL)){
+				//System.out.println("URadarModuleFB, getFriendsInfoFromModule:\tloading info from module "+module.name);
+				return ((URadarModuleSL) module).getFriendsInfoWithFB(friendsURadarID);
+			}
+			else{
+				return null;
+			}
+		}
+		else{
+			return super.getFriendsInfoFromModule(reqprops);
+		}
+	}
+	
+	public String proceedRequest(Properties reqprops){
+		// init response string
+		String response = new String();
+		// get request type
+		String reqtype = reqprops.getProperty("reqtype");
+		// switch
+		if(reqtype.equals("get_own_info_from_module")){
+			response = getOwnInfoFromModule(reqprops);
+		}
+		if(reqtype.equals("get_friends_info_from_module")){
+			response = getFriendsInfoFromModule(reqprops);
+		}
+		// return, pay attention to super
+		if(response == null || response.equals(new String()) || response.length()<1){	// in case URadarModuleFB couldn't proceedrequest itself, ask help from superclass
+			response = super.proceedRequest(reqprops);
+		}
+		return response;
 	}
 
 }

@@ -33,24 +33,26 @@ public class URadarModuleSL extends URadarModule{
 
 	@Override
 	public String proceedRequest(Properties reqprops) {
-		// get requester id
-		String myURadarID = reqprops.getProperty("uradarid");
 		// get request type
 		String reqtype = reqprops.getProperty("reqtype");
 		// switch
+		if(reqtype.equals("resolve_module_id")){
+			return resolveModuleID(reqprops);
+		}
 		if(reqtype.equals("addupdate_user")){
-			addupdateUser(reqprops);
-			return OK;
+			return addupdateUser(reqprops);
 		}
 		//return
 		return null;
 		
 	}
 	
-	public void addupdateUser(Properties props){
+	public String addupdateUser(Properties props){
+		// init response string
+		String response = new String();
 		// get info from obligatory fields
 		String myURadarID = props.getProperty("uradarid");
-		String mySLID = props.getProperty("sl_id");
+		String mySLID = props.getProperty("moduleid");
 		// get rest of info
 		String mySLName = props.getProperty("sl_name");
 		String mySLRealm = props.getProperty("sl_realm");
@@ -61,15 +63,35 @@ public class URadarModuleSL extends URadarModule{
 			// create statement
 			Statement stmt = connection.createStatement();
 			// generate query string
-			String sql_addupdate_user = "insert into sl(uradarid, sl_id, sl_name, sl_realm, sl_position, sl_status)" +
-										" values ("+myURadarID+","+mySLID+","+ mySLName+","+mySLRealm+","+mySLPosition+","+mySLStatus+");";
+			String sql_addupdate_user = null;
+			String resolved = resolveModuleID(props);
+			if(resolved.equals(INVALID_ID) || resolved.equals(FAIL)){
+			if(resolved.equals(INVALID_ID)){
+				sql_addupdate_user = "insert into sl(uradarid, moduleid, sl_name, sl_realm, sl_position, sl_status)" +
+										" values ('"+myURadarID+"','"+mySLID+"','"+ mySLName+"','"+mySLRealm+"','"+mySLPosition+"','"+mySLStatus+"');";
+			}
+			if(resolved.equals(FAIL)){
+				response = resolved;
+			}
+			}
+			else{
+				sql_addupdate_user = "update sl set sl_realm='"+mySLRealm+"', sl_position='"+mySLPosition+"', sl_status='"+mySLStatus+"'" +
+				" where uradarid='"+myURadarID+"';";
+			}
+			
 			// execute query
-			stmt.executeUpdate(sql_addupdate_user);
+			if(sql_addupdate_user!= null) stmt.executeUpdate(sql_addupdate_user);
 			// close statement, garbage collector is not to be relied upon
 			stmt.close();
+			// return
+			response = OK;
 		}catch (SQLException e){
 			e.printStackTrace();
+			//
+			response = CANCEL;
 		}
+		// return
+		return response;
 	}
 	
 	public String getOwnInfo(String myURadarID){
@@ -84,14 +106,14 @@ public class URadarModuleSL extends URadarModule{
 			// query DB for own info
 			ResultSet rs_get_own_info = stmt.executeQuery(sql_get_own_info);
 			// check size of result -> if resultset is empty no resolution is possible
-			if(rs_get_own_info.first()){
+			//if(rs_get_own_info.first()){
 				// generate return/response string
 				out = ResponseUtil.convertResultSet2XMLString(rs_get_own_info);
-			}
-			else{
+			//}
+			//else{
 				// return
-				out = null;
-			}
+			//	out = null;
+			//}
 			// close statement, garbage collector is not to be relied upon
 			stmt.close();
 
@@ -102,11 +124,46 @@ public class URadarModuleSL extends URadarModule{
 			e.printStackTrace();
 		}
 		// return null if connection to DB couldn't be established
-		return null;
+		return FAIL;
+	}
+	
+	public String getOwnInfoWithFB(String myURadarID){
+		// init return/response string
+		String out = new String();
+		// try to connect to DB for search
+		try{
+			// create statement
+			Statement stmt = connection.createStatement();
+			// generate query string
+			String sql_get_own_info = "select sl.uradarid, sl.moduleid as slid, fb.moduleid as fbid, sl_name, sl_status, sl_realm, sl_position " +
+								"from sl inner join fb on sl.uradarid = fb.uradarid " +
+								"where sl.uradarid='"+myURadarID+"';";
+			// query DB for own info
+			ResultSet rs_get_own_info = stmt.executeQuery(sql_get_own_info);
+			// check size of result -> if resultset is empty no resolution is possible
+			//if(rs_get_own_info.first()){
+				// generate return/response string
+				out = ResponseUtil.convertResultSet2XMLString(rs_get_own_info);
+			//}
+			//else{
+				// return
+			//	out = null;
+			//}
+			// close statement, garbage collector is not to be relied upon
+			stmt.close();
+
+			//return
+			return out;
+
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		// return null if connection to DB couldn't be established
+		return FAIL;
 	}
 
 
-	public String getFriendsInfo(String myURadarID, String[] friendsURadarID){
+	public String getFriendsInfo(String[] friendsURadarID){
 		// init return/response string
 		String out = new String();
 		// try to connect to DB for search
@@ -115,23 +172,64 @@ public class URadarModuleSL extends URadarModule{
 			Statement stmt = connection.createStatement();
 			// generate query string
 			String sql_get_friends_info = "";
-			sql_get_friends_info += "select * from sl where uradarid in (";
+			sql_get_friends_info += "select * from sl where uradarid in ('";
 			for(int i=0; i<friendsURadarID.length-1; i++){
-				sql_get_friends_info += friendsURadarID[i] + ", ";
+				sql_get_friends_info += friendsURadarID[i] + "', '";
 			}
 			sql_get_friends_info += friendsURadarID[friendsURadarID.length-1];
-			sql_get_friends_info += ");";
+			sql_get_friends_info += "');";
 			// query DB for own info
 			ResultSet rs_get_friends_info = stmt.executeQuery(sql_get_friends_info);
 			// check size of result -> if resultset is empty no resolution is possible
-			if(rs_get_friends_info.first()){
+			//if(rs_get_friends_info.first()){
 				// generate return/response string
 				out = ResponseUtil.convertResultSet2XMLString(rs_get_friends_info);
-			}
-			else{
+			//}
+			//else{
 				// return
-				out = null;
+			//	out = null;
+			//}
+			// close statement, garbage collector is not to be relied upon
+			stmt.close();
+	
+			//return
+			return out;
+	
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		// return null if connection to DB couldn't be established
+		return null;
+	}
+	
+	public String getFriendsInfoWithFB(String[] friendsURadarID){
+		// init return/response string
+		String out = new String();
+		// try to connect to DB for search
+		try{
+			// create statement
+			Statement stmt = connection.createStatement();
+			// generate query string
+			String sql_get_friends_info = "";
+			sql_get_friends_info += "select sl.uradarid, sl.moduleid as slid, fb.moduleid as fbid, sl_name, sl_status, sl_realm, sl_position " +
+					"from sl inner join fb on sl.uradarid = fb.uradarid " +
+					"where sl.uradarid in ('";
+			for(int i=0; i<friendsURadarID.length-1; i++){
+				sql_get_friends_info += friendsURadarID[i] + "',' ";
 			}
+			sql_get_friends_info += friendsURadarID[friendsURadarID.length-1];
+			sql_get_friends_info += "');";
+			// query DB for own info
+			ResultSet rs_get_friends_info = stmt.executeQuery(sql_get_friends_info);
+			// check size of result -> if resultset is empty no resolution is possible
+			//if(rs_get_friends_info.first()){
+				// generate return/response string
+				out = ResponseUtil.convertResultSet2XMLString(rs_get_friends_info);
+			//}
+			//else{
+				// return
+			//	out = null;
+			//}
 			// close statement, garbage collector is not to be relied upon
 			stmt.close();
 	
@@ -195,6 +293,6 @@ public class URadarModuleSL extends URadarModule{
 			e.printStackTrace();
 		}
 		// return null if connection to DB couldn't be established
-		return null;
+		return FAIL;
 	}
 }

@@ -11,11 +11,13 @@ import java.util.Properties;
 public abstract class URadarModule {
 	
 	public final static String OK = "ok";
+	public final static String FAIL = "fail";
 	public final static String CANCEL = "cancel";
 	public final static String INVALID_MODULE_ID = "invalid_module_id";
+	public final static String INVALID_REQUEST_ID = "invalid_request_id";
 	public final static String INVALID_ID = "invalid_id";
 	public final static String USER_OK = "user_ok";
-	public final static String USER_CANCEL = "user cancel";
+	public final static String USER_CANCEL = "user_cancel";
 	
 	public String name;	// name of the module, simultaneously name of MySQL tablegroup in DB
 	String description;	// short description of the module
