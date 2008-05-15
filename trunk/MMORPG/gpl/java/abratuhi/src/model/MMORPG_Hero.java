@@ -38,6 +38,7 @@ public class MMORPG_Hero extends MMORPG_Unit{
 		//g.drawImage(img, x - img_dim.width/2, y - img_dim.height/2, obs);
 		//g.drawOval(x-range, y-range,range*2, range*2);
 		//g.drawString(name, x - img_dim.width/2, y + img_dim.height/2);
+		//g.drawImage(img, p.x - img_dim.width/2, p.y - img_dim.height, obs);
 		g.drawImage(img, p.x - img_dim.width/2, p.y - img_dim.height, obs);
 		//g.drawOval(p.x-range, p.y-range,range*2, range*2);
 		g.drawString(name, p.x - img_dim.width/2, p.y);

@@ -1,5 +1,6 @@
 package gpl.java.abratuhi.src.gui;
 
+import gpl.java.abratuhi.src.graphics.MMORPG_GraphicsEngine;
 import gpl.java.abratuhi.src.model.MMORPG_Hero;
 import gpl.java.abratuhi.src.model.MMORPG_Map;
 import gpl.java.abratuhi.src.net.messaging.C_Client;
@@ -31,9 +32,11 @@ import javax.swing.JScrollPane;
 
 public class MMORPG_Main extends JPanel implements MouseListener, Runnable{
 	
-	public final static boolean CLIENT_CHECK_RANGE = true; 
+	public final static boolean CLIENT_CHECK_RANGE = true;
+	public final static long DELAY = 100l;
 	
 	C_Client client = new C_Client();
+	MMORPG_GraphicsEngine ge = new MMORPG_GraphicsEngine();
 	
 	MMORPG_Map map = new MMORPG_Map();
 	MMORPG_Hero hero = new MMORPG_Hero();
@@ -55,7 +58,8 @@ public class MMORPG_Main extends JPanel implements MouseListener, Runnable{
 		client.start();
 		
 		//sub.setSize(new Dimension(MMORPG_Map.XSIZE, MMORPG_Map.YSIZE));
-		//sub.setSize(new Dimension(1000, 1000));
+		sub.setPreferredSize(new Dimension(800,600));
+		sub.setDoubleBuffered(true);
 		sub.setBackground(Color.white);
 		sub.addMouseListener(this);
 		
@@ -75,8 +79,7 @@ public class MMORPG_Main extends JPanel implements MouseListener, Runnable{
 			//clear
 			g.clearRect(0, 0, getWidth(), getHeight());
 			//draw map
-			//map.draw(g);
-			map.draw(g, this.getBounds(), hero.p);
+			ge.drawMap(g, map, this.getBounds(), hero.p);
 			//draw myself			
 			hero.draw(g, this, new Point(getWidth()/2, getHeight()/2));
 			//draw others
@@ -156,7 +159,7 @@ public class MMORPG_Main extends JPanel implements MouseListener, Runnable{
 			//repaint
 			repaint();
 			try {
-				Thread.sleep(100); // 1/40s * (4fps pro move); at median 25-40 fps
+				Thread.sleep(DELAY); // 1/40s * (4fps pro move); at median 25-40 fps
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

@@ -15,33 +15,17 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class MMORPG_Map {
-	public final static int XSIZE = 10000; // pixelsize
-	public final static int YSIZE = 10000; // pixelsize
-	
-	public final static int NADS = 10;
-	
-	private ArrayList<MMORPG_Ad> ads = new ArrayList<MMORPG_Ad>();
+	public final static int XSIZE = 1000; // pixelsize
+	public final static int YSIZE = 1000; // pixelsize
+	public final static int XSTEP = 200;
+	public final static int YSTEP = 200;
 	
 	public MMORPG_Map(){
-		addRandomAds();
-	}
-	
-	public void addRandomAds(){
-		for(int i=0; i<NADS; i++){
-			int x = (int)(Math.random()*XSIZE);
-			int y = (int)(Math.random()*YSIZE);
-			int dx = (int)(Math.random()*(XSIZE-x)%MMORPG_Ad.MAX_WIDTH);
-			int dy = (int)(Math.random()*(YSIZE-y)%MMORPG_Ad.MAX_HEIGHT);
-			ads.add(new MMORPG_Ad(new Rectangle(x, y, dx, dy)));
-		}
 	}
 	
 	public void draw(Graphics2D g){
 		g.setColor(Color.WHITE);
 		g.fill(new Rectangle(0,0,XSIZE,YSIZE));
-		for(int i=0; i<ads.size(); i++){
-			ads.get(i).draw(g);
-		}
 	}
 	
 	public void draw(Graphics2D g, Rectangle re, Point m){

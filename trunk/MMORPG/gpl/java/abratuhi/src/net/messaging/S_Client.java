@@ -5,7 +5,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class S_Client extends Thread{
@@ -47,6 +46,7 @@ public class S_Client extends Thread{
 		try {
 			strMsg = new DataInputStream(s.getInputStream()).readUTF();
 			if(strMsg != null && strMsg != ""){
+				//System.out.println("S_CLIENT: createMessage");
 				Message msg = Message.createMessage();
 				msg.fromString(strMsg);
 				if(S_CLIENT_DEBUG) System.out.println(strMsg);
