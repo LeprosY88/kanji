@@ -161,12 +161,32 @@ public class URadarUpdateModule extends URadarModule{
 		
 		// proceed request
 		try{
+			// check whether add or update
+			boolean add = false;
+			boolean update = false;
+			Statement stmt0 = connection.createStatement();
+			String sql_check = "select * " +
+								"from "+this.name+"_friends " +
+								"where (uradarid='"+myURadarID+"' and uradarid_friend='"+friendURadarID+"');";
+			ResultSet rs_check = stmt0.executeQuery(sql_check);
+			if(rs_check.first()){
+				update = true;
+			}
+			else{
+				add=true;
+			}
+			stmt0.close();
+			// addupdate
 			// create statement
 			Statement stmt = connection.createStatement();
 			// generate query string
 			String visibility = reqprops.getProperty("visibility"); // third obligatory field
-			String sql_addupdate_friend = "insert into "+this.name+"_friends"+"(uradarid, uradarid_friend, visibility)" +
-			" values ('"+myURadarID+"','"+friendURadarID+"','"+visibility+"');";
+			String sql_addupdate_friend = new String();
+			if(add) sql_addupdate_friend = "insert into "+this.name+"_friends"+"(uradarid, uradarid_friend, visibility)" +
+											" values ('"+myURadarID+"','"+friendURadarID+"','"+visibility+"');";
+			if(update) sql_addupdate_friend = "update "+this.name+"_friends " +
+												"set visibility='"+visibility+"' " +
+												"where (uradarid='"+myURadarID+"' and uradarid_friend='"+friendURadarID+"');";
 			// execute query
 			stmt.executeUpdate(sql_addupdate_friend);
 			// close statement, garbage collector is not to be relied upon
