@@ -11,29 +11,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Point;
-import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 public class MMORPG_Main extends JPanel implements MouseListener, Runnable{
 	
 	public final static boolean CLIENT_CHECK_RANGE = true;
-	public final static long DELAY = 100l;
+	public final static long DELAY = 250l;
 	
 	C_Client client = new C_Client();
 	MMORPG_GraphicsEngine ge = new MMORPG_GraphicsEngine();
@@ -80,11 +69,12 @@ public class MMORPG_Main extends JPanel implements MouseListener, Runnable{
 			g.clearRect(0, 0, getWidth(), getHeight());
 			//draw map
 			ge.drawMap(g, map, this.getBounds(), hero.p);
-			//draw myself			
-			hero.draw(g, this, new Point(getWidth()/2, getHeight()/2));
+			//draw myself
+			ge.drawHero(g, this, hero, this.getBounds(), hero.p);
 			//draw others
 			for(int i=0; i<heroes.size(); i++){
 				//heroes.get(i).draw(g, this);
+				ge.drawUnit(g, this, heroes.get(i), this.getBounds(), hero.p);
 			}
 
 		}

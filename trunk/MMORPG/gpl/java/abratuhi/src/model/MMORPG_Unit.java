@@ -16,6 +16,7 @@ public class MMORPG_Unit {
 	//public static final String[] types = {"infantry", "archer", "knight"};
 	
 	/**/
+	public String name;
 	//String type; /**/
 	double hp; /*hit points*/
 	double maxhp;
@@ -33,7 +34,7 @@ public class MMORPG_Unit {
 	double dr; /*chance to be hit*/
 	public Point p = new Point();
 	
-	public String img_src = "D:\\workspace\\MMORPG\\gpl\\java\\abratuhi\\img\\hero_small.png";
+	public String img_src = "gpl\\java\\abratuhi\\img\\hero_small.png";
 	public Image img = Toolkit.getDefaultToolkit().getImage(img_src);
 	public Dimension img_dim = new Dimension();
 	

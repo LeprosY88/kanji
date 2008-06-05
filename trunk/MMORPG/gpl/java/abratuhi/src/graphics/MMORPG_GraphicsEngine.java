@@ -4,11 +4,15 @@ import gpl.java.abratuhi.src.model.MMORPG_Hero;
 import gpl.java.abratuhi.src.model.MMORPG_Map;
 import gpl.java.abratuhi.src.model.MMORPG_Unit;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.image.ImageObserver;
+import java.util.Observer;
 
 public class MMORPG_GraphicsEngine {
 	
@@ -72,12 +76,28 @@ public class MMORPG_GraphicsEngine {
 		
 	}
 	
-	public void drawHero(Graphics2D g, MMORPG_Hero hero, Rectangle r, Point p){
+	public void drawHero(Graphics2D g, ImageObserver obs, MMORPG_Hero hero, Rectangle r, Point p){
+		Point m = new Point(r.x+r.width/2, r.y+r.height/2);
+		hero.img_dim = new Dimension(hero.img.getWidth(obs), hero.img.getHeight(obs));
 		
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Arial", Font.BOLD, 12));
+		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
+		g.drawImage(hero.img, m.x - hero.img_dim.width/2, m.y - hero.img_dim.height, obs);
+		g.drawString(hero.name, m.x - hero.img_dim.width/2, m.y);
 	}
 	
-	public void drawUnit(Graphics2D g, MMORPG_Unit unit, Rectangle r, Point p){
+	public void drawUnit(Graphics2D g, ImageObserver obs, MMORPG_Unit unit, Rectangle rect, Point p){
+		Point m = new Point(rect.x+rect.width/2, rect.y+rect.height/2);
+		Point u = unit.p;
+		Point r = new Point(u.x-p.x+m.x, u.y-p.y+m.y);
+		unit.img_dim = new Dimension(unit.img.getWidth(obs), unit.img.getHeight(obs));
 		
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Arial", Font.BOLD, 12));
+		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
+		g.drawImage(unit.img, r.x - unit.img_dim.width/2, r.y - unit.img_dim.height, obs);
+		g.drawString(unit.name, r.x - unit.img_dim.width/2, r.y);
 	}
 
 }
