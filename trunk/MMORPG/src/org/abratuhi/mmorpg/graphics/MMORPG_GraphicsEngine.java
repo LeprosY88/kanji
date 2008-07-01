@@ -75,6 +75,14 @@ public class MMORPG_GraphicsEngine {
 		
 	}
 	
+	/**
+	 * 
+	 * @param g
+	 * @param obs
+	 * @param hero - hero to draw
+	 * @param r	-	screen rectangle
+	 * @param p - main hero position
+	 */
 	public void drawHero(Graphics2D g, ImageObserver obs, MMORPG_Hero hero, Rectangle r, Point p){
 		Point m = new Point(r.x+r.width/2, r.y+r.height/2);
 		hero.img_dim = new Dimension(hero.img.getWidth(obs), hero.img.getHeight(obs));
@@ -86,6 +94,14 @@ public class MMORPG_GraphicsEngine {
 		g.drawString(hero.name, m.x - hero.img_dim.width/2, m.y);
 	}
 	
+	/**
+	 * 
+	 * @param g
+	 * @param obs
+	 * @param unit - unit to draw
+	 * @param rect - screen rectangle
+	 * @param p - main hero position
+	 */
 	public void drawUnit(Graphics2D g, ImageObserver obs, MMORPG_Unit unit, Rectangle rect, Point p){
 		Point m = new Point(rect.x+rect.width/2, rect.y+rect.height/2);
 		Point u = unit.p;
