@@ -1,8 +1,9 @@
-package org.abratuhi.mmorpg.model;
+package org.abratuhi.mmorpg.client;
 
 import java.awt.Point;
 import java.util.ArrayList;
 
+import org.abratuhi.mmorpg.model.MMORPG_Hero;
 import org.abratuhi.mmorpg.net.messaging.C_Client;
 import org.abratuhi.mmorpg.net.messaging.Message;
 

@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.abratuhi.mmorpg.graphics.MMORPG_GraphicsEngine;
-import org.abratuhi.mmorpg.model.MMORPG_Client;
+import org.abratuhi.mmorpg.client.MMORPG_Client;
 import org.abratuhi.mmorpg.model.MMORPG_Map;
 
 public class MMORPG_Main extends JPanel implements MouseListener{

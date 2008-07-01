@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import org.abratuhi.mmorpg.model.MMORPG_Client;
+import org.abratuhi.mmorpg.client.MMORPG_Client;
 import org.abratuhi.mmorpg.net.messaging.C_Client;
 import org.abratuhi.mmorpg.net.messaging.Message;
 
