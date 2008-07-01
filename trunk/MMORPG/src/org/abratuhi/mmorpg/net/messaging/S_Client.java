@@ -58,6 +58,7 @@ public class S_Client extends Thread{
 		while(this.runOK){
 			//
 			Message msg = receiveMessage();
+			
 			// initialize id of sclient, that is the id of corresponding MMORPG_Hero in cclient
 			if(msg.d.getRootElement().getAttributeValue("type")!="initSClient"){
 				this.id = msg.d.getRootElement().getChild("from").getAttributeValue(id);
@@ -65,6 +66,7 @@ public class S_Client extends Thread{
 					System.out.println("Error: problem with getting named children in JDOM.");
 				}
 			}
+			
 			// otherwise just forward the message
 			else{
 				msg_incoming.add(msg);
