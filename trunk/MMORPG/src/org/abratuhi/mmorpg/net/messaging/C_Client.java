@@ -100,7 +100,7 @@ public class C_Client extends Thread{
 	
 	public Message createInitSClientMessage(){
 		//Message initSCLientMessage = new Message(hero, null, "initSClient", "false", "unicast", null);
-		Message initSCLientMessage = Message.createUnicastMessage(hero, null, "initSClient", "false");
+		Message initSCLientMessage = Message.createUnicastMessage(hero, hero, "initSClient", "false");
 		return initSCLientMessage;
 	}
 	
