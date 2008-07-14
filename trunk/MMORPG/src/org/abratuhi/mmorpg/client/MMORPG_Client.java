@@ -6,13 +6,19 @@ import java.util.ArrayList;
 import org.abratuhi.mmorpg.model.MMORPG_Hero;
 import org.abratuhi.mmorpg.net.messaging.C_Client;
 import org.abratuhi.mmorpg.net.messaging.Message;
+import org.abratuhi.mmorpg.util.MessageUtil;
 
 public class MMORPG_Client extends Thread{
 	
 	public static long DELAY = 250l;
 	
+	private boolean runOK = false;
+	
 	public MMORPG_Hero hero = new MMORPG_Hero();
 	public ArrayList<MMORPG_Hero> neighbours = new ArrayList<MMORPG_Hero>();
+	
+	ArrayList<Message> chatIncoming = new ArrayList<Message>();
+	ArrayList<Message> chatOutgoing = new ArrayList<Message>();
 	
 	public C_Client client = new C_Client(hero);
 	String host = "localhost";
@@ -25,28 +31,56 @@ public class MMORPG_Client extends Thread{
 		client.start();
 	}
 	
+	public synchronized boolean getRunOK(){
+		return this.runOK;
+	}
+	public synchronized void setRunOK(boolean v){
+		this.runOK = v;
+	}
+	
+	public synchronized void switchRunOK(){
+		this.runOK = (this.runOK == true)? false : true;
+	}
+	
+	public void move(int dx, int dy){
+		hero.to.x += dx;
+		hero.to.y += dy;
+	}
+	
+	public void say(String msg, String[] ids){
+		chatOutgoing.add(MessageUtil.createChatMessage(this, msg, ids));
+	}
+	
 	public void run(){
-		while(true){
+		while(getRunOK()){
 			//move
 			if (hero.p.x != hero.to.x) hero.p.x += hero.speed * (hero.to.x-hero.p.x)/Math.abs(hero.to.x-hero.p.x);				
 			if (hero.p.y != hero.to.y) hero.p.y += hero.speed * (hero.to.y-hero.p.y)/Math.abs(hero.to.y-hero.p.y);
 			if (Math.abs(hero.p.x - hero.to.x) < hero.speed) hero.p.x = hero.to.x;
 			if (Math.abs(hero.p.y - hero.to.y) < hero.speed) hero.p.y = hero.to.y;
 			
-			//send coordinates to other
-			client.sendMessage(Message.createMulticastMessage(hero, neighbours, "game", "false"));
+			// send outgoing chat messages
+			int outgoingSize = chatOutgoing.size();
+			if(outgoingSize>0){
+				for(int i=0; i<outgoingSize; i++){
+					client.sendMessage(chatOutgoing.remove(0));
+				}
+			}
 			
-			//proceed received coordinates from other
+			//send coordinates to other
+			client.sendMessage(MessageUtil.createSendPositionMessage(this));
+			
+			//proceed received messages from other
 			if(client.msg_incoming.size()>0){
 				for(int i=0; i<client.msg_incoming.size(); i++){
 					Message m = client.msg_incoming.get(i);
 					
-					if(m.getType().equals("game")){
+					if(MessageUtil.getType(m).equals("game")){
 						m = client.msg_incoming.remove(i);
 						
 						boolean known = false;
-						String from = m.getFromId();
-						Point coor = m.getFromPosition();
+						String from = MessageUtil.getFromId(m);
+						Point coor = MessageUtil.getFromPosition(m);
 						
 						if(from.equals(client.hero.name)) continue; //if echo message, throw message away
 						
@@ -90,8 +124,8 @@ public class MMORPG_Client extends Thread{
 						}
 						
 					}
-					else{
-						continue;
+					if(MessageUtil.getType(m).equals("chat")){
+						chatIncoming.add(m);
 					}
 				}
 			}

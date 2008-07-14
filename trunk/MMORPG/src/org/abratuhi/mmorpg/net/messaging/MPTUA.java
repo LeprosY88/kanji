@@ -2,6 +2,8 @@ package org.abratuhi.mmorpg.net.messaging;
 
 import java.util.ArrayList;
 
+import org.abratuhi.mmorpg.util.MessageUtil;
+
 public class MPTUA extends Thread{
 	/**/
 	public ArrayList<S_Client> clients = new ArrayList<S_Client>();
@@ -11,11 +13,11 @@ public class MPTUA extends Thread{
 	
 	/**/
 	public MPTUA(){
-		isUp = true;
+		setIsUp(true);
 		System.out.println("MPTUA is UP.");
 	}
 	public MPTUA(ArrayList<S_Client> cls, ArrayList<Message> msgs){
-		this.isUp = true;
+		setIsUp(true);
 		this.clients = cls;
 		this.incoming = msgs;
 		System.out.println("MPTUA is UP.");
@@ -23,13 +25,11 @@ public class MPTUA extends Thread{
 	
 	/**/
 	public void run(){
-		while(isUp){
+		while(getIsUp()){
 			if(incoming.size()>0){
 				Message msg = incoming.remove(0);
-				String[] ids = msg.getToIds();
-				if(ids == null){
-					System.out.println("Error: MPTUA found a message with null toIds.");
-				}
+				String[] ids = MessageUtil.getToIds(msg);
+				
 				if(ids.length == 0){	// broadcast
 					for(int i=0; i<clients.size(); i++){
 						clients.get(i).sendMessage(msg);
@@ -53,7 +53,7 @@ public class MPTUA extends Thread{
 	}
 	
 	public void stopp(){
-		this.isUp = false;
+		setIsUp(false);
 	}
 	
 	/*public void close(){
@@ -67,6 +67,21 @@ public class MPTUA extends Thread{
 			}
 		}
 		return null;
+	}
+	
+	/**/
+
+	
+	public synchronized boolean getIsUp(){
+		return this.isUp;
+	}
+	
+	public synchronized void setIsUp(boolean run){
+		this.isUp = run;
+	}
+	
+	public synchronized void switchIsUp(){
+		this.isUp = (this.isUp == true)? false:true;
 	}
 
 }

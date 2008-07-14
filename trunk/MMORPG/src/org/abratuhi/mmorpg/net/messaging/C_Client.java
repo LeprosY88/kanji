@@ -1,5 +1,6 @@
 package org.abratuhi.mmorpg.net.messaging;
 
+import java.awt.Point;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import org.abratuhi.mmorpg.model.MMORPG_Hero;
+import org.abratuhi.mmorpg.util.MessageUtil;
 
 public class C_Client extends Thread{
 	/**/
@@ -20,6 +22,10 @@ public class C_Client extends Thread{
 	/**/
 	public MMORPG_Hero hero;
 	
+	/**/
+	public String id = new String();
+	public Point position = new Point();
+	
 	
 	/**/
 	public C_Client(MMORPG_Hero heroo){
@@ -30,8 +36,8 @@ public class C_Client extends Thread{
 	public void connect(String h, int hp){
 		try {
 			s = new Socket(h, hp);
-			sendMessage(createInitSClientMessage());
-			this.runOK = true;
+			setRunOK(true);
+			sendMessage(MessageUtil.createInitClientMessage(this));
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -79,7 +85,7 @@ public class C_Client extends Thread{
 	
 	/**/
 	public void run(){
-		while(this.runOK){
+		while(getRunOK()){
 			//
 			Message msg = receiveMessage();
 			msg_incoming.add(msg);
@@ -98,10 +104,16 @@ public class C_Client extends Thread{
 		//System.out.println("Client was stopped.");
 	}
 	
-	public Message createInitSClientMessage(){
-		//Message initSCLientMessage = new Message(hero, null, "initSClient", "false", "unicast", null);
-		Message initSCLientMessage = Message.createUnicastMessage(hero, hero, "initSClient", "false");
-		return initSCLientMessage;
+	public synchronized boolean getRunOK(){
+		return this.runOK;
+	}
+	
+	public synchronized void setRunOK(boolean run){
+		this.runOK = run;
+	}
+	
+	public synchronized void switchRunOK(){
+		this.runOK = (this.runOK == true)? false:true;
 	}
 	
 	/**/

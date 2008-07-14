@@ -45,7 +45,7 @@ public class Message {
 		return new Message();
 	}
 	
-	public static Message createUnicastMessage(MMORPG_Hero heroFrom, MMORPG_Hero heroTo, String type, String forwarding){
+	/*public static Message createUnicastMessage(MMORPG_Hero heroFrom, MMORPG_Hero heroTo, String type, String forwarding){
 		Element root = new Element("message")
 						.setAttribute("type", type)
 						.setAttribute("forward", forwarding)
@@ -61,8 +61,8 @@ public class Message {
 							.addContent(new Element("chat")
 								.setText(heroFrom.messageChat));
 		return new Message(root);
-	}
-	public static Message createBroadcastMessage(MMORPG_Hero heroFrom, String type, String forwarding){
+	}*/
+	/*public static Message createBroadcastMessage(MMORPG_Hero heroFrom, String type, String forwarding){
 		Element root = new Element("message")
 						.setAttribute("type", type)
 						.setAttribute("forward", forwarding)
@@ -78,8 +78,8 @@ public class Message {
 							.addContent(new Element("chat")
 								.setText(heroFrom.messageChat));
 		return new Message(root);
-	}
-	public static Message createMulticastMessage(MMORPG_Hero heroFrom, ArrayList<MMORPG_Hero> heroesTo, String type, String forwarding){
+	}*/
+	/*public static Message createMulticastMessage(MMORPG_Hero heroFrom, ArrayList<MMORPG_Hero> heroesTo, String type, String forwarding){
 		String ids = new String();
 		for(int i=0; i<heroesTo.size(); i++){
 			ids += "," + heroesTo.get(i).name;
@@ -101,7 +101,7 @@ public class Message {
 							.addContent(new Element("chat")
 								.setText(heroFrom.messageChat));
 		return new Message(root);
-	}
+	}*/
 	
 	public String toString(){
 		XMLOutputter xmlout = new XMLOutputter();
@@ -127,7 +127,7 @@ public class Message {
 		}
 	}
 	
-	public String[] getToIds(){
+	/*public String[] getToIds(){
 		String cast = d.getRootElement().getChild("to").getAttributeValue("cast");
 		if(cast.equals("broadcast")){
 			return new String[0];
@@ -148,24 +148,24 @@ public class Message {
 			}
 		}
 		return null;
-	}
+	}*/
 	
-	public Point getFromPosition(){
+	/*public Point getFromPosition(){
 		String x = d.getRootElement().getChild("data").getChild("position").getAttributeValue("x");
 		String y = d.getRootElement().getChild("data").getChild("position").getAttributeValue("y");
 		return new Point(Integer.parseInt(x), Integer.parseInt(y));
-	}
+	}*/
 	
-	public String getFromId(){
+	/*public String getFromId(){
 		return d.getRootElement().getChild("from").getAttributeValue("id");
-	}
+	}*/
 	
-	public String getType(){
+	/*public String getType(){
 		return d.getRootElement().getAttributeValue("type");
-	}
+	}*/
 	
-	public String getChatMessage(){
+	/*public String getChatMessage(){
 		return d.getRootElement().getChild("data").getChild("chat").getText();
-	}
+	}*/
 
 }

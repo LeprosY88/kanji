@@ -7,8 +7,11 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import org.abratuhi.mmorpg.util.MessageUtil;
+
 public class S_Client extends Thread{
 	/**/
+	public Server server;
 	public Socket s;
 	public boolean runOK = false;
 	
@@ -16,21 +19,37 @@ public class S_Client extends Thread{
 	public ArrayList<Message> msg_incoming = new ArrayList<Message>();
 	
 	/**/
-	String id;
-	Point position;
+	String id = new String();
+	Point position = new Point();
+	public ArrayList<String> neighbours = new ArrayList<String>();
+	ArrayList<String> mstneighbours = new ArrayList<String>();
 	
 	
 	/**/
-	public S_Client(Socket s, ArrayList<Message> incoming){
+	public S_Client(Server serv, Socket s, ArrayList<Message> incoming){
+		this.server = serv;
 		this.s = s;
 		this.msg_incoming = incoming;
-		this.runOK = true;
+		setRunOK(true);
 	}
 	
 	/**/
 	public void sendMessage(Message msg){
 		try {
 			new DataOutputStream(s.getOutputStream()).writeUTF(msg.toString());
+			
+			// all senders are neighbours, check this fact when sending message
+			String from = MessageUtil.getFromId(msg);
+			boolean fromFound = false;
+			for(int i=0; i<neighbours.size(); i++){
+				if(neighbours.get(i).equals(from)){
+					fromFound = true;
+					break;
+				}
+			}
+			if(!fromFound){
+				neighbours.add(from);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -55,22 +74,31 @@ public class S_Client extends Thread{
 	
 	/**/
 	public void run(){
-		while(this.runOK){
+		while(getRunOK()){
 			//
 			Message msg = receiveMessage();
 			
-			// initialize id of sclient, that is the id of corresponding MMORPG_Hero in cclient
-			if(msg.d.getRootElement().getAttributeValue("type")!="initSClient"){
-				this.id = msg.d.getRootElement().getChild("from").getAttributeValue(id);
-				if(msg.d.getRootElement().getChild("from") == null){
-					System.out.println("Error: problem with getting named children in JDOM.");
+			String messageType = MessageUtil.getType(msg);
+			String messageCast = MessageUtil.getToCast(msg);
+			
+			if(messageCast.equals(MessageUtil.MSGCAST_NEIGHCAST)){
+				if(neighbours.size() == 0){
+					requestNeighbours();
 				}
+				msg = MessageUtil.neighcast2multicast(this, msg);
 			}
 			
-			// otherwise just forward the message
+			// initialize id of sclient, that is the id of corresponding MMORPG_Hero in cclient
+			if(messageType.equals(MessageUtil.MSGTYPE_INIT_CLIENT)){
+				updateIdFromMessage(msg);
+				updatePositionFromMessage(msg);
+			}
 			else{
+				updatePositionFromMessage(msg);
 				msg_incoming.add(msg);
 			}
+			
+			
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -81,9 +109,45 @@ public class S_Client extends Thread{
 	}
 	
 	public void stopp(){
-		this.runOK = false;
+		setRunOK(false);
 		this.stop();
 		//System.out.println("Client was stopped.");
+	}
+	
+	/**/
+	
+	public synchronized boolean getRunOK(){
+		return this.runOK;
+	}
+	
+	public synchronized void setRunOK(boolean run){
+		this.runOK = run;
+	}
+	
+	public synchronized void switchRunOK(){
+		this.runOK = (this.runOK == true)? false:true;
+	}
+	
+	
+	/**/
+	public void updateIdFromMessage(Message m){
+		String id = MessageUtil.getFromId(m);
+		if(id != null) this.id = id;
+	}
+	
+	public void updatePositionFromMessage(Message m){
+		Point pos = MessageUtil.getFromPosition(m);
+		if (pos != null) this.position = pos;
+	}
+	
+	/**/
+	public void requestNeighbours(){
+		server.buildNeighboursMST();
+		neighbours = (ArrayList<String>) mstneighbours.clone();
+	}
+	
+	public double distance(S_Client sc){
+		return this.position.distance(sc.position);
 	}
 	
 	/**/

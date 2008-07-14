@@ -5,6 +5,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import org.abratuhi.mmorpg.model.MMORPG_Map;
+
 public class Server extends Thread{
 	
 	/**/
@@ -20,33 +22,18 @@ public class Server extends Thread{
 	
 	/**/
 	public boolean isUp = false;
-	public boolean isDown = true;
 	
 	/**/
 	public Server(){
 		
 	}
-	public Server(int port){
-		this.server_port=port;
-	}
 
 	/**/
-	public void up(){
-		try {
-			server = new ServerSocket(server_port);
-			isUp = true;
-			isDown = false;
-			System.out.println("Server UP at port:\t"+server_port+".");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 	public void up(int port){
 		try {
 			this.server_port = port;
 			server = new ServerSocket(server_port);
-			isUp = true;
-			isDown = false;
+			setIsUp(true);
 			System.out.println("Server UP at port:\t"+server_port+".");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -58,8 +45,7 @@ public class Server extends Thread{
 			//while(activeCount()>1){
 			//}
 			server.close();
-			isUp=false;
-			isDown=true;
+			setIsUp(false);
 			System.out.println("Server DOWN at port:\t"+server_port+".");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -71,7 +57,7 @@ public class Server extends Thread{
 		/**/
 		mptua.start();
 		/**/
-		while(isUp){
+		while(getIsUp()){
 			try {
 				/* check old connections */
 				/*for(int i=0; i<clients.size(); i++){
@@ -84,7 +70,7 @@ public class Server extends Thread{
 				/* wait for new connections*/
 				Socket s = server.accept();
 				System.out.println("Server status:\tconnection accepted.");
-				S_Client tclient = new S_Client(s, msg_incoming);
+				S_Client tclient = new S_Client(this, s, msg_incoming);
 				tclient.start();
 				clients.add(tclient);
 				System.out.println("Server status:\tnew client handle added.");
@@ -97,10 +83,55 @@ public class Server extends Thread{
 		}
 	}
 	public void stopp(){
-		this.isUp = false;
+		setIsUp(false);
 	}
 	public void close(){
 		
+	}
+	
+	
+	/**/
+	
+	public synchronized boolean getIsUp(){
+		return this.isUp;
+	}
+	
+	public synchronized void setIsUp(boolean run){
+		this.isUp = run;
+	}
+	
+	public synchronized void switchIsUp(){
+		this.isUp = (this.isUp == true)? false:true;
+	}
+	
+	/**
+	 * Prim's algorithm for buildin Minimum Spanning Trees
+	 */
+	public void buildNeighboursMST(){
+		ArrayList<S_Client> l1 = new ArrayList<S_Client>();
+		ArrayList<S_Client> l2 = (ArrayList<S_Client>) clients.clone();
+		
+		l2.get(0).mstneighbours.clear();
+		l1.add(l2.remove(0));
+		
+		while(l2.size() > 0){
+			int ind1=-1, ind2=-1;
+			
+			double mindist = MMORPG_Map.XSIZE + MMORPG_Map.YSIZE;
+			double curdist = 0;
+			for(int i=0; i<l1.size(); i++){
+				for(int j=0; j<l2.size(); j++){
+					curdist = l1.get(i).distance(l2.get(j));
+					if(curdist < mindist) {mindist = curdist; ind1 = i; ind2 = j;}
+				}
+			}
+			
+			
+			l2.get(ind2).mstneighbours.clear();
+			l1.get(ind1).mstneighbours.add(l2.get(ind2).id);
+			l2.get(ind2).mstneighbours.add(l1.get(ind1).id);
+			l1.add(l2.remove(ind2));
+		}
 	}
 	
 	/**/
@@ -111,7 +142,6 @@ public class Server extends Thread{
 		else System.out.println("Server is up:\tfalse");
 		System.out.println("Server's # of active threads:\t"+clients.size());
 		System.out.println("Server's # of incoming messages:\t"+msg_incoming.size());
-		//System.out.println("Server's # of outcoming messages:\t"+msg_outcoming.size());
 	}
 	
 	public static void main(String[] args) {
