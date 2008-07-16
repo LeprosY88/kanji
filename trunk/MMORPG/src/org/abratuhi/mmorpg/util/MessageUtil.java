@@ -24,11 +24,14 @@ public class MessageUtil {
 								.setAttribute("type", MSGTYPE_INIT_CLIENT)
 								.setAttribute("forward", "0")
 								.addContent(new Element("from")
-									.setAttribute("id", cclient.id))
+									.setAttribute("id", cclient.mmorpg_client.hero.name))
+								.addContent(new Element("to")
+									.setAttribute("cast", MSGCAST_UNICAST)
+									.setAttribute("id", cclient.mmorpg_client.hero.name))
 								.addContent(new Element("data")
 									.addContent(new Element("position")
-										.setAttribute("x", String.valueOf(cclient.position.x))
-										.setAttribute("y", String.valueOf(cclient.position.y))));
+										.setAttribute("x", String.valueOf(cclient.mmorpg_client.hero.p.x))
+										.setAttribute("y", String.valueOf(cclient.mmorpg_client.hero.p.y))));
 		return new Message(message);
 	}
 	
@@ -38,8 +41,8 @@ public class MessageUtil {
 								.setAttribute("forward", "1")
 								.addContent(new Element("from")
 									.setAttribute("id", client.hero.name))
-								.addContent(new Element("to"))
-									.setAttribute("cast", MSGCAST_NEIGHCAST)
+								.addContent(new Element("to")
+									.setAttribute("cast", MSGCAST_NEIGHCAST))
 								.addContent(new Element("data")
 									.addContent(new Element("position")
 										.setAttribute("x", String.valueOf(client.hero.p.x))
@@ -70,12 +73,12 @@ public class MessageUtil {
 	}
 	
 	public static Message neighcast2multicast(S_Client sc, Message m){
-		if(getType(m).equals(MSGCAST_NEIGHCAST)){
+		if(getToCast(m).equals(MSGCAST_NEIGHCAST)){
 			String toIds = new String();
 			for(int i=0; i<sc.neighbours.size(); i++){
 				toIds += ","+sc.neighbours.get(i);
 			}
-			toIds = toIds.substring(1);
+			if(toIds.length()>0) toIds = toIds.substring(1);
 			
 			m.d.getRootElement().getChild("to")
 					.setAttribute("cast", MSGCAST_MULTICAST)
@@ -83,7 +86,11 @@ public class MessageUtil {
 
 			return m;
 		}
-		return m;
+		else{
+			System.out.println("MessageUtil:\tError neighcast2multicast - wrong message type to proceed.");
+			System.out.println(m.toString());
+			return null;
+		}
 	}
 	
 	public static String getFromId(Message m){
@@ -167,14 +174,23 @@ public class MessageUtil {
 		return new Point(x,y);
 	}
 	
-	public static int getForwarding(Message m){
-		if(m.d.getRootElement().getAttribute("forwarding") == null){
-			System.out.println("MessageUtil:\t Error proceeding message: no 'forwarding' attribute found");
+	public static Integer getForwarding(Message m){
+		if(m.d.getRootElement().getAttribute("forward") == null){
+			System.out.println("MessageUtil:\t Error proceeding message: no 'forward' attribute found");
 			System.out.println(m.toString());
 			return -1;
 		}
 		
-		return Integer.valueOf(m.d.getRootElement().getAttributeValue("forwarding"));
+		return Integer.valueOf(m.d.getRootElement().getAttributeValue("forward"));
+	}
+	
+	public static void setForwarding(Message m, Integer f){
+		m.d.getRootElement().setAttribute("forward", String.valueOf(f));
+	}
+	
+	public static void decrementForwardingNumber(Message m){
+		Integer f = getForwarding(m);
+		setForwarding(m, --f);
 	}
 
 }

@@ -105,7 +105,7 @@ public class Server extends Thread{
 	}
 	
 	/**
-	 * Prim's algorithm for buildin Minimum Spanning Trees
+	 * Prim's algorithm for building Minimum Spanning Trees
 	 */
 	public void buildNeighboursMST(){
 		ArrayList<S_Client> l1 = new ArrayList<S_Client>();

@@ -81,6 +81,13 @@ public class S_Client extends Thread{
 			String messageType = MessageUtil.getType(msg);
 			String messageCast = MessageUtil.getToCast(msg);
 			
+			if(messageType==null || messageType=="" ||
+					messageCast==null || messageCast==""){
+				System.out.println("NET:\tS_Client found message, where messageType or messageCast don't have proper format.");
+				System.out.println(msg.toString());
+				continue;
+			}
+			
 			if(messageCast.equals(MessageUtil.MSGCAST_NEIGHCAST)){
 				if(neighbours.size() == 0){
 					requestNeighbours();
@@ -92,6 +99,8 @@ public class S_Client extends Thread{
 			if(messageType.equals(MessageUtil.MSGTYPE_INIT_CLIENT)){
 				updateIdFromMessage(msg);
 				updatePositionFromMessage(msg);
+				
+				System.out.println("NET:\tS_Client was initialised with id="+this.id);
 			}
 			else{
 				updatePositionFromMessage(msg);
@@ -131,8 +140,8 @@ public class S_Client extends Thread{
 	
 	/**/
 	public void updateIdFromMessage(Message m){
-		String id = MessageUtil.getFromId(m);
-		if(id != null) this.id = id;
+		String identificator = MessageUtil.getFromId(m);
+		if(id != null) this.id = identificator;
 	}
 	
 	public void updatePositionFromMessage(Message m){

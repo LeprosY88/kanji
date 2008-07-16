@@ -1,2 +1,2 @@
 set CLASSPATH=%CLASSPATH%;lib\jdom.jar
-java org.abratuhi.mmorpg.gui.MMORPG_Login
+java org.abratuhi.mmorpg.game.MMORPG_Game %1 %2

@@ -28,7 +28,15 @@ public class MPTUA extends Thread{
 		while(getIsUp()){
 			if(incoming.size()>0){
 				Message msg = incoming.remove(0);
+				if(MessageUtil.getForwarding(msg)>0) MessageUtil.decrementForwardingNumber(msg);
+				
 				String[] ids = MessageUtil.getToIds(msg);
+				
+				if(ids == null){
+					System.out.println("MPTUA:\tProceeding of message failed due to bad message syntax (bad 'to' ids )");
+					System.out.println(msg.toString());
+					continue;
+				}
 				
 				if(ids.length == 0){	// broadcast
 					for(int i=0; i<clients.size(); i++){
@@ -36,11 +44,23 @@ public class MPTUA extends Thread{
 					}
 				}
 				if(ids.length == 1){	// unicast
-					findS_Client(ids[0]).sendMessage(msg);
+					S_Client cS_Client = findS_Client(ids[0]);
+					if(cS_Client == null){
+						System.out.println("MPTUA:\tProceeding of message failed due to bad message syntax (couldn't find client with given name)");
+						System.out.println(msg.toString());
+						continue;
+					}
+					cS_Client.sendMessage(msg);
 				}
 				if(ids.length >= 2){	// multicast
 					for(int i=0; i<ids.length; i++){
-						findS_Client(ids[i]).sendMessage(msg);
+						S_Client cS_Client = findS_Client(ids[i]);
+						if(cS_Client == null){
+							System.out.println("MPTUA:\tProceeding of message failed due to bad message syntax (couldn't find client with given name)");
+							System.out.println(msg.toString());
+							continue;
+						}
+						cS_Client.sendMessage(msg);
 					}
 				}
 			}
@@ -66,6 +86,7 @@ public class MPTUA extends Thread{
 				return clients.get(i);
 			}
 		}
+		System.out.println("MPTUA:\tError - couldn't find client named <"+name+">");
 		return null;
 	}
 	

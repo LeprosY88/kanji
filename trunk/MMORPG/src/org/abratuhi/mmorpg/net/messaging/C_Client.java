@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import org.abratuhi.mmorpg.client.MMORPG_Client;
 import org.abratuhi.mmorpg.model.MMORPG_Hero;
 import org.abratuhi.mmorpg.util.MessageUtil;
 
@@ -20,16 +21,12 @@ public class C_Client extends Thread{
 	public ArrayList<Message> msg_incoming = new ArrayList<Message>();
 	
 	/**/
-	public MMORPG_Hero hero;
-	
-	/**/
-	public String id = new String();
-	public Point position = new Point();
+	public MMORPG_Client mmorpg_client;
 	
 	
 	/**/
-	public C_Client(MMORPG_Hero heroo){
-		this.hero = heroo;
+	public C_Client(MMORPG_Client mmorpg_c){
+		this.mmorpg_client = mmorpg_c;
 	}
 	
 	/**/
@@ -99,8 +96,7 @@ public class C_Client extends Thread{
 	}
 	
 	public void stopp(){
-		this.runOK = false;
-		this.stop();		
+		setRunOK(false);
 		//System.out.println("Client was stopped.");
 	}
 	
