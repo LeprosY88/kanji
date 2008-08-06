@@ -158,6 +158,8 @@ public class MMORPG_GraphicsEngine {
 	 * @param p - main hero position
 	 */
 	public void drawUnit(Graphics2D g, ImageObserver obs, MMORPG_Unit unit, Rectangle rect, Point p){
+		if(unit.p.distance(p) > MMORPG_Hero.range) return;
+		
 		Point m = new Point(rect.x+rect.width/2, rect.y+rect.height/2);
 		Point u = unit.p;
 		Point r = new Point(u.x-p.x+m.x, u.y-p.y+m.y);

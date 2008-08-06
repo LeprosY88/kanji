@@ -67,7 +67,7 @@ public class MessageUtil {
 		return new Message(message);
 	}
 	
-	public static Message createChatMessage(MMORPG_Client client, String msg, String[] ids){
+	/*public static Message createChatMessage(MMORPG_Client client, String msg, String[] ids){
 		String idz = new String();
 		for(int i=0; i<ids.length; i++){
 			idz += ","+ids[i];
@@ -87,7 +87,7 @@ public class MessageUtil {
 										.setAttribute("x", String.valueOf(client.hero.p.x))
 										.setAttribute("y", String.valueOf(client.hero.p.y))));
 		return new Message(message);
-	}
+	}*/
 	
 	public static Message neighcast2multicast(S_Client sc, Message m){
 		if(getToCast(m).equals(MSGCAST_NEIGHCAST)){

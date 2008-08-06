@@ -59,9 +59,9 @@ public class MMORPG_Client extends Thread{
 		hero.to.y = Math.max(hero.to.y, 0);
 	}
 	
-	public void say(String msg, String[] ids){
+	/*public void say(String msg, String[] ids){
 		chatOutgoing.add(MessageUtil.createChatMessage(this, msg, ids));
-	}
+	}*/
 	
 	public void run(){
 		while(getRunOK()){
@@ -131,9 +131,6 @@ public class MMORPG_Client extends Thread{
 							continue;
 						}
 						
-					}
-					if(MessageUtil.getType(m).equals("chat")){
-						chatIncoming.add(m);
 					}
 				}
 			}

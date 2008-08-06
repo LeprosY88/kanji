@@ -120,11 +120,34 @@ public class Server extends Thread{
 				}
 			}
 			
+			if(ind1>=0 && ind1<l1.size() && ind2>=0 && ind2<l2.size()){
+				l2.get(ind2).mstneighbours.clear();
+				l1.get(ind1).mstneighbours.add(l2.get(ind2).id);
+				l2.get(ind2).mstneighbours.add(l1.get(ind1).id);
+				l1.add(l2.remove(ind2));
+			}
+		}
+	}
+	
+	public void buildRandomST(){
+		ArrayList<S_Client> l1 = new ArrayList<S_Client>();
+		ArrayList<S_Client> l2 = (ArrayList<S_Client>) clients.clone();
+		
+		l2.get(0).mstneighbours.clear();
+		l1.add(l2.remove(0));
+		
+		while(l2.size() > 0){
+			int ind1=-1, ind2=-1;
 			
-			l2.get(ind2).mstneighbours.clear();
-			l1.get(ind1).mstneighbours.add(l2.get(ind2).id);
-			l2.get(ind2).mstneighbours.add(l1.get(ind1).id);
-			l1.add(l2.remove(ind2));
+			ind1 = (int) (Math.random() * l1.size());
+			ind2 = (int) (Math.random() * l2.size());
+			
+			if(ind1>=0 && ind1<l1.size() && ind2>=0 && ind2<l2.size()){
+				l2.get(ind2).mstneighbours.clear();
+				l1.get(ind1).mstneighbours.add(l2.get(ind2).id);
+				l2.get(ind2).mstneighbours.add(l1.get(ind1).id);
+				l1.add(l2.remove(ind2));
+			}
 		}
 	}
 	
