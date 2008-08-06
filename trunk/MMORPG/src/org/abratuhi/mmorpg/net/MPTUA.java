@@ -1,4 +1,4 @@
-package org.abratuhi.mmorpg.net.messaging;
+package org.abratuhi.mmorpg.net;
 
 import java.util.ArrayList;
 
@@ -80,7 +80,7 @@ public class MPTUA extends Thread{
 		
 	}*/
 	
-	private S_Client findS_Client(String name){
+	public S_Client findS_Client(String name){
 		for (int i=0; i<clients.size(); i++){			
 			if(clients.get(i).id.equals(name)){
 				return clients.get(i);

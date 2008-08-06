@@ -5,25 +5,65 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Properties;
 
 import org.abratuhi.mmorpg.game.MMORPG_Game;
 import org.abratuhi.mmorpg.model.MMORPG_Hero;
 import org.abratuhi.mmorpg.model.MMORPG_Map;
+import org.abratuhi.mmorpg.model.MMORPG_Terrain;
 import org.abratuhi.mmorpg.model.MMORPG_Unit;
 
 public class MMORPG_GraphicsEngine {
 	
 	MMORPG_Game game;
+	Properties geProperties = new Properties();
+	HashMap<String, Image> type2image = new HashMap<String, Image>();
+	
+	public MMORPG_GraphicsEngine(){
+		// load properties from ge.properties
+		try {
+	        geProperties.load(new FileInputStream("ge.properties"));
+	    } catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+	    
+	    // initialize type2image HashMap
+	    type2image.put("pine", loadImage("ge.image.pine"));
+	    type2image.put("tree", loadImage("ge.image.tree"));
+	    type2image.put("water", loadImage("ge.image.water"));
+	}
 	
 	public MMORPG_GraphicsEngine(MMORPG_Game game){
+		// initialize connection with parent game
 		this.game = game;
+		
+		// load properties from ge.properties
+		try {
+	        geProperties.load(new FileInputStream("ge.properties"));
+	    } catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+	    
+	    // initialize type2image HashMap
+	    type2image.put("pine", loadImage("ge.image.pine"));
+	    type2image.put("tree", loadImage("ge.image.tree"));
+	    type2image.put("water", loadImage("ge.image.water"));
+	}
+	
+	public Image loadImage(String type){
+		return Toolkit.getDefaultToolkit().getImage(geProperties.getProperty(type));
 	}
 	
 	@SuppressWarnings("static-access")
-	public void drawMap(Graphics2D g, MMORPG_Map map, Rectangle r, Point p){
+	public void drawMap(Graphics2D g, ImageObserver obs, MMORPG_Map map, Rectangle r, Point p){
 		// compute middle point of r
 		Point m = new Point(r.x+r.width/2, r.y+r.height/2);
 		//System.out.println("GE:\tMiddle point computed:\t"+"("+m.x+","+m.y+")");
@@ -56,24 +96,29 @@ public class MMORPG_GraphicsEngine {
 		
 		// draw meridians and parallels of map with XSTEP and YSTEP respectively
 		int nparallels = screenmap_dim_from_ul.height / map.XSTEP;
-		int nmeridians = screenmap_dim_from_ul.width / map.YSTEP;		
-		//System.out.println("GE:\t#meridian = "+nmeridians+", #parallel = "+nparallels);
+		int nmeridians = screenmap_dim_from_ul.width / map.YSTEP;
 		
 		int xoffset = screenmap_corner_ul.x + ((p.x-(m.x-screenmap_corner_ul.x))/map.XSTEP+1)*map.XSTEP-(p.x-m.x);
 		int yoffset = screenmap_corner_ul.y + ((p.y-(m.y-screenmap_corner_ul.y))/map.YSTEP+1)*map.YSTEP-(p.y-m.y);
 		if(screenmap_corner_ul.x != 0) xoffset = screenmap_corner_ul.x;
 		if(screenmap_corner_ul.y != 0) yoffset = screenmap_corner_ul.y;
-		//System.out.println("GE:\tmeridian/parallel starting point:\t"+"("+xoffset+","+yoffset+")");
 
-		g.setColor(Color.BLACK);
+		g.setColor(Color.LIGHT_GRAY);
 		
 		for(int i=0; i<nmeridians+1; i++){
 			g.drawLine(xoffset+i*map.XSTEP, map_on_screen.y, xoffset+i*map.XSTEP, map_on_screen.y+map_on_screen.height);
-			//System.out.println("GE:\tdrawLine:\t"+"("+(xoffset+i*map.XSTEP)+","+map_on_screen.y+")-("+(xoffset+i*map.XSTEP)+","+(map_on_screen.y+map_on_screen.height)+")");
 		}
 		for(int j=0; j<nparallels+1; j++){
 			g.drawLine(map_on_screen.x, yoffset+j*map.YSTEP, map_on_screen.x+map_on_screen.width, yoffset+j*map.YSTEP);
-			//System.out.println("GE:\tdrawLine:\t"+"("+map_on_screen.x+","+(yoffset+j*map.YSTEP)+")-("+(map_on_screen.x+map_on_screen.width)+","+(yoffset+j*map.YSTEP)+")");
+		}
+		
+		// draw terrains
+		for(int k=0; k<map.terrains.size(); k++){
+			MMORPG_Terrain cterrain = map.terrains.get(k);
+			if(cterrain.x < p.x+r.width || cterrain.x > p.x-r.width ||
+					cterrain.y < p.y+r.height || cterrain.y > p.y-r.height){
+				g.drawImage(type2image.get(cterrain.type), cterrain.x-p.x+m.x, cterrain.y-p.y+m.y, obs);
+			}
 		}
 		
 	}
@@ -88,13 +133,18 @@ public class MMORPG_GraphicsEngine {
 	 */
 	public void drawHero(Graphics2D g, ImageObserver obs, MMORPG_Hero hero, Rectangle r, Point p){
 		Point m = new Point(r.x+r.width/2, r.y+r.height/2);
-		hero.img_dim = new Dimension(hero.img.getWidth(obs), hero.img.getHeight(obs));
+		Image heroImage = loadImage("ge.image.hero");
+		Dimension heroImageDimension = new Dimension(heroImage.getWidth(obs), heroImage.getHeight(obs));
+		Integer heroFontSize = Integer.parseInt(geProperties.getProperty("ge.font.size"));
 		
 		g.setColor(Color.BLACK);
-		g.setFont(new Font("Arial", Font.BOLD, 12));
+		g.setFont(new Font("Arial", Font.BOLD, heroFontSize));
 		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
-		g.drawImage(hero.img, m.x - hero.img_dim.width/2, m.y - hero.img_dim.height, obs);
-		g.drawString(hero.name, m.x - hero.img_dim.width/2, m.y);
+		g.drawImage(heroImage, m.x - heroImageDimension.width/2, m.y - heroImageDimension.height, obs);
+		g.drawString(hero.name, m.x - heroImageDimension.width/2, m.y);
+		
+		g.setColor(Color.GREEN);
+		g.drawLine(m.x, m.y, m.x+hero.to.x-hero.p.x, m.y+hero.to.y-hero.p.y);
 		
 		//System.out.println("GE:\tdrawing hero at ("+p.x+", "+p.y+")");
 	}
@@ -111,13 +161,15 @@ public class MMORPG_GraphicsEngine {
 		Point m = new Point(rect.x+rect.width/2, rect.y+rect.height/2);
 		Point u = unit.p;
 		Point r = new Point(u.x-p.x+m.x, u.y-p.y+m.y);
-		unit.img_dim = new Dimension(unit.img.getWidth(obs), unit.img.getHeight(obs));
+		Image unitImage = loadImage("ge.image.hero");
+		Dimension unitImageDimension = new Dimension(unitImage.getWidth(obs), unitImage.getHeight(obs));
+		Integer unitFontSize = Integer.parseInt(geProperties.getProperty("ge.font.size"));
 		
 		g.setColor(Color.BLACK);
-		g.setFont(new Font("Arial", Font.BOLD, 12));
+		g.setFont(new Font("Arial", Font.BOLD, unitFontSize));
 		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
-		g.drawImage(unit.img, r.x - unit.img_dim.width/2, r.y - unit.img_dim.height, obs);
-		g.drawString(unit.name, r.x - unit.img_dim.width/2, r.y);
+		g.drawImage(unitImage, r.x - unitImageDimension.width/2, r.y - unitImageDimension.height, obs);
+		g.drawString(unit.name, r.x - unitImageDimension.width/2, r.y);
 	}
 
 }

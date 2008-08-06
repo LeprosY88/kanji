@@ -1,4 +1,4 @@
-package org.abratuhi.mmorpg.net.messaging;
+package org.abratuhi.mmorpg.net;
 
 import java.awt.Point;
 import java.io.DataInputStream;
@@ -36,19 +36,29 @@ public class S_Client extends Thread{
 	/**/
 	public void sendMessage(Message msg){
 		try {
-			new DataOutputStream(s.getOutputStream()).writeUTF(msg.toString());
-			
-			// all senders are neighbours, check this fact when sending message
-			String from = MessageUtil.getFromId(msg);
+			String fromId = MessageUtil.getFromId(msg);
+			S_Client fromSClient = server.mptua.findS_Client(fromId);
 			boolean fromFound = false;
+			boolean isNeighbour = false;
 			for(int i=0; i<neighbours.size(); i++){
-				if(neighbours.get(i).equals(from)){
+				if(neighbours.get(i).equals(fromId)){
 					fromFound = true;
 					break;
 				}
 			}
-			if(!fromFound){
-				neighbours.add(from);
+			
+			// check range
+			isNeighbour = (distance(fromSClient) < Server.DIST) ? true : false;
+			
+			// send message
+			new DataOutputStream(s.getOutputStream()).writeUTF(msg.toString());
+			
+			// all sender must be a neighbour, check this fact when sending message
+			if(!fromFound && isNeighbour){
+				neighbours.add(fromId);
+			}
+			else{
+				neighbours.remove(fromId);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -100,11 +110,22 @@ public class S_Client extends Thread{
 				updateIdFromMessage(msg);
 				updatePositionFromMessage(msg);
 				
-				System.out.println("NET:\tS_Client was initialised with id="+this.id);
+				System.out.println("NET:\tS_Client was initialised, id="+this.id);
 			}
 			else{
-				updatePositionFromMessage(msg);
-				msg_incoming.add(msg);
+				// remove sclient from list of server's sclients, since the corresponding cclient sent destroy message
+				if(messageType.equals(MessageUtil.MSGTYPE_DSTR_CLIENT)){
+					server.clients.remove(this);
+					msg_incoming.add(msg);
+					
+					System.out.println("NET:\tS_Client was destroyed, id="+this.id);
+				}
+				else{
+					updatePositionFromMessage(msg);
+					msg_incoming.add(msg);
+					
+					System.out.println("NET:\tS_Client received message, id="+this.id);
+				}
 			}
 			
 			

@@ -52,7 +52,7 @@ public class MMORPG_Main extends JPanel implements MouseListener{
 			//clear
 			g.clearRect(0, 0, getWidth(), getHeight());
 			//draw map
-			gui.game.ge.drawMap(g, gui.game.client.map, this.getBounds(), gui.game.client.hero.p);
+			gui.game.ge.drawMap(g, this, gui.game.client.map, this.getBounds(), gui.game.client.hero.p);
 			//draw myself
 			gui.game.ge.drawHero(g, this, gui.game.client.hero, this.getBounds(), gui.game.client.hero.p);
 			//draw others
@@ -69,12 +69,7 @@ public class MMORPG_Main extends JPanel implements MouseListener{
 		Integer dy = me.getY() - getHeight()/2;
 		
 		gui.game.client.move(dx, dy);
-		//client.hero.to.x = client.hero.p.x + me.getX() - getWidth()/2;
-		//client.hero.to.y = client.hero.p.y + me.getY() - getHeight()/2;
-		//client.hero.to.x = Math.min(client.hero.to.x, map.XSIZE);
-		//client.hero.to.x = Math.max(client.hero.to.x, 0);
-		//client.hero.to.y = Math.min(client.hero.to.y, map.YSIZE);
-		//client.hero.to.y = Math.max(client.hero.to.y, 0);
+		
 		repaint();
 	}
 	public void mouseEntered(MouseEvent arg0) {}

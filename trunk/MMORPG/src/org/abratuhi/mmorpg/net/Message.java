@@ -1,4 +1,4 @@
-package org.abratuhi.mmorpg.net.messaging;
+package org.abratuhi.mmorpg.net;
 
 /**
  * Message

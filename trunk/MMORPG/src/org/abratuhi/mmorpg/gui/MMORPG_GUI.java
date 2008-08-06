@@ -35,8 +35,7 @@ public class MMORPG_GUI extends JFrame implements Runnable{
 		
 		addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent we){
-				//TODO
-				System.exit(0);
+				exit();
 			}
 		});
 		
@@ -65,6 +64,11 @@ public class MMORPG_GUI extends JFrame implements Runnable{
 	
 	public void stop(){
 		setRunOK(false);
+	}
+	
+	public void exit(){
+		game.client.stopp();
+		System.exit(0);
 	}
 
 }

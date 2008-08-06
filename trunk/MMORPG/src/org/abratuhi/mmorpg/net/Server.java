@@ -1,4 +1,4 @@
-package org.abratuhi.mmorpg.net.messaging;
+package org.abratuhi.mmorpg.net;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import org.abratuhi.mmorpg.model.MMORPG_Map;
 
 public class Server extends Thread{
+	
+	public final static double DIST = 100.0;
 	
 	/**/
 	public ServerSocket server;
@@ -59,14 +61,6 @@ public class Server extends Thread{
 		/**/
 		while(getIsUp()){
 			try {
-				/* check old connections */
-				/*for(int i=0; i<clients.size(); i++){
-					if(!clients.get(i).runOK){
-						clients.remove(i);
-					}
-				}*/
-				/* print statistics */
-				//printSummary();
 				/* wait for new connections*/
 				Socket s = server.accept();
 				System.out.println("Server status:\tconnection accepted.");

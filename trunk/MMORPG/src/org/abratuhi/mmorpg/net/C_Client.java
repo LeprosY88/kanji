@@ -1,4 +1,4 @@
-package org.abratuhi.mmorpg.net.messaging;
+package org.abratuhi.mmorpg.net;
 
 import java.awt.Point;
 import java.io.DataInputStream;
@@ -97,6 +97,7 @@ public class C_Client extends Thread{
 	
 	public void stopp(){
 		setRunOK(false);
+		sendMessage(MessageUtil.createDestroyClientMessage(this));
 		//System.out.println("Client was stopped.");
 	}
 	

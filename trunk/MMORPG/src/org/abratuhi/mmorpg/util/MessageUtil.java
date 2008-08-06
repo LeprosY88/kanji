@@ -4,15 +4,16 @@ import java.awt.Point;
 import java.util.StringTokenizer;
 
 import org.abratuhi.mmorpg.client.MMORPG_Client;
-import org.abratuhi.mmorpg.net.messaging.C_Client;
-import org.abratuhi.mmorpg.net.messaging.Message;
-import org.abratuhi.mmorpg.net.messaging.S_Client;
+import org.abratuhi.mmorpg.net.C_Client;
+import org.abratuhi.mmorpg.net.Message;
+import org.abratuhi.mmorpg.net.S_Client;
 import org.jdom.Document;
 import org.jdom.Element;
 
 public class MessageUtil {
 	
 	public final static String MSGTYPE_INIT_CLIENT = "initClient";
+	public final static String MSGTYPE_DSTR_CLIENT = "destroyClient";
 	
 	public final static String MSGCAST_UNICAST = "unicast";
 	public final static String MSGCAST_MULTICAST = "multicast";
@@ -27,6 +28,22 @@ public class MessageUtil {
 									.setAttribute("id", cclient.mmorpg_client.hero.name))
 								.addContent(new Element("to")
 									.setAttribute("cast", MSGCAST_UNICAST)
+									.setAttribute("id", cclient.mmorpg_client.hero.name))
+								.addContent(new Element("data")
+									.addContent(new Element("position")
+										.setAttribute("x", String.valueOf(cclient.mmorpg_client.hero.p.x))
+										.setAttribute("y", String.valueOf(cclient.mmorpg_client.hero.p.y))));
+		return new Message(message);
+	}
+	
+	public static Message createDestroyClientMessage(C_Client cclient){
+		Element message = new Element("message")
+								.setAttribute("type", MSGTYPE_DSTR_CLIENT)
+								.setAttribute("forward", "0")
+								.addContent(new Element("from")
+									.setAttribute("id", cclient.mmorpg_client.hero.name))
+								.addContent(new Element("to")
+									.setAttribute("cast", MSGCAST_BROADCAST)
 									.setAttribute("id", cclient.mmorpg_client.hero.name))
 								.addContent(new Element("data")
 									.addContent(new Element("position")

@@ -1,15 +1,5 @@
 package org.abratuhi.mmorpg.game;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.Point;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-
 import org.abratuhi.mmorpg.client.MMORPG_Client;
 import org.abratuhi.mmorpg.graphics.MMORPG_GraphicsEngine;
 import org.abratuhi.mmorpg.gui.MMORPG_GUI;

@@ -37,9 +37,9 @@ public class MMORPG_Unit {
 	double dr; /*chance to be hit*/
 	public Point p = new Point();
 	
-	public String img_src = "img\\hero_small.png";
-	public Image img = Toolkit.getDefaultToolkit().getImage(img_src);
-	public Dimension img_dim = new Dimension();
+	//public String img_src = "img\\hero_small.png";
+	//public Image img = Toolkit.getDefaultToolkit().getImage(img_src);
+	//public Dimension img_dim = new Dimension();
 	
 	public MMORPG_Unit(){
 		

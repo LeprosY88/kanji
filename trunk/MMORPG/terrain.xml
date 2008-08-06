@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmorpg_map_types>
+	<terrains>
+		<terrain name="Pine" type="pine" src="img\q30\pine_q30.png"/>
+		<terrain name="Tree" type="tree" src="img\q30\tree_q30.png"/>
+		<terrain name="Water" type="water" src="img\q30\water_q30.png"/>
+	</terrains>
+</mmorpg_map_types>
