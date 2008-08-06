@@ -1,2 +1,2 @@
 set CLASSPATH=%CLASSPATH%;lib\jdom.jar
-java org.abratuhi.mmorpg.net.messaging.Server
+java org.abratuhi.mmorpg.net.Server
