@@ -1,10 +1,12 @@
 package gui;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Stroke;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -18,6 +20,8 @@ public class Kanji_GUI_ja_sign extends JPanel{
 	
 	Kanji_GUI root;
 	Kanji_lesson lesson;
+
+	Point previous = new Point();
 	
 	Dimension d = new Dimension(150, 150);
 	int t = 4;	// width of line drawn
@@ -30,10 +34,12 @@ public class Kanji_GUI_ja_sign extends JPanel{
 		root = r;
 		lesson = l;
 		
+		
+		//TODO: uniform controller, don't draw ovals, connect point instead
 		// mouse listener
 		addMouseListener(new MouseAdapter(){
 			public void mousePressed(MouseEvent e){
-				
+				previous = e.getPoint();
 			}
 			public void mouseReleased(MouseEvent e){
 				
@@ -62,7 +68,10 @@ public class Kanji_GUI_ja_sign extends JPanel{
 					Graphics2D g = (Graphics2D) e.getComponent().getGraphics();
 					// draw
 					Point p = e.getPoint();
-					g.fillOval(p.x-t, p.y-t, 2*t, 2*t);
+					//g.fillOval(p.x-t, p.y-t, 2*t, 2*t);
+					g.setStroke(new BasicStroke(t));
+					g.drawLine(previous.x, previous.y, p.x, p.y);
+					previous = (Point) p.clone();
 				}
 			}
 		});
