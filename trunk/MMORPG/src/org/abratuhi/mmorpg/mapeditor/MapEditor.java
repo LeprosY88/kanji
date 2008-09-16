@@ -8,6 +8,8 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
@@ -42,7 +44,7 @@ import org.jdom.input.SAXBuilder;
  *
  */
 @SuppressWarnings("serial")
-public class MapEditor extends JFrame implements WindowListener, ActionListener, MouseListener{
+public class MapEditor extends JFrame implements WindowListener, ActionListener, MouseListener, AdjustmentListener{
 	
 	public MMORPG_GraphicsEngine ge = new MMORPG_GraphicsEngine();
 	public MMORPG_Map map = new MMORPG_Map();
@@ -78,7 +80,10 @@ public class MapEditor extends JFrame implements WindowListener, ActionListener,
 		
 		// map view
 		JPanel right = new JPanel(new BorderLayout());
-		right.add(new JScrollPane(terrainMap), BorderLayout.CENTER);
+		JScrollPane terrainmapJScrollPane = new JScrollPane(terrainMap);
+		terrainmapJScrollPane.getHorizontalScrollBar().addAdjustmentListener(this);
+		terrainmapJScrollPane.getVerticalScrollBar().addAdjustmentListener(this);
+		right.add(terrainmapJScrollPane, BorderLayout.CENTER);
 		terrainMap.setPreferredSize(new Dimension(MMORPG_Map.XSIZE, MMORPG_Map.YSIZE));
 		
 		JSplitPane all = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, left, right);
@@ -119,13 +124,14 @@ public class MapEditor extends JFrame implements WindowListener, ActionListener,
 	
 	public void paint(Graphics g){
 		super.paint(g);
+		Graphics2D g2d = (Graphics2D)terrainMap.getGraphics();
 		
-		ge.drawMap((Graphics2D)terrainMap.getGraphics(), 
-				this, 
-				map, 
-				terrainMap.getBounds(), 
-				new Point(terrainMap.getBounds().x+terrainMap.getBounds().width/2,
-						terrainMap.getBounds().y+terrainMap.getBounds().height/2));
+		if(g2d != null) ge.drawMap(g2d, 
+									this, 
+									map, 
+									terrainMap.getBounds(), 
+									new Point(terrainMap.getBounds().x+terrainMap.getBounds().width/2,
+											terrainMap.getBounds().y+terrainMap.getBounds().height/2));
 	}
 	
 	public static void main(String[] args){
@@ -171,7 +177,7 @@ public class MapEditor extends JFrame implements WindowListener, ActionListener,
 			fc.showOpenDialog(this);
 			File selectedMap = fc.getSelectedFile();
 			
-			map = MMORPG_Map.loadMap(selectedMap.getAbsolutePath());
+			if (selectedMap!= null) map = MMORPG_Map.loadMap(selectedMap.getAbsolutePath());
 			
 			repaint();
 		}
@@ -180,7 +186,12 @@ public class MapEditor extends JFrame implements WindowListener, ActionListener,
 			fc.showSaveDialog(this);
 			File selectedMap = fc.getSelectedFile();
 			
-			map.saveMap(selectedMap.getAbsolutePath());
+			if (selectedMap!= null) map.saveMap(selectedMap.getAbsolutePath());
 		}
+	}
+
+	@Override
+	public void adjustmentValueChanged(AdjustmentEvent e) {
+		repaint();
 	}
 }
