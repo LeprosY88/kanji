@@ -25,11 +25,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import sun.misc.GC.LatencyRequest;
-
 public class Server /*extends JPanel*/ implements Runnable{
 	public boolean HISTORY_ON = false;
-	public boolean CHECK_ON = true;
+	public boolean CHECK_ON = false;
 	public boolean GRAPHICS_ON = false;
 	public long DELAY = 200;
 	
@@ -454,7 +452,7 @@ public class Server /*extends JPanel*/ implements Runnable{
 		Integer[] arrayMaxsteps = new Integer[]{1000};
 		
 		
-		/*Server s1 = new Server(	"neighbourcast",
+		Server s1 = new Server(	"neighbourcast",
 				false,
 				10000,
 				new Point(50,50),
@@ -466,9 +464,9 @@ public class Server /*extends JPanel*/ implements Runnable{
 				false,
 				true);
 
-		new Thread(s1).start();*/
+		new Thread(s1).start();
 		
-		ArrayList<Thread> threads = new ArrayList<Thread>();
+		/*ArrayList<Thread> threads = new ArrayList<Thread>();
 		Integer maxThreads = 4;
 		
 		for(int i=0; i<arrayAlgorithms.length; i++){
@@ -507,7 +505,7 @@ public class Server /*extends JPanel*/ implements Runnable{
 					e.printStackTrace();
 				}
 			}
-		}}}}}}}
+		}}}}}}}*/
 		
 	}
 
