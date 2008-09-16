@@ -10,6 +10,14 @@ import org.abratuhi.mmorpg.net.C_Client;
 import org.abratuhi.mmorpg.net.Message;
 import org.abratuhi.mmorpg.util.MessageUtil;
 
+/**
+ * MMORPG Game Client.
+ * Contains reference to parent wrapper - MMORPG_Game - to be able to access other parts of the game.
+ * Works as follows: regulary (with DELAY delay) sends messages about own position and status to others, proceeds messages received, updates its neihgbourhood list using received messages as reference. 
+ * Notice: currently loads default map 'maps/map.xml'.
+ * @author Alexei Bratuhin
+ *
+ */
 public class MMORPG_Client extends Thread{
 	
 	public static long DELAY = 250l;
@@ -18,7 +26,7 @@ public class MMORPG_Client extends Thread{
 	
 	public MMORPG_Hero hero = new MMORPG_Hero();
 	public ArrayList<MMORPG_Hero> neighbours = new ArrayList<MMORPG_Hero>();
-	public MMORPG_Map map = MMORPG_Map.loadMap("maps\\map.xml");	
+	public MMORPG_Map map = MMORPG_Map.loadMap("maps/map.xml");	
 	ArrayList<Message> chatIncoming = new ArrayList<Message>();
 	ArrayList<Message> chatOutgoing = new ArrayList<Message>();
 	
@@ -49,6 +57,11 @@ public class MMORPG_Client extends Thread{
 		this.runOK = (this.runOK == true)? false : true;
 	}
 	
+	/**
+	 * Move unit using specified offset
+	 * @param dx	x offset
+	 * @param dy	y offset
+	 */
 	public void move(int dx, int dy){
 		hero.to.x = hero.p.x + dx;
 		hero.to.y = hero.p.y + dy;

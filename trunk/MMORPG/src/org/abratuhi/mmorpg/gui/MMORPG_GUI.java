@@ -10,6 +10,13 @@ import javax.swing.JScrollPane;
 
 import org.abratuhi.mmorpg.game.MMORPG_Game;
 
+/**
+ * GUI for MMORPG client.
+ * Currently shows only the playfield, planned and partially implemented are minimap, chat, inventory and stats windows
+ * 
+ * @author Alexei Bratuhin
+ *
+ */
 public class MMORPG_GUI extends JFrame implements Runnable{
 	
 	MMORPG_Game game;

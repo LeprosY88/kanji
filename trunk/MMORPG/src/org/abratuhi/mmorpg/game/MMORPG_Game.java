@@ -4,6 +4,12 @@ import org.abratuhi.mmorpg.client.MMORPG_Client;
 import org.abratuhi.mmorpg.graphics.MMORPG_GraphicsEngine;
 import org.abratuhi.mmorpg.gui.MMORPG_GUI;
 
+/**
+ * Wrapper class, containig references to all 'main' parts of the application: gui, netclient, graphics engine.
+ * 
+ * @author Alexei Bratuhin
+ *
+ */
 public class MMORPG_Game{
 	
 	public MMORPG_GUI gui;
@@ -19,6 +25,11 @@ public class MMORPG_Game{
 		new Thread(this.gui).start();
 	}
 	
+	/**
+	 * 
+	 * @param args	<ul><li>args[0] - login</li>
+	 * 					<li>args[1] - password</li></ul>
+	 */
 	public static void main(String[] args){
 		new MMORPG_Game(args[0], args[1]);
 	}

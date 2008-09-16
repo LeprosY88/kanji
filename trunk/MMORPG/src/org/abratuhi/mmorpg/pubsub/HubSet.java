@@ -2,14 +2,25 @@ package org.abratuhi.mmorpg.pubsub;
 
 import java.util.ArrayList;
 
+/**
+ * Part of Mercury implementation. Hub Collection.
+ * Used as server for incoming publications and subscriptions.
+ * @author Alexei Bratuhin
+ *
+ */
 public class HubSet {
 	
+	/** List of attribute hubs **/
 	ArrayList<Hub> hubs = new ArrayList<Hub>();
 	
 	public HubSet(){
 		
 	}
 	
+	/**
+	 * Add attribute hub to collection of hubs.
+	 * @param h	attribute hub
+	 */
 	public void addHub(Hub h){
 		for(int i=0; i<hubs.size(); i++){
 			if(hubs.get(i).attributeName.equals(h.attributeName)){
@@ -19,12 +30,22 @@ public class HubSet {
 		hubs.add(h);
 	}
 	
+	/**
+	 * Add new subscription.
+	 * The given subscription will be stored at every attribute hub corresponding to each of subscription's attribute
+	 * @param sub	subscription to add
+	 */
 	public void addSubscription(Subscription sub){
 		for(int i=0; i<hubs.size(); i++){
 			hubs.get(i).addSubscription(sub);
 		}
 	}
 	
+	/** 
+	 * Match a publication against all stored subscriptions.
+	 * @param pub	publication to match
+	 * @return	list of matched subscriptions
+	 */
 	public ArrayList<Subscription> match(Publication pub){
 		ArrayList<Subscription> result = new ArrayList<Subscription>();
 		if(hubs.size() > 0){
@@ -38,6 +59,12 @@ public class HubSet {
 		return result;
 	}
 	
+	/**
+	 * Build intersection between two list of matched subscriptions
+	 * @param l1	list of matched subscriptions
+	 * @param l2	another list of matched subscriptions
+	 * @return		intersection of both given lists
+	 */
 	public ArrayList<Subscription> intersection(ArrayList<Subscription> l1, ArrayList<Subscription> l2){
 		ArrayList<Subscription> result = new ArrayList<Subscription>();
 		for(int i=0; i<l1.size(); i++){

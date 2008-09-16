@@ -10,6 +10,18 @@ import org.jdom.Element;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
+/**
+ * Clas for generating random maps for MMORPG Game.
+ * Map is an XML document that contains the basic map type and a list of objects (with their coordinates) located on the map.
+ * Structure of the XML document is as follows:
+ * <mmorpg_map>
+ * 	<terrain type="tree/pine/water" x="" y=""></terrain>
+ * 	<terrain />
+ * 	...
+ * </mmorpg_map>
+ * @author Alexei Bratuhin
+ *
+ */
 public class MapGenerator {
 	
 	public int mapxsize;
@@ -22,6 +34,16 @@ public class MapGenerator {
 	public String mapdir = "maps\\";
 	public String mapfile;
 	
+	/**
+	 * 
+	 * @param mapwidth	-	map x dimension
+	 * @param mapheigth	-	map y dimension
+	 * @param ntrees	-	number of tree tiles on map
+	 * @param npines	-	number of pine tiles on map
+	 * @param nwaters	-	number of water tiles on map 
+	 * @param quadrat	-	tile's x dimension (=tile's y dimension)
+	 * @param out		-	filename to store map in
+	 */
 	public MapGenerator(int mapwidth, int mapheigth, int ntrees, int npines, int nwaters, int quadrat, String out){
 		this.mapxsize = mapwidth;
 		this.mapysize = mapheigth;

@@ -7,19 +7,28 @@ import java.util.ArrayList;
 
 import org.abratuhi.mmorpg.model.MMORPG_Map;
 
+/**
+ * MMORPG Server class.
+ * Responsible for managing connecting and connected clients.
+ * @author Alexei Bratuhin
+ *
+ */
 public class Server extends Thread{
 	
+	/** Default sight range for all units **/
 	public final static double DIST = 100.0;
 	
-	/**/
+	/** **/
 	public ServerSocket server;
+	/** Port, the server listens to, default 9000 **/
 	public int server_port;
 	
-	/**/
+	/** Reference to list of messages, sent overall by clients **/
 	public ArrayList<Message> msg_incoming = new ArrayList<Message>();
 	
-	/**/
+	/** List of connected clients **/
 	public ArrayList<S_Client> clients = new ArrayList<S_Client>();
+	/** Reference to MPTUA **/
 	public MPTUA mptua = new MPTUA(clients, msg_incoming);
 	
 	/**/
@@ -30,7 +39,7 @@ public class Server extends Thread{
 		
 	}
 
-	/**/
+	/** Bring server up **/
 	public void up(int port){
 		try {
 			this.server_port = port;
@@ -42,6 +51,7 @@ public class Server extends Thread{
 		}
 	}
 	
+	/** Bring server down **/
 	public void down(){
 		try {
 			//while(activeCount()>1){
@@ -54,7 +64,9 @@ public class Server extends Thread{
 		}
 	}
 	
-	/**/
+	/** Main run loop of the server.
+	 * Listen to incoming connections, add client on connect, check whether all clients from client list are connected, remove zombies, wait for new connections. 
+	 */
 	public void run(){
 		/**/
 		mptua.start();
@@ -99,7 +111,9 @@ public class Server extends Thread{
 	}
 	
 	/**
-	 * Prim's algorithm for building Minimum Spanning Trees
+	 * Prim's algorithm for building Minimum Spanning Trees.
+	 * Note: currently using Prim1.
+	 * TODO: port Prim2 from MMORPG_Network_COmmunication_Demo.
 	 */
 	public void buildNeighboursMST(){
 		ArrayList<S_Client> l1 = new ArrayList<S_Client>();

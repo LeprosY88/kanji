@@ -9,19 +9,30 @@ import java.util.ArrayList;
 
 import org.abratuhi.mmorpg.util.MessageUtil;
 
+/**
+ * MMORPG Server-Side client class.
+ * Used for server-side representation of MMORPG client.
+ * Maintains the neighbourhood list.
+ * @author Alexei Bratuhin
+ *
+ */
 public class S_Client extends Thread{
-	/**/
+	/** Reference to server instance **/
 	public Server server;
+	/** socket for communication with MMORPG client **/
 	public Socket s;
 	public boolean runOK = false;
 	
-	/**/
+	/** Reference to list of messages sent overall by clients **/
 	public ArrayList<Message> msg_incoming = new ArrayList<Message>();
 	
-	/**/
+	/** ID of MMORPG client **/
 	String id = new String();
+	/** Position of MMORPG client's avatar **/
 	Point position = new Point();
+	/** List of avatar's neighbours **/
 	public ArrayList<String> neighbours = new ArrayList<String>();
+	/** List of neighbours obtained after Server's MST build. In case of MST build is then cloned to list of neighbours **/
 	ArrayList<String> mstneighbours = new ArrayList<String>();
 	
 	
@@ -91,6 +102,7 @@ public class S_Client extends Thread{
 			String messageType = MessageUtil.getType(msg);
 			String messageCast = MessageUtil.getToCast(msg);
 			
+			/* check message's integrity */
 			if(messageType==null || messageType=="" ||
 					messageCast==null || messageCast==""){
 				System.out.println("NET:\tS_Client found message, where messageType or messageCast don't have proper format.");
@@ -98,6 +110,7 @@ public class S_Client extends Thread{
 				continue;
 			}
 			
+			/* convert neighbourcast to multicast*/
 			if(messageCast.equals(MessageUtil.MSGCAST_NEIGHCAST)){
 				if(neighbours.size() == 0){
 					requestNeighbours();
@@ -138,6 +151,7 @@ public class S_Client extends Thread{
 		//return;
 	}
 	
+	/** Stop client's server side **/
 	public void stopp(){
 		setRunOK(false);
 		this.stop();
@@ -159,23 +173,25 @@ public class S_Client extends Thread{
 	}
 	
 	
-	/**/
+	/** Update id using id from message received from client-side client **/
 	public void updateIdFromMessage(Message m){
 		String identificator = MessageUtil.getFromId(m);
 		if(id != null) this.id = identificator;
 	}
 	
+	/** Update position using position element from message received from client-side client */
 	public void updatePositionFromMessage(Message m){
 		Point pos = MessageUtil.getFromPosition(m);
 		if (pos != null) this.position = pos;
 	}
 	
-	/**/
+	/** In case the neighbourhood list is empty, ask server to build MST and then clone the resultant list to neighbourhood list **/
 	public void requestNeighbours(){
 		server.buildNeighboursMST();
 		neighbours = (ArrayList<String>) mstneighbours.clone();
 	}
 	
+	/** Compute distance to another server-side client **/
 	public double distance(S_Client sc){
 		return this.position.distance(sc.position);
 	}

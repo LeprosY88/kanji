@@ -8,11 +8,8 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
@@ -21,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -36,10 +34,19 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
+/**
+ * Interactive Editor for MMORPG maps.
+ * Allows for placing all types of units and terrain available on the map.
+ * Allows for storing and loading of maps.
+ * @author Alexei Bratuhin
+ *
+ */
+@SuppressWarnings("serial")
 public class MapEditor extends JFrame implements WindowListener, ActionListener, MouseListener{
 	
 	public MMORPG_GraphicsEngine ge = new MMORPG_GraphicsEngine();
 	public MMORPG_Map map = new MMORPG_Map();
+	
 	DefaultMutableTreeNode terraintreeRootnode = new DefaultMutableTreeNode(new String("Map Editor"));
 	public JTree terrainTree = new JTree(terraintreeRootnode);
 	public JPanel terrainMap = new JPanel();
@@ -57,16 +64,19 @@ public class MapEditor extends JFrame implements WindowListener, ActionListener,
 		
 		terrainMap.addMouseListener(this);
 		
+		// load/save buttons
 		JPanel jbuttons = new JPanel();
 		jbuttons.add(jbuttonSave);
 		jbuttons.add(jbuttonLoad);
 		jbuttonSave.addActionListener(this);
 		jbuttonLoad.addActionListener(this);
 		
+		// explorer tree of possible map elements
 		JPanel left = new JPanel(new BorderLayout());
 		left.add(new JScrollPane(terrainTree), BorderLayout.CENTER);
 		left.add(jbuttons, BorderLayout.SOUTH);
 		
+		// map view
 		JPanel right = new JPanel(new BorderLayout());
 		right.add(new JScrollPane(terrainMap), BorderLayout.CENTER);
 		terrainMap.setPreferredSize(new Dimension(MMORPG_Map.XSIZE, MMORPG_Map.YSIZE));
@@ -79,6 +89,11 @@ public class MapEditor extends JFrame implements WindowListener, ActionListener,
 		pack();
 	}
 	
+	/**
+	 * Add terrains to existing map object from existing map file.
+	 * @param resource	filename (absolute path to file)
+	 */
+	@SuppressWarnings("unchecked")
 	public void loadTerrainTree(String resource){
 		SAXBuilder saxbuilder = new SAXBuilder();
 		Document doc = null;
@@ -152,11 +167,20 @@ public class MapEditor extends JFrame implements WindowListener, ActionListener,
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(jbuttonLoad)){
-			map = MMORPG_Map.loadMap("tmap.xml");
+			JFileChooser fc = new JFileChooser();
+			fc.showOpenDialog(this);
+			File selectedMap = fc.getSelectedFile();
+			
+			map = MMORPG_Map.loadMap(selectedMap.getAbsolutePath());
+			
 			repaint();
 		}
 		if(e.getSource().equals(jbuttonSave)){
-			map.saveMap("tmap.xml");
+			JFileChooser fc = new JFileChooser();
+			fc.showSaveDialog(this);
+			File selectedMap = fc.getSelectedFile();
+			
+			map.saveMap(selectedMap.getAbsolutePath());
 		}
 	}
 }

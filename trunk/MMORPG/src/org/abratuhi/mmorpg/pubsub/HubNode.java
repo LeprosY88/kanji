@@ -2,12 +2,21 @@ package org.abratuhi.mmorpg.pubsub;
 
 import java.util.ArrayList;
 
+/**
+ * Part of Mercury implementation. Hub Node.
+ * @author Alexei Bratuhin
+ *
+ */
 public class HubNode {
+	/** reference to parent hub **/
 	public Hub hub;
 	
+	/** minimal value of responsibility range **/
 	public String minimalValue;
+	/** maximal value of responsibility range **/
 	public String maximalValue;
 	
+	/** list of stores subscriptions **/
 	ArrayList<Subscription> subscriptions = new ArrayList<Subscription>();
 	
 	public HubNode(Hub hub, String min, String max){
@@ -34,6 +43,15 @@ public class HubNode {
 		}
 		return false;
 	}
+	
+	/**
+	 * 
+	 * @param sub	subscription to  (possibly) add
+	 * @return	<ul><li>-1, if subscription doesn't have hubnode's attribute</li>
+	 * 				<li>2, if already contains this subscription</li>
+	 * 				<li>1, if subscription suits hubnode's range </li>
+	 * 				<li>0, if subscription doesn't suit hubnode's range</li></ul>
+	 */
 	public Integer acceptsSubscription(Subscription sub){
 		Integer attributeIndex = sub.getAttributeIndex(hub.attributeName);
 		if(attributeIndex == -1) return -1;
@@ -78,6 +96,11 @@ public class HubNode {
 		if(sub != null) this.removeSubscription(sub);
 	}
 	
+	/**
+	 * Match given publication against list of stored subscriptions.
+	 * @param pub	publication
+	 * @return		list of matched subscriptions
+	 */
 	public ArrayList<Subscription> match(Publication pub){
 		ArrayList<Subscription> result = new ArrayList<Subscription>();
 		for(int i=0; i<subscriptions.size(); i++){

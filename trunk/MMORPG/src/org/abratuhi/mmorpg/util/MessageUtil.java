@@ -10,6 +10,14 @@ import org.abratuhi.mmorpg.net.S_Client;
 import org.jdom.Document;
 import org.jdom.Element;
 
+/**
+ * Message utilities class for MMORPG.
+ * Since the Message class itself was thought of as not containing any information about its content, MessageUtil is thought of as API to modify contents of Message.
+ * Used for creating, modifying and accessing Message's content.
+ * Also defines some Message specific constants.
+ * @author Alexei Bratuhin
+ *
+ */
 public class MessageUtil {
 	
 	public final static String MSGTYPE_INIT_CLIENT = "initClient";
