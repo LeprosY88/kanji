@@ -12,15 +12,21 @@ import org.abratuhi.mmorpg.client.MMORPG_Client;
 import org.abratuhi.mmorpg.model.MMORPG_Hero;
 import org.abratuhi.mmorpg.util.MessageUtil;
 
+/**
+ * Client side client class of MMORPG.
+ * Used for client-server communication as well as sending messages to other clients and receiving messages from other clients.
+ * @author Alexei Bratuhin
+ *
+ */
 public class C_Client extends Thread{
-	/**/
+	/** socket for communication with server side client **/
 	public Socket s;
 	public boolean runOK = false;
 	
-	/**/
+	/** list of messages reveived and not yet proceeded **/
 	public ArrayList<Message> msg_incoming = new ArrayList<Message>();
 	
-	/**/
+	/** Reference to parent MMORPG client **/
 	public MMORPG_Client mmorpg_client;
 	
 	

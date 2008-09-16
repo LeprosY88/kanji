@@ -1,10 +1,20 @@
 package org.abratuhi.mmorpg.pubsub;
 
+/**
+ * Part of Mercury implementation. Subscription.
+ * Note: minimums[i]>maximum[i] is possible.
+ * @author Alexei Bratuhin
+ *
+ */
 public class Subscription {
 	
+	/** unique id of subscription **/
 	public String id;
+	/** attribute names **/
 	public String[] attributes;
+	/** attribute minimum values **/
 	public String[] minimums;
+	/** attribute maximum values **/
 	public String[] maximums;
 	
 	public Subscription(String id, String[] attributes, String[] mins, String[] maxs){
@@ -14,6 +24,11 @@ public class Subscription {
 		this.maximums = maxs;
 	}
 	
+	/** 
+	 * Get index of attribute, given an attribute's name/id 
+	 * @param attribute	attribute name/id
+	 * @return	attribute's index
+	 */
 	public Integer getAttributeIndex(String attribute){
 		for(int i=0; i<attributes.length; i++){
 			if(attributes[i].equals(attribute)){
@@ -23,6 +38,12 @@ public class Subscription {
 		return -1;
 	}
 	
+	/** 
+	 * Check, whether this subscription matches given publication.
+	 * @param pub	publication to match
+	 * @return	<ul><li>true, match case</li>
+	 * 			<li>false, otherwise</li></ul>
+	 */
 	public boolean match(Publication pub){
 		for(int i=0; i<pub.attributes.length; i++){
 			int attributeIndex = -1;

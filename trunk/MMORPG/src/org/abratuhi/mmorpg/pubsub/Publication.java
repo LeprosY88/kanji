@@ -2,13 +2,24 @@ package org.abratuhi.mmorpg.pubsub;
 
 import java.util.Date;
 
+/**
+ * Part of Mercury implementation. Publication.
+ * Note: after expiration, publication is routed to match subscriptions no more.
+ * @author Alexei Bratuhin
+ *
+ */
 public class Publication {
 	
+	/** unique publication id **/
 	public String id;
+	/** publication's attribute names/ids **/
 	public String[] attributes;
+	/** publicaation's attributes' values **/
 	public String[] values;
 	
+	/** creation date of publication **/
 	public Long creationDate;
+	/** expiration date of publication **/
 	public Long expirationDate;
 	
 	public Publication(String id, String[] attributez, String[] valuez, Long ttl){
@@ -19,6 +30,11 @@ public class Publication {
 		this.expirationDate = this.creationDate + ttl;
 	}
 	
+	/**
+	 * Get index of attribute given attribute's name/id
+	 * @param attribute attribute name/id
+	 * @return	attribute index
+	 */
 	public Integer getAttributeIndex(String attribute){
 		for(int i=0; i<attributes.length; i++){
 			if(attributes[i].equals(attribute)){

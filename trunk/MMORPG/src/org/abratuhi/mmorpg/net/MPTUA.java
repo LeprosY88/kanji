@@ -4,10 +4,18 @@ import java.util.ArrayList;
 
 import org.abratuhi.mmorpg.util.MessageUtil;
 
+/**
+ * MPTUA (Message Processing/Transporting Unit/Agent) MMORPG class.
+ * Used for delivering and forwarding messages from one client to (an)other(s).
+ * @author Alexei Bratuhin
+ *
+ */
 public class MPTUA extends Thread{
-	/**/
+	/** Reference to list of clients, connected to server **/
 	public ArrayList<S_Client> clients = new ArrayList<S_Client>();
+	/** Reference to list of messages sent overall by clients **/
 	public ArrayList<Message> incoming = new ArrayList<Message>();
+	
 	/**/
 	public boolean isUp = false;
 	
@@ -23,7 +31,7 @@ public class MPTUA extends Thread{
 		System.out.println("MPTUA is UP.");
 	}
 	
-	/**/
+	/** Main functioning loop: get message from list, check recepients, forward message, proceed next message from list **/
 	public void run(){
 		while(getIsUp()){
 			if(incoming.size()>0){
@@ -80,6 +88,9 @@ public class MPTUA extends Thread{
 		
 	}*/
 	
+	/** 
+	 * Find server side client using id.
+	 */
 	public S_Client findS_Client(String name){
 		for (int i=0; i<clients.size(); i++){			
 			if(clients.get(i).id.equals(name)){

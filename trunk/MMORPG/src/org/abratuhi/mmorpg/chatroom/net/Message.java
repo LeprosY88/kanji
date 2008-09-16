@@ -1,8 +1,7 @@
-package org.abratuhi.mmorpg.net;
+package org.abratuhi.mmorpg.chatroom.net;
 
 /**
- * MMORPG Message class.
- * Previously contained the description of its structure, e.g.
+ * Message
  * <message type="login/logout/..." id=...>
  * 		<to cast="unicast/multicast/broadcast" gid="..." id(s)="..." />
  * 		<from type="..." id="..." />
@@ -11,7 +10,6 @@ package org.abratuhi.mmorpg.net;
  * 			<player class="..." strength="..." />
  * 		</data>
  * < /message>
- * Currently is purely generic, accessing and modifying content through MessageUtil
  */
 
 import java.awt.Point;
@@ -21,7 +19,6 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import org.abratuhi.mmorpg.model.MMORPG_Hero;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;

@@ -21,6 +21,13 @@ import org.abratuhi.mmorpg.model.MMORPG_Map;
 import org.abratuhi.mmorpg.model.MMORPG_Terrain;
 import org.abratuhi.mmorpg.model.MMORPG_Unit;
 
+/**
+ * Graphics Engine.
+ * Uses primitive 2D to present unit'S position on map.
+ * Notice: contains link to parent wrapper - MMORPG_Game - to access other parts of the game. 
+ * @author Alexei Bratuhin
+ *
+ */
 public class MMORPG_GraphicsEngine {
 	
 	MMORPG_Game game;
@@ -58,10 +65,24 @@ public class MMORPG_GraphicsEngine {
 	    type2image.put("water", loadImage("ge.image.water"));
 	}
 	
+	/**
+	 * Help function to load image of specified type from filesystem. Each type corresponds to an image. Linking type<->imagefile is done in graphics engine's .properties file.
+	 * Currently supported types: hero, pine, tree, water
+	 * @param type	-	image type
+	 * @return			image of specified type
+	 */
 	public Image loadImage(String type){
 		return Toolkit.getDefaultToolkit().getImage(geProperties.getProperty(type));
 	}
 	
+	/**
+	 * Draw map in the to parent wrapper's MMORPG_Game attached MMORPG_GUI window
+	 * @param g		graphics context
+	 * @param obs	graphics observer
+	 * @param map	map object
+	 * @param r		client's screen rectangle
+	 * @param p		client's position in MMORPG world
+	 */
 	@SuppressWarnings("static-access")
 	public void drawMap(Graphics2D g, ImageObserver obs, MMORPG_Map map, Rectangle r, Point p){
 		// compute middle point of r
@@ -124,7 +145,7 @@ public class MMORPG_GraphicsEngine {
 	}
 	
 	/**
-	 * 
+	 * Draw client's avatar unit in the to parent wrapper's MMORPG_Game attached MMORPG_GUI window
 	 * @param g
 	 * @param obs
 	 * @param hero - hero to draw
@@ -150,7 +171,7 @@ public class MMORPG_GraphicsEngine {
 	}
 	
 	/**
-	 * 
+	 * Draw unit in the to parent wrapper's MMORPG_Game attached MMORPG_GUI window
 	 * @param g
 	 * @param obs
 	 * @param unit - unit to draw

@@ -18,18 +18,30 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
+/**
+ * @author Alexei Bratuhin
+ *
+ */
 public class MMORPG_Map {
+	/** Map width **/
 	public final static int XSIZE = 1000; // pixelsize
+	/** Map height **/
 	public final static int YSIZE = 1000; // pixelsize
+	/** Map width between orientation meridians **/
 	public final static int XSTEP = 200;
+	/** Map height between orientation parallels **/
 	public final static int YSTEP = 200;
 	
+	/** List of terrain 'units' **/
 	public ArrayList<MMORPG_Terrain> terrains = new ArrayList<MMORPG_Terrain>();
 	
 	public MMORPG_Map(){
 	}
 	
-	
+	/**
+	 * Store map as XML Document
+	 * @param resource	path to file
+	 */
 	public void saveMap(String resource){
 		// init xml document
 		Document doc = new Document(new Element("mmorpg_map"));
@@ -52,6 +64,12 @@ public class MMORPG_Map {
 		}
 	}
 	
+	/**
+	 * Load map from XML Document
+	 * @param resource	path to file, storing XML Document of map
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public static MMORPG_Map loadMap(String resource){
 		// initialize map
 		MMORPG_Map cmap = new MMORPG_Map();

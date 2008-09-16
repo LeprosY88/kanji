@@ -18,6 +18,12 @@ import org.abratuhi.mmorpg.graphics.MMORPG_GraphicsEngine;
 import org.abratuhi.mmorpg.client.MMORPG_Client;
 import org.abratuhi.mmorpg.model.MMORPG_Map;
 
+/**
+ * GUI part responsible for presenting the play field.
+ * 
+ * @author Alexei Bratuhin
+ *
+ */
 public class MMORPG_Main extends JPanel implements MouseListener{
 	MMORPG_GUI gui;
 		
@@ -44,6 +50,13 @@ public class MMORPG_Main extends JPanel implements MouseListener{
 		addMouseListener(this);
 	}
 	
+	
+	/**
+	 * Subclass representing used for drawing of the play field.
+	 * 
+	 * @author Alexei Bratuhin
+	 *
+	 */
 	public class MMORPG_Main_sub extends JPanel{
 		public void paintComponent(Graphics gg){
 			super.paintComponents(gg);
