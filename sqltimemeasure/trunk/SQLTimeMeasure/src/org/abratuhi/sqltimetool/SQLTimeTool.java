@@ -83,7 +83,6 @@ public class SQLTimeTool {
 			
 			conn.setAutoCommit(true);
 			conn.setHoldability(ResultSet.CLOSE_CURSORS_AT_COMMIT);
-			((OracleConnection) conn).setDefaultRowPrefetch(1000);
 
 			// AB: ASDF.SHADOW_ID_TRIGGER in Oracle opens too many cursors -> ORA-01000
 			// AB: nCursors = nIterations
@@ -141,6 +140,7 @@ public class SQLTimeTool {
 								ResultSet rs = stmt.getResultSet();
 								if(rs != null ){
 									while(rs.next()){}
+									rs.close();
 								}
 							}
 						}
@@ -155,18 +155,20 @@ public class SQLTimeTool {
 					if(loop){
 						PreparedStatement stmt = conn.prepareStatement(line, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 						loopStatements.add(stmt);
-						stmt.executeQuery();
+						stmt.execute();
 						ResultSet rs = stmt.getResultSet();
 						if(rs != null ){
 							while(rs.next()){}
+							rs.close();
 						}
 					}
 					else{
 						Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-						stmt.executeQuery(line);
+						stmt.execute(line);
 						ResultSet rs = stmt.getResultSet();
 						if(rs != null ){
 							while(rs.next()){}
+							rs.close();
 						}
 						stmt.close();
 					}

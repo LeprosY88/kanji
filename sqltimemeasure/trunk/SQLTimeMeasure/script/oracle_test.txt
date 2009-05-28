@@ -4,6 +4,6 @@
 #password tiger
 #begin measure test
 #begin loop 10
-!select * from scott.T_Price
+!update scott.T_Price set FESTPREIS=1 where PREISSTUFE ='2'
 #end loop
 #end measure
