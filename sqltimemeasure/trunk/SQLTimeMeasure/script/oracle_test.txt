@@ -1,0 +1,9 @@
+#driver oracle.jdbc.OracleDriver
+#url jdbc:oracle:thin:@192.168.1.16:1521:test
+#user scott
+#password tiger
+#begin measure test
+#begin loop 10
+!select * from scott.T_Price
+#end loop
+#end measure
