@@ -1,16 +1,17 @@
 package org.abratuhi.sqltimetool;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import oracle.jdbc.driver.OracleConnection;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -32,13 +33,12 @@ public class SQLTimeTool {
 			String user = null;
 			String password = null;
 
-			if(args.length < 2){
-				System.out.println("Usage: java Measure benchmark.sql logadd");
+			if(args.length < 1){
+				System.out.println("Usage: java Measure benchmark.sql");
 				return;
 			}
 
 			String filename = args[0];
-			String logadd = args[1];
 			File file = new File(filename);
 			if(!file.exists()){
 				LOG.error("Benchmark file doesn' exist");
@@ -82,6 +82,8 @@ public class SQLTimeTool {
 			Connection conn = DriverManager.getConnection( url, user, password);
 			
 			conn.setAutoCommit(true);
+			conn.setHoldability(ResultSet.CLOSE_CURSORS_AT_COMMIT);
+			((OracleConnection) conn).setDefaultRowPrefetch(1000);
 
 			// AB: ASDF.SHADOW_ID_TRIGGER in Oracle opens too many cursors -> ORA-01000
 			// AB: nCursors = nIterations
@@ -134,7 +136,12 @@ public class SQLTimeTool {
 					else if(line.startsWith("end loop")){
 						for(int loops = 0; loops < loopIterations; loops++){
 							for(Iterator i = loopStatements.iterator(); i.hasNext(); ){
-								((PreparedStatement)i.next()).execute();
+								PreparedStatement stmt = ((PreparedStatement)i.next());
+								stmt.execute();
+								ResultSet rs = stmt.getResultSet();
+								if(rs != null ){
+									while(rs.next()){}
+								}
 							}
 						}
 						
@@ -146,13 +153,21 @@ public class SQLTimeTool {
 				else if(line.startsWith(RUN)){
 					line = line.substring(RUN.length());
 					if(loop){
-						PreparedStatement stmt = conn.prepareStatement(line);
+						PreparedStatement stmt = conn.prepareStatement(line, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 						loopStatements.add(stmt);
-						stmt.execute();
+						stmt.executeQuery();
+						ResultSet rs = stmt.getResultSet();
+						if(rs != null ){
+							while(rs.next()){}
+						}
 					}
 					else{
-						Statement stmt = conn.createStatement();
-						stmt.execute(line);
+						Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+						stmt.executeQuery(line);
+						ResultSet rs = stmt.getResultSet();
+						if(rs != null ){
+							while(rs.next()){}
+						}
 						stmt.close();
 					}
 				}
