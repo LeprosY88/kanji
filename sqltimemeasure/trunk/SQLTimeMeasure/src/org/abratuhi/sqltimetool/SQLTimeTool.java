@@ -32,8 +32,6 @@ public class SQLTimeTool {
 			String user = null;
 			String password = null;
 
-			String log = new String();
-
 			if(args.length < 2){
 				System.out.println("Usage: java Measure benchmark.sql logadd");
 				return;
@@ -161,12 +159,6 @@ public class SQLTimeTool {
 				
 				line = br.readLine();
 			}
-
-			// write log
-			BufferedWriter bw = new BufferedWriter(new FileWriter(new File("log" + System.currentTimeMillis() + "_" + logadd + ".log")));
-			bw.write(log);
-			bw.flush();
-			bw.close();
 
 			// close connection
 			conn.close();
