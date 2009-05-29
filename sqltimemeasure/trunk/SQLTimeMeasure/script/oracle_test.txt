@@ -1,9 +1,9 @@
 #driver oracle.jdbc.OracleDriver
-#url jdbc:oracle:thin:@192.168.1.16:1521:test
+#url jdbc:oracle:thin:@192.168.1.17:1521:devtest
 #user scott
 #password tiger
 #begin measure test
 #begin loop 10
-!update scott.T_Price set FESTPREIS=1 where PREISSTUFE ='2'
+!insert into testtable_e(num,cha) values(21, 'q')
 #end loop
 #end measure
