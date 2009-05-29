@@ -5,13 +5,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import oracle.jdbc.driver.OracleConnection;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -94,8 +91,8 @@ public class SQLTimeTool {
 			//}
 			
 			// measure variables
-			long totalBegin = 0l;
-			long totalEnd = 0l;
+			//long totalBegin = 0l;
+			//long totalEnd = 0l;
 			long measureBegin = 0l;
 			long measureEnd = 0l;
 			String measureName = null;
