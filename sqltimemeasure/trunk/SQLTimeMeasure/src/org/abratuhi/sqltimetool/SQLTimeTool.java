@@ -103,7 +103,8 @@ public class SQLTimeTool {
 			// statement variables
 			boolean loop = false;
 			int loopIterations = 0;
-			ArrayList<PreparedStatement> loopStatements = new ArrayList<PreparedStatement>();
+			ArrayList<String> loopStatementsSql = new ArrayList<String>();
+			ArrayList<Statement> loopStatements = new ArrayList<Statement>();
 			
 
 			// benchmark statements
@@ -129,14 +130,15 @@ public class SQLTimeTool {
 					}
 					else if(line.startsWith("begin loop ")){
 						loopStatements.clear();
+						loopStatementsSql.clear();
 						loop = true;
 						loopIterations = Integer.parseInt(line.substring("begin loop ".length()));
 					}
 					else if(line.startsWith("end loop")){
 						for(int loops = 0; loops < loopIterations; loops++){
-							for(Iterator i = loopStatements.iterator(); i.hasNext(); ){
-								PreparedStatement stmt = ((PreparedStatement)i.next());
-								stmt.execute();
+							for(Iterator i = loopStatements.iterator(), j = loopStatementsSql.iterator(); i.hasNext() && j.hasNext(); ){
+								Statement stmt = ((Statement)i.next());
+								stmt.execute((String) j.next());
 								ResultSet rs = stmt.getResultSet();
 								if(rs != null ){
 									while(rs.next()){}
@@ -146,16 +148,19 @@ public class SQLTimeTool {
 						}
 						
 						for(Iterator i = loopStatements.iterator(); i.hasNext(); ){
-							((PreparedStatement)i.next()).close();
+							((Statement)i.next()).close();
 						}
 					}
 				}
 				else if(line.startsWith(RUN)){
 					line = line.substring(RUN.length());
 					if(loop){
-						PreparedStatement stmt = conn.prepareStatement(line, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+						//PreparedStatement stmt = conn.prepareStatement(line, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+						Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+						loopStatementsSql.add(line);
 						loopStatements.add(stmt);
-						stmt.execute();
+						//stmt.execute();
+						stmt.execute(line);
 						ResultSet rs = stmt.getResultSet();
 						if(rs != null ){
 							while(rs.next()){}
