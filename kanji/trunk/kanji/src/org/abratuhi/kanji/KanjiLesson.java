@@ -1,4 +1,4 @@
-package model;
+package org.abratuhi.kanji;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,14 +8,14 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-public class Kanji_lesson {
+public class KanjiLesson {
 	
-	public ArrayList<Kanji_char> chars;
+	public ArrayList<KanjiChar> chars;
 	private int currentChar;
 	
-	public Kanji_lesson(String filename){
+	public KanjiLesson(String filename){
 		// init
-		chars = new ArrayList<Kanji_char>();
+		chars = new ArrayList<KanjiChar>();
 		currentChar = 0;
 		
 		// load signs
@@ -26,7 +26,7 @@ public class Kanji_lesson {
 			// get list of all available chars
 			Element docroot = doc.getRootElement();
 			for(int i=0; i<docroot.getChildren("char").size(); i++){
-				Kanji_char tChar = new Kanji_char((Element) docroot.getChildren("char").get(i));
+				KanjiChar tChar = new KanjiChar((Element) docroot.getChildren("char").get(i));
 				chars.add(tChar);
 			}
 				
@@ -43,7 +43,7 @@ public class Kanji_lesson {
 	public int getActiveCharNumber(){
 		return currentChar;
 	}
-	public Kanji_char getActiveChar(){
+	public KanjiChar getActiveChar(){
 		return chars.get(getActiveCharNumber());
 	}
 	

@@ -1,4 +1,4 @@
-package gui;
+package org.abratuhi.kanji;
 
 import java.awt.BorderLayout;
 
@@ -6,17 +6,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import model.Kanji_char;
-import model.Kanji_lesson;
+import org.abratuhi.kanji.KanjiChar;
+import org.abratuhi.kanji.KanjiLesson;
+
 
 public class Kanji_GUI_en extends JPanel{
 	
 	Kanji_GUI root;
-	Kanji_lesson lesson;
+	KanjiLesson lesson;
 	
 	JTextArea translation;
 	
-	public Kanji_GUI_en(Kanji_GUI r, Kanji_lesson l){
+	public Kanji_GUI_en(Kanji_GUI r, KanjiLesson l){
 		// super
 		super();
 		
@@ -38,7 +39,7 @@ public class Kanji_GUI_en extends JPanel{
 		add(new JScrollPane(translation), BorderLayout.CENTER);
 	}
 	
-	public void paintChar(Kanji_char c, boolean printTranslation){
+	public void paintChar(KanjiChar c, boolean printTranslation){
 		//System.out.println("setting translation");
 		// set translation
 		if(printTranslation) translation.setText(c.translation);

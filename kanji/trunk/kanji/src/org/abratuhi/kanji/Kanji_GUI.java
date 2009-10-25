@@ -1,4 +1,4 @@
-package gui;
+package org.abratuhi.kanji;
 
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -9,11 +9,12 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
-import model.Kanji_lesson;
+import org.abratuhi.kanji.KanjiLesson;
+
 
 public class Kanji_GUI extends JFrame{
 	
-	Kanji_lesson lesson;
+	KanjiLesson lesson;
 	
 	Kanji_GUI_ja ja;
 	Kanji_GUI_en en;
@@ -100,7 +101,7 @@ public class Kanji_GUI extends JFrame{
 	}
 	
 	public void loadLesson(String path){
-		lesson = new Kanji_lesson(path);
+		lesson = new KanjiLesson(path);
 		//System.out.println("lesson loaded:\t"+path);
 		//lesson.printInfo();
 	}

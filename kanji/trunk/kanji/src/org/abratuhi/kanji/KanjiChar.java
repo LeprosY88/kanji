@@ -1,13 +1,14 @@
-package model;
+package org.abratuhi.kanji;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.jdom.Element;
 
-public class Kanji_char {
+public class KanjiChar {
 	
 	public String ch = new String();
+	public String uid = new String();
 	public String reading = new String();
 	public String translation = new String();
 	
@@ -15,8 +16,9 @@ public class Kanji_char {
 	ArrayList<String> examples_reading = new ArrayList<String>();
 	ArrayList<String> examples_translation = new ArrayList<String>();
 	
-	public Kanji_char(Element e){
+	public KanjiChar(Element e){
 		ch = e.getAttributeValue("ch");
+		uid = e.getAttributeValue("uid").substring(2);
 		//reading = e.getChildText("reading");
 		translation = e.getChildText("translation");
 		

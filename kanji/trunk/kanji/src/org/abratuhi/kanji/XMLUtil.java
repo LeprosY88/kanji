@@ -1,4 +1,4 @@
-package util.xml;
+package org.abratuhi.kanji;
 
 import java.awt.List;
 import java.io.File;
@@ -192,6 +192,45 @@ public class XMLUtil {
 		
 	}
 	
+	public static void generateKanjiLessonForMobile(String filenameIn, String filenameOut) throws JDOMException, IOException
+	{
+		// parse input document
+		SAXBuilder builder = new SAXBuilder();
+		Document d_in = builder.build(new File(filenameIn));
+		Element d_in_root = d_in.getRootElement();
+		
+		// create document with root element
+		Document d_out = new Document(new Element("l"));
+		
+		// create an element for each <char> from filename_in and add it to root element
+		ArrayList<Element> chars = new ArrayList<Element>(d_in_root.getChildren("char"));
+		for(int i=0; i<chars.size(); i++){
+			Element chchar = chars.get(i);
+			
+			// create blank elements to ease future editing
+			Element uchar = new Element("u");
+			
+			uchar.setAttribute("o", chchar.getAttributeValue("ch"));
+			uchar.setAttribute("f", chchar.getAttributeValue("uid").substring(2));
+			uchar.setAttribute("t", chchar.getChildText("reading"));
+			uchar.setAttribute("m", chchar.getChildText("translation"));
+			
+			d_out.getRootElement().addContent(uchar);
+		}
+		
+		// write document to file
+		try {
+			XMLOutputter out = new XMLOutputter();
+			out.setFormat(Format.getPrettyFormat());
+			out.output(d_out, new FileOutputStream(filenameOut));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 	
 	public static void main(String[] args){
@@ -211,10 +250,34 @@ public class XMLUtil {
 		generateKanaLessonFromPlainText(text_in, filename_out);*/
 		
 		// kanji lesson 1-6
-		String filename_in = "kanji2.xml";
+		/*String filename_in = "kanji2.xml";
 		String filename_out = "kanji_lesson_2.xml";
 		try {
 			generateKanjiLessonFromXML1(filename_in, filename_out);
+		} catch (JDOMException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
+		
+		// mobile kanji
+		String[] filenameIns = new String[] { "xml/kanji_lesson_1.xml",
+				"xml/kanji_lesson_2.xml", "xml/kanji_lesson_3.xml",
+				"xml/kanji_lesson_4.xml", "xml/kanji_lesson_5.xml",
+				"xml/kanji_lesson_6.xml",
+				"xml/hiragana_lesson.xml",
+				"xml/katakana_lesson.xml"};
+		String[] filenameOuts = new String[] { "xml/mobilekanji_lesson_1.xml",
+				"xml/mobilekanji_lesson_2.xml",
+				"xml/mobilekanji_lesson_3.xml",
+				"xml/mobilekanji_lesson_4.xml",
+				"xml/mobilekanji_lesson_5.xml",
+				"xml/mobilekanji_lesson_6.xml",
+				"xml/mobilehiragana_lesson.xml",
+				"xml/mobilekatakana_lesson.xml"};
+		try {
+			for(int i=0; i<filenameIns.length; i++)
+				generateKanjiLessonForMobile(filenameIns[i], filenameOuts[i]);
 		} catch (JDOMException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
