@@ -1,6 +1,4 @@
 #summary Index and short description of projects stored in SVN.
-
-This SVN was initially used for Kanji project only. Later few other projects were started, that also needed a hosting. Therefore, following projects stored here may potentially be interesting for others:
   * Kanji - a tool for learning basic (1-6 grades) kanji signs. Current status - alpha/beta (functional, but not yet attractive for use).
   * MobileKanji - a Midlet (JavaME App) for learning basic (1-6 grades) kanji.
   * MMORPG - a client/server MMORPG with primitive 2D graphics a map-design tool and chat possibility. This project is an attempt to learn how to program complex distributed games and envolves a specific algorithm/paradigm for message exchanging between clients - "Neighbourcast". More on "Neighbourcast" can be found [http://kanji.googlecode.com/svn/wiki/docs/AlexeiBratuhin_SWPraktikum2.pdf here].
