@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l>
+  <u o="日" f="65e5" t="ニチ, ジツ" m="day, sun, Japan, counter for days" />
+  <u o="一" f="4e00" t="イチ, イツ" m="one" />
+  <u o="人" f="4eba" t="ジン, ニン" m="person" />
+  <u o="年" f="5e74" t="ネン" m="year, counter for years" />
+  <u o="大" f="5927" t="ダイ, タイ" m="large, big" />
+  <u o="十" f="5341" t="ジュウ, ジッ, ジュッ" m="ten" />
+  <u o="二" f="4e8c" t="ニ, ジ" m="two" />
+  <u o="本" f="672c" t="ホン" m="book, present, main, true, real, counter for long cylindrical things" />
+  <u o="中" f="4e2d" t="チュウ" m="in, inside, middle, mean, center" />
+  <u o="出" f="51fa" t="シュツ, スイ" m="exit, leave" />
+  <u o="三" f="4e09" t="サン, ゾウ" m="three" />
+  <u o="見" f="898b" t="ケン" m="see, hopes, chances, idea, opinion, look at, visible" />
+  <u o="月" f="6708" t="ゲツ, ガツ" m="month, moon" />
+  <u o="生" f="751f" t="セイ, ショウ" m="life, genuine, birth" />
+  <u o="五" f="4e94" t="ゴ" m="five" />
+  <u o="上" f="4e0a" t="ジョウ, ショウ, シャン" m="above, up" />
+  <u o="四" f="56db" t="シ" m="four" />
+  <u o="金" f="91d1" t="キン, コン, ゴン" m="gold" />
+  <u o="九" f="4e5d" t="キュウ, ク" m="nine" />
+  <u o="入" f="5165" t="ニュウ, ジュ" m="enter, insert" />
+  <u o="立" f="7acb" t="リツ, リュウ, リットル" m="stand up" />
+  <u o="手" f="624b" t="シュ, ズ" m="hand" />
+  <u o="力" f="529b" t="リョク, リキ, リイ" m="power, strong, strain, bear up, exert" />
+  <u o="学" f="5b66" t="ガク" m="study, learning, science" />
+  <u o="円" f="5186" t="エン" m="circle, yen, round" />
+  <u o="子" f="5b50" t="シ, ス, ツ" m="child, sign of the rat, 11PM-1AM, first sign of Chinese zodiac" />
+  <u o="目" f="76ee" t="モク, ボク" m="eye, class, look, insight, experience, care, favor" />
+  <u o="田" f="7530" t="デン" m="rice field, rice paddy" />
+  <u o="八" f="516b" t="ハチ" m="eight" />
+  <u o="六" f="516d" t="ロク, リク" m="six" />
+  <u o="下" f="4e0b" t="カ, ゲ" m="below, down, descend, give, low, inferior" />
+  <u o="気" f="6c17" t="キ, ケ" m="spirit, mind, air, atmosphere, mood" />
+  <u o="小" f="5c0f" t="ショウ" m="little, small" />
+  <u o="七" f="4e03" t="シチ" m="seven" />
+  <u o="山" f="5c71" t="サン, セン" m="mountain" />
+  <u o="正" f="6b63" t="セイ, ショウ" m="correct, justice, righteous, 10**40" />
+  <u o="女" f="5973" t="ジョ, ニョ, ニョウ" m="woman, female" />
+  <u o="百" f="767e" t="ヒャク, ビャク" m="hundred" />
+  <u o="先" f="5148" t="セン" m="before, ahead, previous, future, precedence" />
+  <u o="名" f="540d" t="メイ, ミョウ" m="name, noted, distinguished, reputation" />
+  <u o="川" f="5ddd" t="セン" m="stream, river" />
+  <u o="文" f="6587" t="ブン, モン" m="sentence, literature, style, art, decoration, figures, plan" />
+  <u o="千" f="5343" t="セン" m="thousand" />
+  <u o="水" f="6c34" t="スイ" m="water" />
+  <u o="男" f="7537" t="ダン, ナン" m="male" />
+  <u o="村" f="6751" t="ソン" m="village, town" />
+  <u o="口" f="53e3" t="コウ, ク" m="mouth" />
+  <u o="町" f="753a" t="チョウ" m="town, village, block, street" />
+  <u o="校" f="6821" t="コウ, キョウ" m="exam, school, printing, proof, correction" />
+  <u o="空" f="7a7a" t="クウ" m="empty, sky, void, vacant, vacuum" />
+  <u o="土" f="571f" t="ド, ト" m="soil, earth, ground, Turkey" />
+  <u o="木" f="6728" t="ボク, モク" m="tree, wood" />
+  <u o="車" f="8eca" t="シャ" m="car" />
+  <u o="石" f="77f3" t="セキ, シャク, コク" m="stone" />
+  <u o="足" f="8db3" t="ソク" m="leg, foot, be sufficient, counter for pairs of footwear" />
+  <u o="早" f="65e9" t="ソウ, サッ" m="early, fast" />
+  <u o="白" f="767d" t="ハク, ビャク" m="white" />
+  <u o="字" f="5b57" t="ジ" m="character, letter, word, section of village" />
+  <u o="音" f="97f3" t="オン, イン, -ノン" m="sound, noise" />
+  <u o="天" f="5929" t="テン" m="heavens, sky, imperial" />
+  <u o="火" f="706b" t="カ" m="fire" />
+  <u o="花" f="82b1" t="カ, ケ" m="flower" />
+  <u o="赤" f="8d64" t="セキ, シャク" m="red" />
+  <u o="青" f="9752" t="セイ, ショウ" m="blue, green" />
+  <u o="竹" f="7af9" t="チク" m="bamboo" />
+  <u o="右" f="53f3" t="ウ, ユウ" m="right" />
+  <u o="森" f="68ee" t="シン" m="forest, woods" />
+  <u o="左" f="5de6" t="サ, シャ" m="left" />
+  <u o="休" f="4f11" t="キュウ" m="rest, day off, retire, sleep" />
+  <u o="林" f="6797" t="リン" m="grove, forest" />
+  <u o="王" f="738b" t="オウ, -ノウ" m="king, rule, magnate" />
+  <u o="玉" f="7389" t="ギョク" m="jewel, ball" />
+  <u o="夕" f="5915" t="セキ" m="evening" />
+  <u o="雨" f="96e8" t="ウ" m="rain" />
+  <u o="草" f="8349" t="ソウ" m="grass, weeds, herbs, pasture, write, draft" />
+  <u o="犬" f="72ac" t="ケン" m="dog" />
+  <u o="耳" f="8033" t="ジ" m="ear" />
+  <u o="虫" f="866b" t="チュウ, キ" m="insect, bug, temper" />
+  <u o="糸" f="7cf8" t="シ" m="thread" />
+  <u o="貝" f="8c9d" t="バイ" m="shellfish" />
+</l>
+

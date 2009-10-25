@@ -1,4 +1,4 @@
-package gui;
+package org.abratuhi.kanji;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -14,19 +14,20 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import model.Kanji_lesson;
+import org.abratuhi.kanji.KanjiLesson;
+
 
 public class Kanji_GUI_ja_sign extends JPanel{
 	
 	Kanji_GUI root;
-	Kanji_lesson lesson;
+	KanjiLesson lesson;
 
 	Point previous = new Point();
 	
 	Dimension d = new Dimension(150, 150);
 	int t = 4;	// width of line drawn
 	
-	public Kanji_GUI_ja_sign(Kanji_GUI r, Kanji_lesson l){
+	public Kanji_GUI_ja_sign(Kanji_GUI r, KanjiLesson l){
 		// super
 		super();
 		

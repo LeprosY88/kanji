@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l>
+  <u o="党" f="515a" t="トウ" m="party, faction, clique" />
+  <u o="権" f="6a29" t="ケン, ゴン" m="authority, power, rights" />
+  <u o="派" f="6d3e" t="ハ" m="faction, group, party, clique, sect, school" />
+  <u o="済" f="6e08" t="サイ, セイ" m="finish, come to an end, excusable, need not" />
+  <u o="認" f="8a8d" t="ニン" m="acknowledge, witness, discern, recognize, appreciate, believe" />
+  <u o="策" f="7b56" t="サク" m="scheme, plan, policy, step, means" />
+  <u o="論" f="8ad6" t="ロン" m="argument, discourse" />
+  <u o="私" f="79c1" t="シ" m="private, I, me" />
+  <u o="革" f="9769" t="カク" m="leather, become serious, skin, hide, pelt" />
+  <u o="疑" f="7591" t="ギ" m="doubt, distrust, be suspicious, question" />
+  <u o="裁" f="88c1" t="サイ" m="tailor, judge, decision, cut out (pattern)" />
+  <u o="供" f="4f9b" t="キョウ, ク, クウ, グ" m="submit, offer, present, serve (meal), accompany" />
+  <u o="割" f="5272" t="カツ" m="proportion, comparatively, divide, cut, separate, split" />
+  <u o="難" f="96e3" t="ナン" m="difficult, impossible, trouble, accident, defect" />
+  <u o="補" f="88dc" t="ホ" m="supplement, supply, make good, offset, compensate, assistant, learner" />
+  <u o="優" f="512a" t="ユウ, ウ" m="tenderness, excel, surpass, actor, superiority, gentleness" />
+  <u o="収" f="53ce" t="シュウ" m="income, obtain, reap, pay, supply, store" />
+  <u o="展" f="5c55" t="テン" m="unfold, expand" />
+  <u o="宅" f="5b85" t="タク" m="home, house, residence, our house, my husband" />
+  <u o="視" f="8996" t="シ" m="inspection, regard as, see, look at" />
+  <u o="警" f="8b66" t="ケイ" m="admonish, commandment" />
+  <u o="訪" f="8a2a" t="ホウ" m="call on, visit, look up, offer sympathy" />
+  <u o="域" f="57df" t="イキ" m="range, region, limits, stage, level" />
+  <u o="映" f="6620" t="エイ" m="reflect, reflection, projection" />
+  <u o="担" f="62c5" t="タン" m="shouldering, carry, raise, bear" />
+  <u o="株" f="682a" t="シュ" m="stocks, stump, shares, stock, counter for small plants" />
+  <u o="姿" f="59ff" t="シ" m="figure, form, shape" />
+  <u o="閣" f="95a3" t="カク" m="tower, tall building, palace" />
+  <u o="衆" f="8846" t="シュウ, シュ" m="masses, great numbers, multitude, populace" />
+  <u o="若" f="82e5" t="ジャク, ニャク, ニャ" m="young, if, perhaps, possibly, low number, immature" />
+  <u o="脳" f="8133" t="ノウ, ドウ" m="brain, memory" />
+  <u o="蔵" f="8535" t="ゾウ, ソウ" m="storehouse, hide, own, have, possess" />
+  <u o="段" f="6bb5" t="ダン, タン" m="grade, steps, stairs" />
+  <u o="呼" f="547c" t="コ" m="call, call out to, invite" />
+  <u o="針" f="91dd" t="シン" m="needle, pin, staple, stinger" />
+  <u o="専" f="5c02" t="セン" m="specialty, exclusive, mainly, solely" />
+  <u o="推" f="63a8" t="スイ" m="conjecture, infer, guess, suppose, support" />
+  <u o="値" f="5024" t="チ" m="price, cost, value" />
+  <u o="討" f="8a0e" t="トウ" m="chastise, attack, defeat, destroy, conquer" />
+  <u o="処" f="51e6" t="ショ" m="dispose, manage, deal with, sentence, condemn, act, behave, place" />
+  <u o="憲" f="61b2" t="ケン" m="constitution, law" />
+  <u o="激" f="6fc0" t="ゲキ" m="violent, get excited, enraged, chafe, incite" />
+  <u o="否" f="5426" t="ヒ" m="negate, no, noes, refuse, decline, deny" />
+  <u o="系" f="7cfb" t="ケイ" m="lineage, system" />
+  <u o="批" f="6279" t="ヒ" m="criticism, strike" />
+  <u o="存" f="5b58" t="ソン, ゾン" m="suppose, be aware of, believe, feel" />
+  <u o="盟" f="76df" t="メイ" m="alliance, oath" />
+  <u o="座" f="5ea7" t="ザ" m="squat, seat, cushion, gathering, sit" />
+  <u o="除" f="9664" t="ジョ, ジ" m="exclude, division (x/3), remove, abolish, cancel, except" />
+  <u o="降" f="964d" t="コウ, ゴ" m="descend, precipitate, fall, surrender" />
+  <u o="並" f="4e26" t="ヘイ, ホウ" m="row, and, besides, as well as, line up, rank with, rival, equal" />
+  <u o="従" f="5f93" t="ジュウ, ショウ, ジュ" m="accompany, obey, submit to, comply, follow, secondary, incidental, subordinate" />
+  <u o="危" f="5371" t="キ" m="dangerous, fear, uneasy" />
+  <u o="拡" f="62e1" t="カク, コウ" m="broaden, extend, expand, enlarge" />
+  <u o="就" f="5c31" t="シュウ, ジュ" m="concerning, settle, take position, depart, study, per" />
+  <u o="異" f="7570" t="イ" m="uncommon, queerness, strangeness, wonderful, curious, unusual" />
+  <u o="将" f="5c06" t="ショウ, ソウ" m="leader, commander, general, admiral, or, and again, soon, from now on, just about" />
+  <u o="厳" f="53b3" t="ゲン, ゴン" m="stern, strictness, severity, rigidity" />
+  <u o="遺" f="907a" t="イ, ユイ" m="bequeath, leave behind, reserve" />
+  <u o="装" f="88c5" t="ソウ, ショウ" m="attire, dress, pretend, disguise, profess" />
+  <u o="諸" f="8af8" t="ショ" m="various, many, several, together" />
+  <u o="亡" f="4ea1" t="ボウ, モウ" m="deceased, the late, dying, perish" />
+  <u o="劇" f="5287" t="ゲキ" m="drama, play" />
+  <u o="模" f="6a21" t="モ, ボ" m="imitation, copy, mock" />
+  <u o="宣" f="5ba3" t="セン" m="proclaim, say, announce" />
+  <u o="背" f="80cc" t="ハイ" m="stature, height, back, behind, disobey, defy, go back on, rebel" />
+  <u o="盛" f="76db" t="セイ, ジョウ" m="boom, prosper, copulate" />
+  <u o="皇" f="7687" t="コウ, オウ" m="emperor" />
+  <u o="臨" f="81e8" t="リン" m="look to, face, meet, confront, attend, call on" />
+  <u o="署" f="7f72" t="ショ" m="signature, govt office, police station" />
+  <u o="源" f="6e90" t="ゲン" m="source, origin" />
+  <u o="創" f="5275" t="ソウ, ショウ" m="genesis, wound, injury, hurt, start, originate" />
+  <u o="障" f="969c" t="ショウ" m="hinder, hurt, harm" />
+  <u o="筋" f="7b4b" t="キン" m="muscle, sinew, tendon, fiber, plot, plan, descent" />
+  <u o="延" f="5ef6" t="エン" m="prolong, stretching" />
+  <u o="乱" f="4e71" t="ラン, ロン" m="riot, war, disorder, disturb" />
+  <u o="善" f="5584" t="ゼン" m="virtuous, good, goodness" />
+  <u o="庁" f="5e81" t="チョウ, テイ" m="government office" />
+  <u o="城" f="57ce" t="ジョウ" m="castle" />
+  <u o="層" f="5c64" t="ソウ" m="stratum, social class, layer, story, floor" />
+  <u o="裏" f="88cf" t="リ" m="back, amidst, in, reverse, inside, palm, sole, rear, lining, wrong side" />
+  <u o="密" f="5bc6" t="ミツ" m="secrecy, density (pop), minuteness, carefulness" />
+  <u o="我" f="6211" t="ガ" m="ego, I, selfish, our, oneself" />
+  <u o="勤" f="52e4" t="キン, ゴン" m="diligence, become employed, serve" />
+  <u o="幕" f="5e55" t="マク, バク" m="curtain, bunting, act of play" />
+  <u o="染" f="67d3" t="セン" m="dye, color, paint, stain, print" />
+  <u o="困" f="56f0" t="コン" m="quandary, become distressed, annoyed" />
+  <u o="傷" f="50b7" t="ショウ" m="wound, hurt, injure, impair, pain, injury, cut, gash, scar, weak point" />
+  <u o="著" f="8457" t="チョ, チャク" m="renowned, publish, write, remarkable, phenomenal, put on, don, wear, arrival, finish (race), counter for suits of clothing, literary work" />
+  <u o="誌" f="8a8c" t="シ" m="document, records" />
+  <u o="秘" f="79d8" t="ヒ" m="secret, conceal" />
+  <u o="刻" f="523b" t="コク" m="engrave, cut fine, chop, hash, mince, time, carving" />
+  <u o="宇" f="5b87" t="ウ" m="eaves, roof, house, heaven" />
+  <u o="欲" f="6b32" t="ヨク" m="longing, covetousness, greed, passion, desire, craving" />
+  <u o="痛" f="75db" t="ツウ" m="pain, hurt, damage, bruise" />
+  <u o="縮" f="7e2e" t="シュク" m="shrink, contract, shrivel, wrinkle, reduce" />
+  <u o="枚" f="679a" t="マイ, バイ" m="sheet of..., counter for flat thin objects or sheets" />
+  <u o="郵" f="90f5" t="ユウ" m="mail, stagecoach stop" />
+  <u o="探" f="63a2" t="タン" m="grope, search, look for" />
+  <u o="骨" f="9aa8" t="コツ" m="skeleton, bone, remains, frame" />
+  <u o="射" f="5c04" t="シャ" m="shoot, shine into, onto, archery" />
+  <u o="届" f="5c4a" t="カイ" m="deliver, reach, arrive, report, notify, forward" />
+  <u o="巻" f="5dfb" t="カン, ケン" m="scroll, volume, book, part, roll up, wind up, tie, coil, counter for texts (or book scrolls)" />
+  <u o="揮" f="63ee" t="キ" m="brandish, wave, wag, swing, shake" />
+  <u o="閉" f="9589" t="ヘイ" m="closed, shut" />
+  <u o="賃" f="8cc3" t="チン" m="fare, fee, hire, rent, wages, charge" />
+  <u o="貴" f="8cb4" t="キ" m="precious, value, prize, esteem, honor" />
+  <u o="暮" f="66ae" t="ボ" m="livelihood, make a living, spend time" />
+  <u o="簡" f="7c21" t="カン" m="simplicity, brevity" />
+  <u o="納" f="7d0d" t="ノウ, ナッ, ナ, ナン, トウ" m="settlement, obtain, reap, pay, supply, store" />
+  <u o="樹" f="6a39" t="ジュ" m="timber trees, wood" />
+  <u o="臓" f="81d3" t="ゾウ" m="entrails, viscera, bowels" />
+  <u o="律" f="5f8b" t="リツ, リチ, レツ" m="rhythm, law, regulation, gauge, control" />
+  <u o="至" f="81f3" t="シ" m="climax, arrive, proceed, reach, attain, result in" />
+  <u o="宗" f="5b97" t="シュウ, ソウ" m="religion, sect, denomination, main point, origin, essence" />
+  <u o="宙" f="5b99" t="チュウ" m="mid-air, air, space, sky, memorization, interval of time" />
+  <u o="操" f="64cd" t="ソウ, サン" m="maneuver, manipulate, operate, steer, chastity, virginity, fidelity" />
+  <u o="誕" f="8a95" t="タン" m="nativity, be born, declension, lie, be arbitrary" />
+  <u o="孝" f="5b5d" t="コウ, キョウ" m="filial piety, child's respect" />
+  <u o="純" f="7d14" t="ジュン" m="genuine, purity, innocence, net (profit)" />
+  <u o="訳" f="8a33" t="ヤク" m="translate, reason, circumstance, case" />
+  <u o="吸" f="5438" t="キュウ" m="suck, imbibe, inhale, sip" />
+  <u o="看" f="770b" t="カン" m="watch over, see" />
+  <u o="奏" f="594f" t="ソウ" m="play music, speak to a ruler, complete" />
+  <u o="翌" f="7fcc" t="ヨク" m="the following, next" />
+  <u o="片" f="7247" t="ヘン" m="one-sided, leaf, sheet" />
+  <u o="郷" f="90f7" t="キョウ, ゴウ" m="home town, village, native place, district" />
+  <u o="敬" f="656c" t="ケイ, キョウ" m="awe, respect, honor, revere" />
+  <u o="泉" f="6cc9" t="セン" m="spring, fountain" />
+  <u o="己" f="5df1" t="コ, キ" m="self, snake, serpent" />
+  <u o="忠" f="5fe0" t="チュウ" m="loyalty, fidelity, faithfulness" />
+  <u o="沿" f="6cbf" t="エン" m="run alongside, follow along, run along, lie along" />
+  <u o="誠" f="8aa0" t="セイ" m="sincerity, admonish, warn, prohibit, truth, fidelity" />
+  <u o="忘" f="5fd8" t="ボウ" m="forget" />
+  <u o="俳" f="4ff3" t="ハイ" m="haiku, actor" />
+  <u o="宝" f="5b9d" t="ホウ" m="treasure, wealth, valuables" />
+  <u o="胸" f="80f8" t="キョウ" m="bosom, breast, chest, heart, feelings" />
+  <u o="砂" f="7802" t="サ, シャ" m="sand" />
+  <u o="誤" f="8aa4" t="ゴ" m="mistake, err, do wrong, mislead" />
+  <u o="聖" f="8056" t="セイ, ショウ" m="holy, saint, sage, master, priest" />
+  <u o="洗" f="6d17" t="セン" m="wash, inquire into, probe" />
+  <u o="尊" f="5c0a" t="ソン" m="revered, valuable, precious, noble, exalted" />
+  <u o="窓" f="7a93" t="ソウ, ス" m="window, pane" />
+  <u o="幼" f="5e7c" t="ヨウ" m="infancy, childhood" />
+  <u o="潮" f="6f6e" t="チョウ" m="tide, salt water, opportunity" />
+  <u o="鋼" f="92fc" t="コウ" m="steel" />
+  <u o="縦" f="7e26" t="ジュウ" m="vertical, length, height, self-indulgent, wayward" />
+  <u o="捨" f="6368" t="シャ" m="discard, throw away, abandon, resign, reject, sacrifice" />
+  <u o="腹" f="8179" t="フク" m="abdomen, belly, stomach" />
+  <u o="乳" f="4e73" t="ニュウ" m="milk, breasts" />
+  <u o="紅" f="7d05" t="コウ, ク" m="crimson, deep red" />
+  <u o="冊" f="518a" t="サツ, サク" m="tome, counter for books, volume" />
+  <u o="仁" f="4ec1" t="ジン, ニ, ニン" m="humanity, virtue, benevolence, charity, man, kernel" />
+  <u o="卵" f="5375" t="ラン" m="egg, ovum, spawn, roe" />
+  <u o="干" f="5e72" t="カン" m="dry, parch" />
+  <u o="頂" f="9802" t="チョウ" m="place on the head, receive, top of head, top, summit, peak" />
+  <u o="穴" f="7a74" t="ケツ" m="hole, aperture, slit, cave, den" />
+  <u o="暖" f="6696" t="ダン, ノン" m="warmth" />
+  <u o="朗" f="6717" t="ロウ" m="melodious, clear, bright, serene, cheerful" />
+  <u o="肺" f="80ba" t="ハイ" m="lungs" />
+  <u o="熟" f="719f" t="ジュク" m="mellow, ripen, mature, acquire skill" />
+  <u o="晩" f="6669" t="バン" m="nightfall, night" />
+  <u o="陛" f="965b" t="ヘイ" m="highness, steps (of throne)" />
+  <u o="拝" f="62dd" t="ハイ" m="worship, adore, pray to" />
+  <u o="棒" f="68d2" t="ボウ" m="rod, stick, cane, pole, club, line" />
+  <u o="糖" f="7cd6" t="トウ" m="sugar" />
+  <u o="覧" f="89a7" t="ラン" m="perusal, see" />
+  <u o="奮" f="596e" t="フン" m="stirred up, be invigorated, flourish" />
+  <u o="蒸" f="84b8" t="ジョウ, セイ" m="steam, heat, sultry, foment, get musty" />
+  <u o="后" f="540e" t="コウ, ゴ" m="empress, queen, after, behind, back, later" />
+  <u o="班" f="73ed" t="ハン" m="squad, corps, unit, group" />
+  <u o="詞" f="8a5e" t="シ" m="part of speech, words, poetry" />
+  <u o="寸" f="5bf8" t="スン" m="measurement, foot/10" />
+  <u o="机" f="673a" t="キ" m="desk, table" />
+  <u o="磁" f="78c1" t="ジ" m="magnet, porcelain" />
+  <u o="灰" f="7070" t="カイ" m="ashes, puckery juice, cremate" />
+  <u o="垂" f="5782" t="スイ" m="droop, suspend, hang, slouch" />
+  <u o="穀" f="7a40" t="コク" m="cereals, grain" />
+  <u o="絹" f="7d79" t="ケン" m="silk" />
+  <u o="尺" f="5c3a" t="シャク" m="shaku, Japanese foot, measure, scale, rule" />
+  <u o="蚕" f="8695" t="サン, テン" m="silkworm" />
+</l>
+

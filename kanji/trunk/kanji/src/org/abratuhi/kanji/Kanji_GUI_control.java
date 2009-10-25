@@ -1,4 +1,4 @@
-package gui;
+package org.abratuhi.kanji;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -12,8 +12,8 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import model.Kanji_lesson;
 
+import org.abratuhi.kanji.KanjiLesson;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -22,7 +22,7 @@ import org.jdom.input.SAXBuilder;
 public class Kanji_GUI_control extends JPanel implements ActionListener{
 	
 	Kanji_GUI root;
-	Kanji_lesson lesson;
+	KanjiLesson lesson;
 	
 	JPanel select_lesson;
 	JPanel options;
@@ -42,7 +42,7 @@ public class Kanji_GUI_control extends JPanel implements ActionListener{
 	JComboBox jcb_select_lesson;
 	
 	
-	public Kanji_GUI_control(Kanji_GUI r, Kanji_lesson l){
+	public Kanji_GUI_control(Kanji_GUI r, KanjiLesson l){
 		// super
 		super();
 		

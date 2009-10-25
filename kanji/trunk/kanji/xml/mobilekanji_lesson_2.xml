@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l>
+  <u o="国" f="56fd" t="コク" m="country" />
+  <u o="会" f="4f1a" t="カイ, エ" m="meeting, meet, party, association, interview, join" />
+  <u o="長" f="9577" t="チョウ" m="long, leader" />
+  <u o="同" f="540c" t="ドウ" m="same, agree, equal" />
+  <u o="時" f="6642" t="ジ" m="time, hour" />
+  <u o="自" f="81ea" t="ジ, シ" m="oneself" />
+  <u o="行" f="884c" t="" m="going, journey" />
+  <u o="社" f="793e" t="シャ" m="company, firm, office, association, shrine" />
+  <u o="分" f="5206" t="ブン, フン, ブ" m="part, minute of time, segment, share, degree, one's lot, duty, understand, know, rate, 1%, chances, shaku/100" />
+  <u o="後" f="5f8c" t="ゴ, コウ" m="behind, back, later" />
+  <u o="前" f="524d" t="ゼン" m="in front, before" />
+  <u o="間" f="9593" t="カン, ケン" m="interval, space" />
+  <u o="東" f="6771" t="トウ" m="east" />
+  <u o="地" f="5730" t="チ, ジ" m="ground, earth" />
+  <u o="合" f="5408" t="ゴウ, ガッ, カッ" m="fit, suit, join, 0.1" />
+  <u o="市" f="5e02" t="シ" m="market, city, town" />
+  <u o="内" f="5185" t="ナイ, ダイ" m="inside, within, between, among, house, home" />
+  <u o="方" f="65b9" t="ホウ" m="direction, person, alternative" />
+  <u o="今" f="4eca" t="コン, キン" m="now" />
+  <u o="回" f="56de" t="カイ, エ" m="-times, round, game, revolve, counter for occurrences" />
+  <u o="新" f="65b0" t="シン" m="new" />
+  <u o="場" f="5834" t="ジョウ, チョウ" m="location, place" />
+  <u o="米" f="7c73" t="ベイ, マイ, メエトル" m="rice, USA, metre" />
+  <u o="高" f="9ad8" t="コウ" m="tall, high, expensive" />
+  <u o="明" f="660e" t="メイ, ミョウ, ミン" m="bright, light" />
+  <u o="京" f="4eac" t="キョウ, ケイ, キン" m="capital, 10**16" />
+  <u o="通" f="901a" t="ツウ, ツ" m="traffic, pass through, avenue, commute, counter for letters, notes, documents, etc." />
+  <u o="外" f="5916" t="ガイ, ゲ" m="outside" />
+  <u o="言" f="8a00" t="ゲン, ゴン" m="say" />
+  <u o="理" f="7406" t="リ" m="logic, arrangement, reason, justice, truth" />
+  <u o="体" f="4f53" t="タイ, テイ" m="body, substance, object, reality, counter for images" />
+  <u o="当" f="5f53" t="トウ" m="hit, right, appropriate, himself" />
+  <u o="首" f="9996" t="シュ" m="neck, counter for songs and poems" />
+  <u o="来" f="6765" t="ライ, タイ" m="come, due, next, cause, become" />
+  <u o="作" f="4f5c" t="サク, サ" m="make, production, prepare, build" />
+  <u o="用" f="7528" t="ヨウ" m="utilize, business, service, use, employ" />
+  <u o="強" f="5f37" t="キョウ, ゴウ" m="strong" />
+  <u o="公" f="516c" t="コウ, ク" m="public, prince, official, governmental" />
+  <u o="野" f="91ce" t="ヤ, ショ" m="plains, field, rustic, civilian life" />
+  <u o="思" f="601d" t="シ" m="think" />
+  <u o="家" f="5bb6" t="カ, ケ" m="house, home" />
+  <u o="話" f="8a71" t="ワ" m="tale, talk" />
+  <u o="多" f="591a" t="タ" m="many, frequent, much" />
+  <u o="数" f="6570" t="スウ, ス, サク, ソク, シュ" m="number, strength, fate, law, figures" />
+  <u o="記" f="8a18" t="キ" m="scribe, account, narrative" />
+  <u o="北" f="5317" t="ホク" m="north" />
+  <u o="午" f="5348" t="ゴ" m="noon, sign of the horse, 11AM-1PM, seventh sign of Chinese zodiac" />
+  <u o="心" f="5fc3" t="シン" m="heart, mind, spirit" />
+  <u o="点" f="70b9" t="テン" m="spot, point, mark, speck, decimal point" />
+  <u o="教" f="6559" t="キョウ" m="teach, faith, doctrine" />
+  <u o="書" f="66f8" t="ショ" m="write" />
+  <u o="活" f="6d3b" t="カツ" m="lively, resuscitation, being helped, living" />
+  <u o="原" f="539f" t="ゲン" m="meadow, original, primitive, field, plain, prairie, tundra, wilderness" />
+  <u o="交" f="4ea4" t="コウ" m="mingle, mixing, association, coming &amp; going" />
+  <u o="元" f="5143" t="ゲン, ガン" m="beginning, former time, origin" />
+  <u o="近" f="8fd1" t="キン, コン" m="near, early, akin, tantamount" />
+  <u o="考" f="8003" t="コウ" m="consider, think over" />
+  <u o="画" f="753b" t="ガ, カク, エ, カイ" m="brush-stroke, picture" />
+  <u o="海" f="6d77" t="カイ" m="sea, ocean" />
+  <u o="売" f="58f2" t="バイ" m="sell" />
+  <u o="組" f="7d44" t="ソ" m="association, braid, plait, construct, assemble, unite, cooperate, grapple" />
+  <u o="知" f="77e5" t="チ" m="know, wisdom" />
+  <u o="道" f="9053" t="ドウ, トウ" m="road-way, street, district, journey, course, moral, teachings" />
+  <u o="引" f="5f15" t="イン" m="pull, tug, jerk, admit, install, quote, refer to" />
+  <u o="半" f="534a" t="ハン" m="half, middle, odd number, semi-, part-" />
+  <u o="計" f="8a08" t="ケイ" m="plot, plan, scheme, measure" />
+  <u o="直" f="76f4" t="チョク, ジキ, ジカ" m="straightaway, honesty, frankness, fix, repair" />
+  <u o="朝" f="671d" t="チョウ" m="morning, dynasty, regime, epoch, period, (North) Korea" />
+  <u o="西" f="897f" t="セイ, サイ, ス" m="west, Spain" />
+  <u o="台" f="53f0" t="ダイ, タイ" m="pedestal, a stand, counter for machines and vehicles" />
+  <u o="広" f="5e83" t="コウ" m="wide, broad, spacious" />
+  <u o="電" f="96fb" t="デン" m="electricity" />
+  <u o="少" f="5c11" t="ショウ" m="few, little" />
+  <u o="工" f="5de5" t="コウ, ク, グ" m="craft, construction" />
+  <u o="語" f="8a9e" t="ゴ" m="word, speech, language" />
+  <u o="止" f="6b62" t="シ" m="stop, halt" />
+  <u o="聞" f="805e" t="ブン, モン" m="hear, ask, listen" />
+  <u o="切" f="5207" t="セツ, サイ" m="cut, cutoff, be sharp" />
+  <u o="食" f="98df" t="ショク, ジキ" m="eat, food" />
+  <u o="何" f="4f55" t="カ" m="what" />
+  <u o="南" f="5357" t="ナン, ナ" m="south" />
+  <u o="番" f="756a" t="バン" m="turn, number in a series" />
+  <u o="算" f="7b97" t="サン" m="calculate, divining, number, abacus, probability" />
+  <u o="楽" f="697d" t="ガク, ラク, ゴウ" m="music, comfort, ease" />
+  <u o="万" f="4e07" t="マン, バン" m="ten thousand" />
+  <u o="店" f="5e97" t="テン" m="store, shop" />
+  <u o="線" f="7dda" t="セン" m="line, track" />
+  <u o="声" f="58f0" t="セイ, ショウ" m="voice" />
+  <u o="親" f="89aa" t="シン" m="parent, intimacy, relative, familiarity, dealer (cards)" />
+  <u o="形" f="5f62" t="ケイ, ギョウ" m="shape, form, style" />
+  <u o="頭" f="982d" t="トウ, ズ, ト" m="head, counter for large animals" />
+  <u o="毎" f="6bce" t="マイ" m="every" />
+  <u o="門" f="9580" t="モン" m="gate, counter for cannons" />
+  <u o="答" f="7b54" t="トウ" m="solution, answer" />
+  <u o="夜" f="591c" t="ヤ" m="night, evening" />
+  <u o="帰" f="5e30" t="キ" m="homecoming, arrive at, lead to, result in" />
+  <u o="谷" f="8c37" t="コク" m="valley" />
+  <u o="古" f="53e4" t="コ" m="old" />
+  <u o="歌" f="6b4c" t="カ" m="song, sing" />
+  <u o="買" f="8cb7" t="バイ" m="buy" />
+  <u o="光" f="5149" t="コウ" m="ray, light" />
+  <u o="科" f="79d1" t="カ" m="department, course, section" />
+  <u o="細" f="7d30" t="サイ" m="dainty, get thin, taper, slender, narrow" />
+  <u o="図" f="56f3" t="ズ, ト" m="map, drawing, plan, unexpected, accidentally" />
+  <u o="週" f="9031" t="シュウ" m="week" />
+  <u o="丸" f="4e38" t="ガン" m="round, full, month, perfection, -ship, pills, make round, roll up, curl up, seduce, explain away" />
+  <u o="室" f="5ba4" t="シツ" m="room, apartment, chamber, greenhouse, cellar" />
+  <u o="太" f="592a" t="タイ, タ" m="plump, thick, big around" />
+  <u o="歩" f="6b69" t="ホ, ブ, フ" m="walk, counter for steps" />
+  <u o="風" f="98a8" t="フウ, フ" m="wind, air, style, manner" />
+  <u o="紙" f="7d19" t="シ" m="paper" />
+  <u o="母" f="6bcd" t="ボ" m="mama, mother" />
+  <u o="黒" f="9ed2" t="コク" m="black" />
+  <u o="戸" f="6238" t="コ" m="door, counter for houses" />
+  <u o="春" f="6625" t="シュン" m="springtime, spring (season)" />
+  <u o="読" f="8aad" t="ドク, トク, トウ" m="read" />
+  <u o="色" f="8272" t="ショク, シキ" m="color" />
+  <u o="友" f="53cb" t="ユウ" m="friend" />
+  <u o="走" f="8d70" t="ソウ" m="run" />
+  <u o="園" f="5712" t="エン" m="park, garden, yard, farm" />
+  <u o="秋" f="79cb" t="シュウ" m="autumn" />
+  <u o="馬" f="99ac" t="バ" m="horse" />
+  <u o="父" f="7236" t="フ" m="father" />
+  <u o="夏" f="590f" t="カ, ガ, ゲ" m="summer" />
+  <u o="顔" f="9854" t="ガン" m="face, expression" />
+  <u o="船" f="8239" t="セン" m="ship, boat" />
+  <u o="羽" f="7fbd" t="ウ" m="feathers, counter for birds, rabbits" />
+  <u o="岩" f="5ca9" t="ガン" m="boulder, rock, cliff" />
+  <u o="角" f="89d2" t="カク" m="angle, corner, square, horn, antlers" />
+  <u o="池" f="6c60" t="チ" m="pond, cistern, pool, reservoir" />
+  <u o="星" f="661f" t="セイ, ショウ" m="star, spot, dot, mark" />
+  <u o="寺" f="5bfa" t="ジ" m="Buddhist temple" />
+  <u o="遠" f="9060" t="エン, オン" m="distant, far" />
+  <u o="絵" f="7d75" t="カイ, エ" m="picture, drawing, painting, sketch" />
+  <u o="曜" f="66dc" t="ヨウ" m="weekday" />
+  <u o="弱" f="5f31" t="ジャク" m="weak, frail" />
+  <u o="肉" f="8089" t="ニク" m="meat" />
+  <u o="晴" f="6674" t="セイ" m="clear up" />
+  <u o="鳥" f="9ce5" t="チョウ" m="bird, chicken" />
+  <u o="冬" f="51ac" t="トウ" m="winter" />
+  <u o="里" f="91cc" t="リ" m="ri, village, parent's home, league" />
+  <u o="昼" f="663c" t="チュウ" m="daytime, noon" />
+  <u o="茶" f="8336" t="チャ, サ" m="tea" />
+  <u o="雪" f="96ea" t="セツ" m="snow" />
+  <u o="弟" f="5f1f" t="テイ, ダイ, デ" m="younger brother, faithful service to elders" />
+  <u o="毛" f="6bdb" t="モウ" m="fur, hair, feather, down" />
+  <u o="牛" f="725b" t="ギュウ" m="cow" />
+  <u o="魚" f="9b5a" t="ギョ" m="fish" />
+  <u o="兄" f="5144" t="ケイ, キョウ" m="elder brother, big brother" />
+  <u o="黄" f="9ec4" t="コウ, オウ" m="yellow" />
+  <u o="雲" f="96f2" t="ウン" m="cloud" />
+  <u o="鳴" f="9cf4" t="メイ" m="chirp, cry, bark, sound, ring, echo, honk" />
+  <u o="矢" f="77e2" t="シ" m="dart, arrow" />
+  <u o="妹" f="59b9" t="マイ" m="younger sister" />
+  <u o="姉" f="59c9" t="シ" m="elder sister" />
+  <u o="才" f="624d" t="サイ" m="genius, years old, cubic shaku" />
+  <u o="麦" f="9ea6" t="バク" m="barley, wheat" />
+  <u o="刀" f="5200" t="トウ" m="sword, saber, knife" />
+  <u o="弓" f="5f13" t="キュウ" m="bow, bow (archery, violin)" />
+  <u o="汽" f="6c7d" t="キ" m="vapor, steam" />
+</l>
+

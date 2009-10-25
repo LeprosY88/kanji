@@ -1,4 +1,4 @@
-package gui;
+package org.abratuhi.kanji;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -8,13 +8,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import model.Kanji_char;
-import model.Kanji_lesson;
+import org.abratuhi.kanji.KanjiChar;
+import org.abratuhi.kanji.KanjiLesson;
+
 
 public class Kanji_GUI_ja extends JPanel{
 	
 	Kanji_GUI root;
-	Kanji_lesson lesson;
+	KanjiLesson lesson;
 	
 	Kanji_GUI_ja_sign sign;
 	
@@ -22,7 +23,7 @@ public class Kanji_GUI_ja extends JPanel{
 	
 	JTextArea example;
 	
-	public Kanji_GUI_ja(Kanji_GUI r, Kanji_lesson l){
+	public Kanji_GUI_ja(Kanji_GUI r, KanjiLesson l){
 		// super
 		super();
 		
@@ -49,7 +50,7 @@ public class Kanji_GUI_ja extends JPanel{
 		add(new JScrollPane(reading));
 	}
 	
-	public void paintChar(Kanji_char c, boolean paintChar, boolean printReading){
+	public void paintChar(KanjiChar c, boolean paintChar, boolean printReading){
 		//System.out.println("setting reading");
 		// paint char in sign
 		if(paintChar) sign.paintChar(c.ch);
