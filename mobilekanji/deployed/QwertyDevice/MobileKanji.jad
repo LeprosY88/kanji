@@ -1,0 +1,8 @@
+MIDlet-1: KanjiMidlet,,org.abratuhi.mobilekanji.KanjiMidlet
+MIDlet-Jar-Size: 1329433
+MIDlet-Jar-URL: MobileKanji.jar
+MIDlet-Name: MobileKanji Midlet Suite
+MIDlet-Vendor: Alexei Bratuhin
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
