@@ -1,6 +1,7 @@
 package org.abratuhi.mobilekanji;
 
 import java.io.IOException;
+import java.util.Hashtable;
 
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
@@ -11,10 +12,10 @@ import javax.microedition.lcdui.Image;
 
 import org.abratuhi.mobilekanji.model.Lesson;
 import org.abratuhi.mobilekanji.model.LessonUnit;
+import org.abratuhi.mobilekanji.model.LessonUnitStatus;
 
 class KanjiCanvas extends Canvas implements CommandListener
 {
-
 
 	Command exitCommand = new Command("Exit", Command.EXIT, 0);
 	Command loada = new Command("Load LessonA", Command.SCREEN, 1);
@@ -27,9 +28,12 @@ class KanjiCanvas extends Canvas implements CommandListener
 	Command load6 = new Command("Load Lesson6", Command.SCREEN, 6);
 
 	Lesson lesson = new Lesson();
+	Hashtable knowntable = new Hashtable();
 
 	private KanjiMidlet midlet;
 	private Image im = null;
+	
+	private int mode = 0; // 0 - show all, 1 - show kanji, 2 - show translation
 
 	public KanjiCanvas(KanjiMidlet midlet)
 	{
@@ -68,12 +72,50 @@ class KanjiCanvas extends Canvas implements CommandListener
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		g.setColor(0, 0, 0);
-		if (im != null) g.drawImage(im, getWidth() / 2, getHeight() / 2, Graphics.VCENTER | 
-				Graphics.HCENTER);
+		if (im != null)
+		{
+			g.drawImage(im, getWidth() / 2, getHeight() / 2, Graphics.VCENTER | Graphics.HCENTER); 
+		}
+		
+		switch(this.mode)
+		{
+		case 0:
+		{
+			break;
+		}
+		case 1:
+		{
+			g.setColor(0, 0, 0);
+			g.fillRect(0, getHeight() * 15/40, getWidth(), getHeight() * 25/40);
+			break;
+		}
+		case 2:
+		{
+			g.setColor(0, 0, 0);
+			g.fillRect(0, 0, getWidth(), getHeight() * 15/40);
+			break;
+		}
+		}
+		
+		
+		LessonUnit lu = lesson.getCurrent();
+		if(lu != null)
+		{
+			LessonUnitStatus lus = lu.getStatus();
+			if(lus.isGreen())
+			{
+				g.setColor(0, 255, 0);
+				g.fillRect(getWidth()-50, getHeight()-50, 25, 25);
+			}
+			else if(lus.isRed())
+			{
+				g.setColor(255, 0, 0);
+				g.fillRect(getWidth()-50, getHeight()-50, 25, 25);
+			}
+		}
 	}
 
 	protected void keyPressed(int keyCode) {
-		//System.out.println("keyPressed = " + getKeyName(keyCode));
 		try{
 			switch(keyCode)
 			{
@@ -88,6 +130,40 @@ class KanjiCanvas extends Canvas implements CommandListener
 			{
 				LessonUnit lu = lesson.getNext();
 				im = Image.createImage("/" + lu.getUid() + ".png");
+				this.repaint();
+				break;
+			}
+			case Canvas.KEY_NUM5:
+			{
+				LessonUnit lu = lesson.getCurrent();
+				if(lu.getStatus().isRed())
+					lu.setStatus(LessonUnitStatus.GREEN_STATUS());
+				else if(lu.getStatus().isGreen())
+					lu.setStatus(LessonUnitStatus.RED_STATUS());
+				
+				lesson.order();
+				
+				this.repaint();
+				break;
+			}
+			case Canvas.KEY_NUM0:
+			{
+				this.mode = 0;
+				
+				this.repaint();
+				break;
+			}
+			case Canvas.KEY_NUM1:
+			{
+				this.mode = 1;
+				
+				this.repaint();
+				break;
+			}
+			case Canvas.KEY_NUM2:
+			{
+				this.mode = 2;
+				
 				this.repaint();
 				break;
 			}

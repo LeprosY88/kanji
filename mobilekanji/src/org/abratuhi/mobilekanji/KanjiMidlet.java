@@ -1,16 +1,21 @@
 package org.abratuhi.mobilekanji;
 
-import javax.microedition.lcdui.Canvas;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Enumeration;
+import java.util.Hashtable;
+
+import javax.microedition.io.Connector;
+import javax.microedition.io.file.FileConnection;
+import javax.microedition.io.file.FileSystemRegistry;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
-import javax.microedition.lcdui.TextBox;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
 
 import org.abratuhi.mobilekanji.model.Lesson;
-import org.abratuhi.mobilekanji.model.LessonUnit;
 
 public class KanjiMidlet extends MIDlet implements CommandListener{
 	private Display  display;     // The display
@@ -19,6 +24,22 @@ public class KanjiMidlet extends MIDlet implements CommandListener{
 	public KanjiMidlet(){
 		display = Display.getDisplay(this);
 		canvas  = new KanjiCanvas(this);
+		
+		/*Hashtable table = new Hashtable();
+		table.put("1", "1");
+		table.put("2", "1");
+		table.put("3", "1");
+		table.put("4", "1");
+		table.put("5", "1");
+		
+		new Lesson().saveKnownTable("file:///root1/photos/table.txt", table);
+		
+		Hashtable table2 = new Hashtable();
+		
+		new Lesson().loadKnownTable("file:///root1/photos/table.txt", table2);
+		
+		System.out.println(table2.toString());*/
+        
 
 	}
 
