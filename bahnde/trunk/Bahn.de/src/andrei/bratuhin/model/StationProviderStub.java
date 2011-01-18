@@ -16,6 +16,9 @@ public class StationProviderStub {
 		station2.setId(2);
 		station2.setName("DŸsseldorf");
 		
+		station1.addIncidentStation(station2);
+		station2.addIncidentStation(station1);
+		
 		List<Station> result = new Vector<Station>();
 		result.add(station1);
 		result.add(station2);
