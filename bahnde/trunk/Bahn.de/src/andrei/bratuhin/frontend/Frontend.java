@@ -1,8 +1,5 @@
 package andrei.bratuhin.frontend;
 
-import java.io.File;
-
-
 import andrei.bratuhin.frontend.Frontend;
 import andrei.bratuhin.frontend.MainWindow;
 
