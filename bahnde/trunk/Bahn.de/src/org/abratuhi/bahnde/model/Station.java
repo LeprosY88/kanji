@@ -15,6 +15,9 @@ public class Station {
 	/** List of incidents stations - stations reachable with a direct train connection**/
 	private List<Station> incidentStations;
 	
+	/** Coordinates for presentation purposes only.
+	 * These coordinates are not used to compute any kind of distance between the stations.
+	 * See {@link EdgeRoute#getDuration()}**/
 	private List<Double> coordinates;
 	
 	
