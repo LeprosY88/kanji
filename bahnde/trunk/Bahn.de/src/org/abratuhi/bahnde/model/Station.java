@@ -1,6 +1,7 @@
 package org.abratuhi.bahnde.model;
 
 import java.util.List;
+import java.util.Vector;
 
 public class Station {
 	/** Unique identifier of the station**/
@@ -13,7 +14,7 @@ public class Station {
 	private long duration;
 	
 	/** List of incidents stations - stations reachable with a direct train connection**/
-	private List<Station> incidentStations;
+	private List<Station> incidentStations = new Vector<Station>();
 	
 	/** Coordinates for presentation purposes only.
 	 * These coordinates are not used to compute any kind of distance between the stations.
@@ -21,7 +22,9 @@ public class Station {
 	private List<Double> coordinates;
 	
 	
-	
+	public void addIncidentStation(Station station){
+		incidentStations.add(station);
+	}
 	
 	
 	
