@@ -7,8 +7,8 @@ create table stations(
 
 create table incident_stations(
 "id" integer primary key,
-"id_start" integer not null,
-"id_end" integer not null
+"id_start" integer references stations("id"),
+"id_end" integer references stations("id")
 );
 
 create table routes(
