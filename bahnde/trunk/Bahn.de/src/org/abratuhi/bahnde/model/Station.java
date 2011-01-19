@@ -34,6 +34,15 @@ public class Station {
 	}
 	
 	
+	public boolean equals(Object obj){
+		return ((Station)obj).getId() == getId();
+	}
+	
+	public int hashCode(){
+		return getId();
+	}
+	
+	
 	
 	
 	

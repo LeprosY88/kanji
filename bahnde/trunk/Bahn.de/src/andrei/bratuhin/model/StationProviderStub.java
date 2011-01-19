@@ -79,11 +79,84 @@ public class StationProviderStub {
 		station14.setCoordinates("21;-11");
 		
 		station1.addIncidentStation(station2);
+		station1.addIncidentStation(station7);
+		station1.addIncidentStation(station12);
+		station1.addIncidentStation(station10);
+		station1.addIncidentStation(station9);
+		station1.addIncidentStation(station8);
+		
+		
 		station2.addIncidentStation(station1);
+		station2.addIncidentStation(station3);
+		station2.addIncidentStation(station5);
+		station2.addIncidentStation(station7);
+		station2.addIncidentStation(station8);
+		
+		station3.addIncidentStation(station2);
+		station3.addIncidentStation(station4);
+		station3.addIncidentStation(station8);
+		
+		station4.addIncidentStation(station3);
+		station4.addIncidentStation(station5);
+		
+		station5.addIncidentStation(station2);
+		station5.addIncidentStation(station4);
+		station5.addIncidentStation(station6);
+		
+		station6.addIncidentStation(station5);
+		station6.addIncidentStation(station7);
+		
+		station7.addIncidentStation(station1);
+		station7.addIncidentStation(station2);
+		station7.addIncidentStation(station5);
+		station7.addIncidentStation(station6);
+		station7.addIncidentStation(station12);
+		
+		station8.addIncidentStation(station1);
+		station8.addIncidentStation(station2);
+		station8.addIncidentStation(station3);
+		station8.addIncidentStation(station14);
+		
+		station9.addIncidentStation(station1);
+		station9.addIncidentStation(station10);
+		station9.addIncidentStation(station14);
+		
+		station10.addIncidentStation(station1);
+		station10.addIncidentStation(station9);
+		station10.addIncidentStation(station11);
+		station10.addIncidentStation(station12);
+		station10.addIncidentStation(station13);
+		
+		station11.addIncidentStation(station10);
+		station11.addIncidentStation(station13);
+		
+		station12.addIncidentStation(station1);
+		station12.addIncidentStation(station7);
+		station12.addIncidentStation(station10);
+		
+		station13.addIncidentStation(station10);
+		station13.addIncidentStation(station11);
+		station13.addIncidentStation(station14);
+		
+		station14.addIncidentStation(station8);
+		station14.addIncidentStation(station9);
+		station14.addIncidentStation(station13);
 		
 		List<Station> result = new Vector<Station>();
 		result.add(station1);
 		result.add(station2);
+		result.add(station3);
+		result.add(station4);
+		result.add(station5);
+		result.add(station6);
+		result.add(station7);
+		result.add(station8);
+		result.add(station9);
+		result.add(station10);
+		result.add(station11);
+		result.add(station12);
+		result.add(station13);
+		result.add(station14);
 		return result;
 	}
 

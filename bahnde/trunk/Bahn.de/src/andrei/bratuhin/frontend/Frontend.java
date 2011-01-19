@@ -1,5 +1,7 @@
 package andrei.bratuhin.frontend;
 
+import org.apache.log4j.BasicConfigurator;
+
 import andrei.bratuhin.frontend.Frontend;
 import andrei.bratuhin.frontend.MainWindow;
 
@@ -10,6 +12,7 @@ public class Frontend
 	
 	public static void main(String[] args)
 	{
+		BasicConfigurator.configure();
 		new Frontend();
 	}
 	
