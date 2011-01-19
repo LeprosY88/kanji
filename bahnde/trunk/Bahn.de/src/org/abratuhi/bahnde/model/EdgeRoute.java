@@ -13,7 +13,7 @@ public class EdgeRoute {
 	private Date departure;
 	
 	/** Duration of the train trip**/
-	private long duration;
+	private int duration;
 	
 	/** Departure station**/
 	private Station departureStation;
@@ -51,11 +51,11 @@ public class EdgeRoute {
 		this.departure = departure;
 	}
 
-	public long getDuration() {
+	public int getDuration() {
 		return duration;
 	}
 
-	public void setDuration(long duration) {
+	public void setDuration(int duration) {
 		this.duration = duration;
 	}
 

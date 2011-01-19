@@ -4,7 +4,6 @@ import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.help.plaf.basic.BasicFavoritesNavigatorUI.AddAction;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
