@@ -23,6 +23,7 @@ public class MainWindow extends JFrame implements KeyListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1, 2));
 		
+		
 		addKeyListener(this);
 
 		this.frontend = frontend;
