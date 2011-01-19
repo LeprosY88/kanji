@@ -36,7 +36,7 @@ public class Dijkstra {
 			Station u = getClosest(q, dist);
 			q.remove(u);
 
-			LOG.debug("Dikstra: proceed on node " + u.getName() + "(" + u.getId() + ")");
+			LOG.debug("Dijkstra: proceed on node " + u.getName() + "(" + u.getId() + ")");
 			
 			for(Station neighbour : u.getIncidentStations()){
 				int alt = dist.get(u) + distance(u, neighbour, edges);
