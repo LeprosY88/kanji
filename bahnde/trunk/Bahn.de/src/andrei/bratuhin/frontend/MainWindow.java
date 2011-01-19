@@ -1,9 +1,11 @@
 package andrei.bratuhin.frontend;
 
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.help.plaf.basic.BasicFavoritesNavigatorUI.AddAction;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -43,6 +45,14 @@ public class MainWindow extends JFrame implements KeyListener{
 		repaint();
 		
 	}
+	public void paint(Graphics g) {
+		super.paint(g);
+
+		if (panel2 != null) {
+			panel2.myrepaint();
+		}
+	}
+
 
 	@Override
 	public void keyPressed(KeyEvent ke) {
