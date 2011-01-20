@@ -41,7 +41,7 @@ public class StationProviderStub {
 		Station station7 = new Station();
 		station7.setId(7);
 		station7.setName("Gelsenkirchen");
-		station7.setCoordinates("-11;-9");
+		station7.setCoordinates("-11;9");
 		
 		Station station8 = new Station();
 		station8.setId(8);
