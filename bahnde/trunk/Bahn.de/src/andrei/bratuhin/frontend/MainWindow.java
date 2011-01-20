@@ -1,15 +1,19 @@
 package andrei.bratuhin.frontend;
 
-import java.awt.BorderLayout;
 import java.awt.Graphics;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import org.abratuhi.bahnde.output.PrintableRoute;
+
+import andrei.bratuhin.model.StationProviderStub;
 
 
 public class MainWindow extends JFrame implements KeyListener{
@@ -60,6 +64,17 @@ public class MainWindow extends JFrame implements KeyListener{
 		if(ke.getKeyChar() == '!'){
 			System.out.println("Bring up the sql window");
 			new SQLConsole();
+		}
+		else if(ke.getKeyChar() == 'p'){
+			PrinterJob pj = PrinterJob.getPrinterJob();
+		    pj.setPrintable(new PrintableRoute(StationProviderStub.getStations()));
+		    if (pj.printDialog()) {
+		      try {
+		        pj.print();
+		      } catch (PrinterException e) {
+		        System.out.println(e);
+		      }
+		    }
 		}
 	}
 

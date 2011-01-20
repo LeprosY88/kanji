@@ -7,16 +7,13 @@ import java.util.Vector;
 
 import org.abratuhi.bahnde.model.EdgeRoute;
 import org.abratuhi.bahnde.model.Station;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-public class Dijkstra {
+public class Dijkstra extends Algorithm {
 	
 	private final static Logger LOG = Logger.getLogger(Dijkstra.class);
 	
-	public static List<Station> getShortestPath(Station from, Station to, List<Station> nodes, List<EdgeRoute> edges){
-		BasicConfigurator.configure();
-		
+	public List<Station> getShortestPath(Station from, Station to, List<Station> nodes, List<EdgeRoute> edges){
 		List<Station> result = new Vector<Station>();
 		
 		List<Station> q = new Vector<Station>(nodes);
@@ -56,33 +53,6 @@ public class Dijkstra {
 		
 		
 		return result;
-	}
-	
-	
-	private static int distance(Station from, Station to, List<EdgeRoute> edges){
-		int result = Integer.MAX_VALUE;
-		for(EdgeRoute edge : edges){
-			if(edge.getDepartureStation().equals(from) && edge.getArrivalStation().equals(to)){
-				if(result > edge.getDuration()){
-					result = edge.getDuration();
-				}
-			}
-		}
-		return result;
-	}
-	
-	private static Station getClosest(List<Station> q, Map<Station, Integer> nodes){
-		int min = Integer.MAX_VALUE;
-		Station station = null;
-		
-		for(Station node : q){
-			if(nodes.get(node) < min){
-				min = nodes.get(node);
-				station = node;
-			}
-		}
-		
-		return station;
 	}
 
 }
