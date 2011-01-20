@@ -2,20 +2,27 @@ package org.abratuhi.bahnde.model;
 
 import java.util.List;
 
-import org.abratuhi.bahnde.util.Dijkstra;
-
 import junit.framework.TestCase;
+
+import org.abratuhi.bahnde.util.FloydWarshall;
+import org.apache.log4j.BasicConfigurator;
+
 import andrei.bratuhin.model.EdgeRouteProviderStub;
 import andrei.bratuhin.model.StationProviderStub;
 
-public class DijkstraTest extends TestCase {
+public class FloydWarshallTest extends TestCase {
+	
+	static{
+		BasicConfigurator.configure();
+	}
+	
 	public void testGetShortestPath_1_2(){
 		List<Station> stations = StationProviderStub.getStations();
 		List<EdgeRoute> edges = EdgeRouteProviderStub.getEdges();
 		Station from = stations.get(0);
 		Station to = stations.get(1);
 		
-		List<Station> result = new Dijkstra().getShortestPath(from, to, stations, edges);
+		List<Station> result = new FloydWarshall().getShortestPath(from, to, stations, edges);
 		
 		assertEquals(2, result.size());
 		assertEquals(from, result.get(0));
@@ -28,7 +35,7 @@ public class DijkstraTest extends TestCase {
 		Station from = stations.get(4-1);
 		Station to = stations.get(1-1);
 		
-		List<Station> result = new Dijkstra().getShortestPath(from, to, stations, edges);
+		List<Station> result = new FloydWarshall().getShortestPath(from, to, stations, edges);
 		
 		assertEquals(4, result.size());
 		assertEquals(from, result.get(0));
@@ -43,7 +50,7 @@ public class DijkstraTest extends TestCase {
 		Station from = stations.get(6-1);
 		Station to = stations.get(14-1);
 		
-		List<Station> result = new Dijkstra().getShortestPath(from, to, stations, edges);
+		List<Station> result = new FloydWarshall().getShortestPath(from, to, stations, edges);
 		
 		assertEquals(5, result.size());
 		assertEquals(from, result.get(0));
