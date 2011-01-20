@@ -27,7 +27,7 @@ public class PrintableRoute implements Printable{
 		
 		gg.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
 		
-		//gg.setFont(new Font("Helvetica", Font.PLAIN, 20));
+		gg.setFont(new Font("Helvetica", Font.PLAIN, 20));
 	    gg.setPaint(Color.BLACK);
 	    gg.setColor(Color.BLACK);
 		
