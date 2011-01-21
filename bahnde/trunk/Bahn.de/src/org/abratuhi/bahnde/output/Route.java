@@ -42,9 +42,9 @@ public class Route implements Printable{
 			gg.setPaint(Color.BLACK);
 			gg.setColor(Color.BLACK);
 
-			for(int i=0; i<stations.size(); i++){
-				Station station = stations.get(i);
-				gg.drawString(station.getName(), 10, 20 * (i+1));
+			for(int i=0; i<route.size(); i++){
+				RouteEdge edge = route.get(i);
+				gg.drawString(i + ") " + edge.getText(), 10, 20 * (i+1));
 			}
 
 			return PAGE_EXISTS;
@@ -56,7 +56,7 @@ public class Route implements Printable{
 		
 		for(int i=0; i<route.size(); i++){
 			RouteEdge edge = route.get(i);
-			result.append(i + ") " + edge.getDepartureStation().getName() + " at " + new SimpleDateFormat("HH:mm").format(edge.getDeparture()) + " --- " + edge.getDuration() + " --> " + edge.getArrivalStation().getName() + "\n");
+			result.append(i + ") " + edge.getText() + "\n");
 		}
 		
 		return result.toString();

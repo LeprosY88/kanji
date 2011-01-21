@@ -1,5 +1,6 @@
 package org.abratuhi.bahnde.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -44,6 +45,10 @@ public class RouteEdge {
 		int idle = (int) ((cal2.getTimeInMillis() - cal1.getTimeInMillis()) / 1000 / 60);
 		
 		return duration + idle;
+	}
+	
+	public String getText(){
+		return getDepartureStation().getName() + " at " + new SimpleDateFormat("HH:mm").format(getDeparture()) + " --- " + getDuration() + "min --> " + getArrivalStation().getName();
 	}
 	
 	

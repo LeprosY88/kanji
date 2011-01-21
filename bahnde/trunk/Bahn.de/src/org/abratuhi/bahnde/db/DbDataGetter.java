@@ -7,99 +7,56 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
 import org.apache.commons.collections.map.MultiKeyMap;
+import org.apache.log4j.Logger;
 
 public class DbDataGetter {
 	
+	private final static Logger LOG = Logger.getLogger(DbDataGetter.class);
+	
 	public static Station getStation(int id){
-		Station result = null;
+		List<Station> stations = getStations();
 		
-		try{
-			Connection connection = DbUtil.getConnection();
-			
-			Statement stmt = connection.createStatement();
-			
-			ResultSet rs = stmt.executeQuery("" +
-					"SELECT \"id\", \"name\", \"duration\", \"coordinates\" " +
-					"FROM \"stations\" " +
-					"WHERE \"id\" = " + id);
-			
-			while(rs.next()){
-				String name = rs.getString("name");
-				long duration = rs.getLong("duration");
-				String coordinates = rs.getString("coordinates");
-				
-				result = new Station();
-				result.setId(id);
-				result.setName(name);
-				result.setDuration(duration);
-				result.setCoordinatesFromString(coordinates);
-				
-				System.out.println("Station, id="+id + ", name=" + name + ", duration="+duration + ", coordinates=" + coordinates);
-				
+		for(Station station : stations){
+			if(station.getId() == id){
+				return station;
 			}
-			
-			rs.close();
-			
-			stmt.close();
-			
-			connection.close();
-		}
-		catch(SQLException e){
-			e.printStackTrace();
 		}
 		
-		return result;
+		return null;
 	}
 	
 	public static Station getStation(String name){
-		Station result = null;
+		List<Station> stations = getStations();
 		
-		try{
-			Connection connection = DbUtil.getConnection();
-			
-			Statement stmt = connection.createStatement();
-			
-			ResultSet rs = stmt.executeQuery("" +
-					"SELECT \"id\", \"name\", \"duration\", \"coordinates\" " +
-					"FROM \"stations\" " +
-					"WHERE \"name\" = '" + name + "'");
-			
-			while(rs.next()){
-				int id = rs.getInt("id");
-				long duration = rs.getLong("duration");
-				String coordinates = rs.getString("coordinates");
-				
-				result = new Station();
-				result.setId(id);
-				result.setName(name);
-				result.setDuration(duration);
-				result.setCoordinatesFromString(coordinates);
-				
-				System.out.println("Station, id="+id + ", name=" + name + ", duration="+duration + ", coordinates=" + coordinates);
-				
+		for(Station station : stations){
+			if(station.getName().equals(name)){
+				return station;
 			}
-			
-			rs.close();
-			
-			stmt.close();
-			
-			connection.close();
-		}
-		catch(SQLException e){
-			e.printStackTrace();
 		}
 		
+		return null;
+	}
+	
+	public static Map<Integer, Station> getStationsAsMap(){
+		Map<Integer, Station> result = new HashMap<Integer, Station>();
+		List<Station> stations = getStations();
+		for(Station station : stations){
+			result.put(station.getId(), station);
+		}
 		return result;
 	}
 	
 	public static List<Station> getStations(){
 		List<Station> result = new Vector<Station>();
+		Map<Integer, Station> map = new HashMap<Integer, Station>();
 		
 		try{
 			Connection connection = DbUtil.getConnection();
@@ -122,6 +79,76 @@ public class DbDataGetter {
 				station.setDuration(duration);
 				station.setCoordinatesFromString(coordinates);
 				
+				result.add(station);
+				map.put(id, station);
+				
+			}
+			
+			rs.close();
+			
+			stmt.close();
+			
+			
+
+			Statement substmt = connection.createStatement();
+			ResultSet subrs = substmt.executeQuery("SELECT \"id_start\", \"id_end\" FROM \"incident_stations\"");
+			while(subrs.next()){
+				int id1 = subrs.getInt(1);
+				int id2 = subrs.getInt(2);
+				map.get(id1).addIncidentStation(map.get(id2));
+			}
+			subrs.close();
+			substmt.close();
+			
+			connection.close();
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public static List<RouteEdge> getRouteEdges(Map<Integer, Station> stations){
+		List<RouteEdge> result = new Vector<RouteEdge>();
+		
+		try{
+			Connection connection = DbUtil.getConnection();
+			
+			Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			
+			ResultSet rs = stmt.executeQuery("" +
+					"SELECT routes.\"id\", inci_st.\"id_start\", inci_st.\"id_end\", routes.\"start\", routes.\"duration\", routes.\"type\" " +
+					"FROM \"incident_stations\" inci_st, \"routes\" routes " +
+					"WHERE inci_st.\"id\" = routes.\"edge_id\"");
+			
+			while(rs.next()){
+				int id = rs.getInt("id");
+				int id_start = rs.getInt("id_start");
+				int id_end = rs.getInt("id_end");
+				String start = rs.getString("start");
+				int duration = rs.getInt("duration");
+				String type = rs.getString("type");
+				
+				Date departure = null;
+				try{
+					departure = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(start);
+				}
+				catch(ParseException e){
+					// do nothing
+				}
+				
+				RouteEdge edge = new RouteEdge();
+				edge.setId(id);
+				edge.setDepartureStation(stations.get(id_start));
+				edge.setArrivalStation(stations.get(id_end));
+				edge.setDeparture(departure);
+				edge.setDuration(duration);
+				edge.setType(type);
+				edge.setCost(duration);
+				
+				result.add(edge);
+				
 			}
 			
 			rs.close();
@@ -138,55 +165,7 @@ public class DbDataGetter {
 	}
 	
 	public static List<RouteEdge> getRouteEdges(){
-		List<RouteEdge> result = new Vector<RouteEdge>();
-		
-		try{
-			Connection connection = DbUtil.getConnection();
-			
-			Statement stmt = connection.createStatement();
-			
-			ResultSet rs = stmt.executeQuery("" +
-					"SELECT routes.\"id\", inci_st.\"id_start\", inci_st.\"id_end\", routes.\"start\", routes.\"duration\", routes.\"type\" " +
-					"FROM \"incident_stations\" inci_st, \"routes\" routes " +
-					"WHERE inci_st.\"id\" = routes.\"edge_id\"");
-			
-			while(rs.next()){
-				int id = rs.getInt(1);
-				int id_start = rs.getInt(2);
-				int id_end = rs.getInt(3);
-				String start = rs.getString(4);
-				int duration = rs.getInt(5);
-				String type = rs.getString(6);
-				
-				Date departure = null;
-				try{
-					departure = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(start);
-				}
-				catch(ParseException e){
-					// do nothing
-				}
-				
-				RouteEdge edge = new RouteEdge();
-				edge.setId(id);
-				edge.setDepartureStation(getStation(id_start));
-				edge.setArrivalStation(getStation(id_end));
-				edge.setDeparture(departure);
-				edge.setDuration(duration);
-				edge.setType(type);
-				
-			}
-			
-			rs.close();
-			
-			stmt.close();
-			
-			connection.close();
-		}
-		catch(SQLException e){
-			e.printStackTrace();
-		}
-		
-		return result;
+		return getRouteEdges(getStationsAsMap());
 	}
 	
 	
