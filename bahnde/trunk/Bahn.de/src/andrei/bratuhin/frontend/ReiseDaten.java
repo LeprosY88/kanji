@@ -3,6 +3,9 @@ package andrei.bratuhin.frontend;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -12,6 +15,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
+import org.abratuhi.bahnde.db.DbDataGetter;
+import org.abratuhi.bahnde.model.RouteComputer;
+import org.abratuhi.bahnde.model.Station;
+import org.abratuhi.bahnde.output.Route;
 
 public class ReiseDaten extends JPanel implements ActionListener {
 	private final Frontend frontend;
@@ -74,10 +82,14 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		box4.add(new JLabel("-"));
 		box4.add(day);
 		
+		Box box5 = new Box(BoxLayout.X_AXIS);
+		box5.add(compute);
+		
 		add(box1);
 		add(box2);
 		add(box3);
 		add(box4);
+		add(box5);
 
 		repaint();
 	}
@@ -87,9 +99,15 @@ public class ReiseDaten extends JPanel implements ActionListener {
 			String from = (String) start.getSelectedItem();
 			String to = (String) ziel.getSelectedItem();
 			String time = year.getText() + "-" + month.getText() + "-" + day.getText() + " " + hours.getText() + ":" + minutes.getText();
-			System.out.println(from);
-			System.out.println(to);
-			System.out.println(time);
+			
+			Station sfrom = DbDataGetter.getStation(from);
+			Station sto = DbDataGetter.getStation(to);
+			Date date = new Date();
+			try{date = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time);}catch(ParseException ex){}
+			
+			Route route = new RouteComputer().getRoute(sfrom, sto, date, null, null);
+			
+			frontend.getWindow().getFahrplan().updateRoute(route);
 		}
 	}
 }
