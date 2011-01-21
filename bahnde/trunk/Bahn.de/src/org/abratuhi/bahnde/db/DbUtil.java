@@ -27,6 +27,34 @@ public class DbUtil {
 
 		return connection;
 	}
+   
+   public static List<String> generateTrains(){
+     List<String> statements = new Vector<String>();
+     List<Station> stations = DbDataGetter.getStations();
+     
+     Random generator = new Random();
+     
+     for(Station station : stations){
+         for(Station neighbour : station.getIncidentStations()){
+           Calendar now = Calendar.getInstance();
+           
+           Calendar year0 = Calendar.getInstance();
+           year0.set(now.get(Calendar.YEAR), 1, 1);
+           
+           Calendar year1 = Calendar.getInstance();
+           year1.set(now.get(Calendar.YEAR), 12, 31);
+           
+           while(year0.before(year1)){
+             int random1 = generator.nextInt(60);
+             int random2 = generator.nextInt(30);
+             System.out.println(random1 + ", " + random2);
+             year0.add(Calendar.MINUTE, random1+random2);
+           }
+         }
+     }
+     
+     return statements;
+   }
 
 	public static void shutdown() {
 
