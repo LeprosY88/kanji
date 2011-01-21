@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.abratuhi.bahnde.model.RouteEdge;
@@ -48,6 +49,17 @@ public class Route implements Printable{
 
 			return PAGE_EXISTS;
 		}
+	}
+	
+	public String getText(){
+		StringBuffer result = new StringBuffer();
+		
+		for(int i=0; i<route.size(); i++){
+			RouteEdge edge = route.get(i);
+			result.append(i + ") " + edge.getDepartureStation().getName() + " at " + new SimpleDateFormat("HH:mm").format(edge.getDeparture()) + " --- " + edge.getDuration() + " --> " + edge.getArrivalStation().getName() + "\n");
+		}
+		
+		return result.toString();
 	}
 
 	public List<Station> getStations() {

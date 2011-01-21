@@ -2,12 +2,15 @@ package andrei.bratuhin.frontend;
 
 import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -15,10 +18,12 @@ import org.abratuhi.bahnde.output.Route;
 
 import andrei.bratuhin.model.StationProviderStub;
 
-public class MainWindow extends JFrame implements KeyListener {
+public class MainWindow extends JFrame implements ActionListener {
 	private final Frontend frontend;
 
-	VisualizationPanel2 panel2 = null;
+	private VisualizationPanel2 panel2 = null;
+	
+	private final Fahrplan fahrplan;
 
 	public MainWindow(Frontend frontend) {
 		super();
@@ -29,9 +34,9 @@ public class MainWindow extends JFrame implements KeyListener {
 
 		setLayout(new GridLayout(1, 2));
 
-		addKeyListener(this);
 
 		this.frontend = frontend;
+		this.fahrplan = new Fahrplan(this.frontend);
 
 		JPanel sub = new JPanel();
 		sub.setLayout(new GridLayout(2, 1));
@@ -39,15 +44,33 @@ public class MainWindow extends JFrame implements KeyListener {
 		add(sub);
 		panel2 = new VisualizationPanel2(this.frontend);
 		sub.add(new JScrollPane(new ReiseDaten(this.frontend)));
-		sub.add(new JScrollPane(new Fahrplan(this.frontend)));
+		sub.add(new JScrollPane(fahrplan));
 		// add(new JScrollPane(new VisualizationPanel(this.frontend)));
 		add(panel2);
-
-		sub.addKeyListener(this);
-		panel2.addKeyListener(this);
-
+		
+		
+		JMenuBar mbar = new JMenuBar();
+		mbar.setVisible(true);
+		
+		setJMenuBar(mbar);
+		
+		JMenu mfile = new JMenu("File");
+		JMenuItem miprint = new JMenuItem("Print");
+		JMenuItem misave = new JMenuItem("Save");
+		JMenuItem misql = new JMenuItem("SQL Console");
+		
+		mfile.add(misave);
+		mfile.add(miprint);
+		mfile.addSeparator();
+		mfile.add(misql);
+		
+		mbar.add(mfile);
+		
+		miprint.addActionListener(this);
+		misave.addActionListener(this);
+		misql.addActionListener(this);
+		
 		repaint();
-
 	}
 
 	public void paint(Graphics g) {
@@ -58,13 +81,16 @@ public class MainWindow extends JFrame implements KeyListener {
 		}
 	}
 
+	public Fahrplan getFahrplan() {
+		return fahrplan;
+	}
+
 	@Override
-	public void keyPressed(KeyEvent ke) {
-		if (ke.getKeyChar() == '!') {
-			System.out.println("Bring up the sql window");
+	public void actionPerformed(ActionEvent ae) {
+		if(ae.getActionCommand().equals("SQL Console")){
 			new SQLConsole();
-		} else if (ke.getKeyChar() == 'p') {
-			System.out.println("Bring up the print window");
+		}
+		else if(ae.getActionCommand().equals("Print")){
 			PrinterJob pj = PrinterJob.getPrinterJob();
 			pj.setPrintable(new Route(StationProviderStub.getStations(), null)); // FIXME
 			if (pj.printDialog()) {
@@ -75,14 +101,9 @@ public class MainWindow extends JFrame implements KeyListener {
 				}
 			}
 		}
-	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
+		else if(ae.getActionCommand().equals("Save")){
+			
+		}
 	}
 
 }

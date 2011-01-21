@@ -111,7 +111,7 @@ public class DbUtilTest extends TestCase {
 						String[] types = {"S", "RE", "IRE", "IC", "EC", "ICE"};
 						
 						int random1 = generator.nextInt(60) + 30;
-						int random2 = generator.nextInt(60) + 30;
+						int random2 = generator.nextInt(60*12) + 60*12;
 						int random3 = generator.nextInt(6);
 						
 						bw.write(String.format("INSERT INTO \"routes\"(\"id\", \"edge_id\", \"start\", \"duration\", \"type\") " +

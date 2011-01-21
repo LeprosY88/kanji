@@ -26,7 +26,7 @@ public class DbDataGetter {
 			
 			ResultSet rs = stmt.executeQuery("" +
 					"SELECT \"id\", \"name\", \"duration\", \"coordinates\" " +
-					"FROM stations " +
+					"FROM \"stations\" " +
 					"WHERE \"id\" = " + id);
 			
 			while(rs.next()){
@@ -67,7 +67,7 @@ public class DbDataGetter {
 			
 			ResultSet rs = stmt.executeQuery("" +
 					"SELECT \"id\", \"name\", \"duration\", \"coordinates\" " +
-					"FROM stations " +
+					"FROM \"stations\" " +
 					"WHERE \"name\" = '" + name + "'");
 			
 			while(rs.next()){
@@ -108,7 +108,7 @@ public class DbDataGetter {
 			
 			ResultSet rs = stmt.executeQuery("" +
 					"SELECT \"id\", \"name\", \"duration\", \"coordinates\" " +
-					"FROM stations");
+					"FROM \"stations\"");
 			
 			while(rs.next()){
 				int id = rs.getInt("id");
@@ -121,8 +121,6 @@ public class DbDataGetter {
 				station.setName(name);
 				station.setDuration(duration);
 				station.setCoordinatesFromString(coordinates);
-				
-				System.out.println("Station, id="+id + ", name=" + name + ", duration="+duration + ", coordinates=" + coordinates);
 				
 			}
 			
@@ -153,12 +151,12 @@ public class DbDataGetter {
 					"WHERE inci_st.\"id\" = routes.\"edge_id\"");
 			
 			while(rs.next()){
-				int id = rs.getInt("routes.id");
-				int id_start = rs.getInt("inci_st.id_start");
-				int id_end = rs.getInt("inci_st.id_end");
-				String start = rs.getString("routes.start");
-				int duration = rs.getInt("routes.duration");
-				String type = rs.getString("routes.type");
+				int id = rs.getInt(1);
+				int id_start = rs.getInt(2);
+				int id_end = rs.getInt(3);
+				String start = rs.getString(4);
+				int duration = rs.getInt(5);
+				String type = rs.getString(6);
 				
 				Date departure = null;
 				try{
