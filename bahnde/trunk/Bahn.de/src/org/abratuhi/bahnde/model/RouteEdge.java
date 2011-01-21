@@ -1,8 +1,14 @@
 package org.abratuhi.bahnde.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
-public class EdgeRoute {
+public class RouteEdge {
+	public final static RouteEdge MAX_VALUE = valued(Integer.MAX_VALUE);
+	public final static RouteEdge ZERO_VALUE = valued(0);
+	
+	
+	
 	/** Unique identifier of the station**/
 	private int id;
 	
@@ -21,10 +27,33 @@ public class EdgeRoute {
 	/** Arrival station**/
 	private Station arrivalStation;
 	
+	private int cost;
+	
+	private String type;
 	
 	
 	
 	
+	public int getCostFromDate(Date date){
+		Calendar cal1 = Calendar.getInstance();
+		cal1.setTime(date);
+		
+		Calendar cal2 = Calendar.getInstance();
+		cal2.setTime(departure);
+		
+		int idle = (int) ((cal2.getTimeInMillis() - cal1.getTimeInMillis()) / 1000 / 60);
+		
+		return duration + idle;
+	}
+	
+	
+	
+	
+	private static RouteEdge valued(Integer i){
+		RouteEdge edge = new RouteEdge();
+		edge.cost = i;
+		return edge;
+	}
 	
 
 	public int getId() {
@@ -73,6 +102,34 @@ public class EdgeRoute {
 
 	public void setArrivalStation(Station arrivalStation) {
 		this.arrivalStation = arrivalStation;
+	}
+
+
+
+
+	public int getCost() {
+		return cost;
+	}
+
+
+
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+
+
+
+	public String getType() {
+		return type;
+	}
+
+
+
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

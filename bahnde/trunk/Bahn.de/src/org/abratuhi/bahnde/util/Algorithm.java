@@ -3,21 +3,25 @@ package org.abratuhi.bahnde.util;
 import java.util.List;
 import java.util.Map;
 
-import org.abratuhi.bahnde.model.EdgeRoute;
+import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
+import org.apache.commons.collections.map.MultiKeyMap;
 
 public abstract class Algorithm {
-	public abstract List<Station> getShortestPath(Station from, Station to, List<Station> nodes, List<EdgeRoute> edges);
+	public abstract List<Station> getShortestPath(Station from, Station to, List<Station> nodes, MultiKeyMap edges);
 	
-	protected static int distance(Station from, Station to, List<EdgeRoute> edges){
-		int result = Integer.MAX_VALUE;
-		for(EdgeRoute edge : edges){
-			if(edge.getDepartureStation().equals(from) && edge.getArrivalStation().equals(to)){
-				if(result > edge.getDuration()){
-					result = edge.getDuration();
+	protected static RouteEdge getLightestKnownEdge(Station from, Station to, MultiKeyMap edges){
+		RouteEdge result = RouteEdge.MAX_VALUE;
+		
+		List<RouteEdge> edgs = (List<RouteEdge>) edges.get(from, to);
+		if (edgs != null) {
+			for (RouteEdge edge : edgs) {
+				if (result.getCost() > edge.getCost()) {
+					result = edge;
 				}
 			}
 		}
+		
 		return result;
 	}
 	
