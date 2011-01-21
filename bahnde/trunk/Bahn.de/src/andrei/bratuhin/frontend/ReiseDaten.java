@@ -1,124 +1,95 @@
 package andrei.bratuhin.frontend;
 
-import inf.v3d.obj.Sphere;
-
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.List;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-
-import org.abratuhi.bahnde.model.Station;
 
 public class ReiseDaten extends JPanel implements ActionListener {
 	private final Frontend frontend;
 
 	private JComboBox start;
 	private JComboBox ziel;
-	private JTextArea abfahrtszeitstunden;
-	private JTextField abfahrtszeitminuten;
-	private JTextField abfahrtszeitdatumtag;
-	private JTextField abfahrtszeitdatummonat;
-	private JTextField abfahrtszeitdatumjahr;
-	private JButton berechnen;
+	private JTextField hours;
+	private JTextField minutes;
+	private JTextField day;
+	private JTextField month;
+	private JTextField year;
+	private JButton compute;
 
 	public ReiseDaten(Frontend frontend) {
 		super();
+
+		this.frontend = frontend;
+		
 		setVisible(true);
 		setBorder(new TitledBorder("Reisedaten"));
 		setSize(new Dimension(200, 50));
 		setPreferredSize(new Dimension(50, 50));
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		String[] items = { "", "Bochum", "Essen", "Muelheim/Ruhr", "Duisburg",
 				"Oberhausen", "Bottrop", "Gelsenkirchen", "Hattingen",
 				"Witten", "Dortmund", "Unna", "Schwerte", "Hagen", "Herne" };
 
-		JPanel panel1 = new JPanel();
-
-		JPanel panel2 = new JPanel();
-
-		JPanel panel3 = new JPanel();
-
-		JPanel panel4 = new JPanel();
-
-		JPanel panel5 = new JPanel();
-		panel5.setLayout(new BoxLayout(panel5, BoxLayout.LINE_AXIS));
 
 		start = new JComboBox(items);
 		ziel = new JComboBox(items);
-		abfahrtszeitstunden = new JTextArea("         ");
-		abfahrtszeitminuten = new JTextField("         ");
-		abfahrtszeitdatumtag = new JTextField("         ");
-		abfahrtszeitdatummonat = new JTextField("         ");
-		abfahrtszeitdatumjahr = new JTextField("         ");
-		berechnen = new JButton("Berechnen");
+		hours = new JTextField();
+		minutes = new JTextField();
+		day = new JTextField();
+		month = new JTextField();
+		year = new JTextField();
+		compute = new JButton("Compute");
 
-		panel1.add(new JLabel("                                            "));
-		panel1.add(new JLabel("Start"));
-		panel1.add(new JLabel("                                     "));
-		panel1.add(start);
-		panel1.add(new JLabel("                                     "));
-		panel2.add(new JLabel("                                            "));
-		panel2.add(new JLabel("Ziel"));
-		panel2.add(new JLabel("                                        "));
-		panel2.add(ziel);
-		panel2.add(new JLabel("                                     "));
-		panel3.add(new JLabel("                                            "));
-		panel3.add(new JLabel("Abfahrtszeit (HH:MM)"));
-		panel3.add(new JLabel("    "));
-		panel3.add(abfahrtszeitstunden);
-		panel3.add(new JLabel("  :  "));
-		panel3.add(abfahrtszeitminuten);
-		panel3.add(new JLabel("                                     "));
-		panel4.add(new JLabel("                                            "));
-		panel4.add(new JLabel("Datum (TT:MM:JJJJ)"));
-		panel4.add(new JLabel("              "));
-		panel4.add(abfahrtszeitdatumtag);
-		panel4.add(new JLabel("     :     "));
-		panel4.add(abfahrtszeitdatummonat);
-		panel4.add(new JLabel("     :     "));
-		panel4.add(abfahrtszeitdatumjahr);
-		panel4.add(new JLabel("                                     "));
-		panel5.add(berechnen);
+		compute.addActionListener(this);
+		
+		Box box1 = new Box(BoxLayout.X_AXIS);
+		box1.add(new JLabel("From"));
+		box1.add(start);
+		
+		Box box2 = new Box(BoxLayout.X_AXIS);
+		box2.add(new JLabel("To"));
+		box2.add(ziel);
+		
+		Box box3 = new Box(BoxLayout.X_AXIS);
+		box3.add(new JLabel("Departure time (HH:mm)"));
+		box3.add(hours);
+		box3.add(new JLabel(":"));
+		box3.add(minutes);
+		
+		Box box4 = new Box(BoxLayout.X_AXIS);
+		box4.add(new JLabel("Departure date (yyyy-MM-dd)"));
+		box4.add(year);
+		box4.add(new JLabel("-"));
+		box4.add(month);
+		box4.add(new JLabel("-"));
+		box4.add(day);
+		
+		add(box1);
+		add(box2);
+		add(box3);
+		add(box4);
 
-		this.frontend = frontend;
-
-		add(panel1);
-		add(panel2);
-		add(panel3);
-		add(panel4);
-		add(panel5);
 		repaint();
-
-		berechnen.addActionListener(this);
-		start.addActionListener(this);
-		ziel.addActionListener(this);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(start)) {
-			String startUp = (String) start.getSelectedItem();
-			System.out.println(startUp);
-		} else if (e.getSource().equals(ziel)) {
-			String zielUp = (String) ziel.getSelectedItem();
-			System.out.println(zielUp);
-		} else if (e.getSource().equals(abfahrtszeitstunden)) {
-			String stundenUp = abfahrtszeitstunden.getText();
-			System.out.println(stundenUp);
+		if (e.getSource().equals(compute)) {
+			String from = (String) start.getSelectedItem();
+			String to = (String) ziel.getSelectedItem();
+			String time = year.getText() + "-" + month.getText() + "-" + day.getText() + " " + hours.getText() + ":" + minutes.getText();
+			System.out.println(from);
+			System.out.println(to);
+			System.out.println(time);
 		}
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.abratuhi.bahnde.output.Route;
 import org.abratuhi.bahnde.util.FloydWarshall;
 import org.apache.commons.collections.map.MultiKeyMap;
 import org.apache.log4j.BasicConfigurator;
@@ -23,7 +24,8 @@ public class FloydWarshallTest extends TestCase {
 		Station from = stations.get(0);
 		Station to = stations.get(1);
 		
-		List<Station> result = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		Route route = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		List<Station> result = route.getStations();
 		
 		assertEquals(2, result.size());
 		assertEquals(from, result.get(0));
@@ -36,7 +38,8 @@ public class FloydWarshallTest extends TestCase {
 		Station from = stations.get(4-1);
 		Station to = stations.get(1-1);
 		
-		List<Station> result = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		Route route = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		List<Station> result = route.getStations();
 		
 		assertEquals(4, result.size());
 		assertEquals(from, result.get(0));
@@ -51,7 +54,8 @@ public class FloydWarshallTest extends TestCase {
 		Station from = stations.get(6-1);
 		Station to = stations.get(14-1);
 		
-		List<Station> result = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		Route route = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		List<Station> result = route.getStations();
 		
 		assertEquals(5, result.size());
 		assertEquals(from, result.get(0));

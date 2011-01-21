@@ -2,7 +2,6 @@ package andrei.bratuhin.model;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Vector;
 
 import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
@@ -15,9 +14,13 @@ public class EdgeRouteProviderStub {
 		
 		List<Station> stations = StationProviderStub.getStations();
 		
-		int counter = 0;
+		int counter = 1;
 		for(Station station : stations){
 			for(Station neighbour : station.getIncidentStations()){
+				if(station.equals(neighbour)){
+					continue;
+				}
+				
 				RouteEdge edge = new RouteEdge();
 				edge.setId(counter++);
 				edge.setDepartureStation(station);

@@ -50,4 +50,12 @@ public class Route implements Printable{
 		}
 	}
 
+	public List<Station> getStations() {
+		return stations;
+	}
+
+	public List<RouteEdge> getRoute() {
+		return route;
+	}
+
 }

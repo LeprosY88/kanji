@@ -5,10 +5,11 @@ import java.util.Map;
 
 import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
+import org.abratuhi.bahnde.output.Route;
 import org.apache.commons.collections.map.MultiKeyMap;
 
 public abstract class Algorithm {
-	public abstract List<Station> getShortestPath(Station from, Station to, List<Station> nodes, MultiKeyMap edges);
+	public abstract Route getShortestPath(Station from, Station to, List<Station> nodes, MultiKeyMap edges);
 	
 	protected static RouteEdge getLightestKnownEdge(Station from, Station to, MultiKeyMap edges){
 		RouteEdge result = RouteEdge.MAX_VALUE;

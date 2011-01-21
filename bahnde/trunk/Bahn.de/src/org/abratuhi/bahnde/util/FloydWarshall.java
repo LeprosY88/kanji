@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
+import org.abratuhi.bahnde.output.Route;
 import org.apache.commons.collections.map.MultiKeyMap;
 import org.apache.log4j.Logger;
 
@@ -12,7 +13,7 @@ public class FloydWarshall extends Algorithm{
 	private final static Logger LOG = Logger.getLogger(Dijkstra.class);
 
 	@Override
-	public List<Station> getShortestPath(Station from, Station to,
+	public Route getShortestPath(Station from, Station to,
 			List<Station> nodes, MultiKeyMap edges) {
 		
 		
@@ -54,7 +55,9 @@ public class FloydWarshall extends Algorithm{
 		}*/
 		
 		List<Station> result = getPathFromNext(from, to, next);
-		return result;
+		
+		
+		return new Route(result, null); //FIXME
 	}
 	
 	

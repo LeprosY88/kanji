@@ -4,11 +4,15 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
 import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
+import org.apache.commons.collections.map.MultiKeyMap;
 
 public class DbDataGetter {
 	
@@ -34,7 +38,7 @@ public class DbDataGetter {
 				result.setId(id);
 				result.setName(name);
 				result.setDuration(duration);
-				result.setCoordinates(coordinates);
+				result.setCoordinatesFromString(coordinates);
 				
 				System.out.println("Station, id="+id + ", name=" + name + ", duration="+duration + ", coordinates=" + coordinates);
 				
@@ -75,7 +79,7 @@ public class DbDataGetter {
 				result.setId(id);
 				result.setName(name);
 				result.setDuration(duration);
-				result.setCoordinates(coordinates);
+				result.setCoordinatesFromString(coordinates);
 				
 				System.out.println("Station, id="+id + ", name=" + name + ", duration="+duration + ", coordinates=" + coordinates);
 				
@@ -116,7 +120,7 @@ public class DbDataGetter {
 				station.setId(id);
 				station.setName(name);
 				station.setDuration(duration);
-				station.setCoordinates(coordinates);
+				station.setCoordinatesFromString(coordinates);
 				
 				System.out.println("Station, id="+id + ", name=" + name + ", duration="+duration + ", coordinates=" + coordinates);
 				
@@ -156,10 +160,19 @@ public class DbDataGetter {
 				int duration = rs.getInt("routes.duration");
 				String type = rs.getString("routes.type");
 				
+				Date departure = null;
+				try{
+					departure = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(start);
+				}
+				catch(ParseException e){
+					// do nothing
+				}
+				
 				RouteEdge edge = new RouteEdge();
 				edge.setId(id);
 				edge.setDepartureStation(getStation(id_start));
 				edge.setArrivalStation(getStation(id_end));
+				edge.setDeparture(departure);
 				edge.setDuration(duration);
 				edge.setType(type);
 				
@@ -173,6 +186,24 @@ public class DbDataGetter {
 		}
 		catch(SQLException e){
 			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	
+	public static MultiKeyMap getRouteEdgesAsMKMap(){
+		List<RouteEdge> edges = getRouteEdges();
+		
+		MultiKeyMap result = new MultiKeyMap();
+		
+		for(RouteEdge edge : edges){
+			List<RouteEdge> ledges = (List<RouteEdge>) result.get(edge.getDepartureStation(), edge.getArrivalStation());
+			if(ledges == null){
+				ledges = new Vector<RouteEdge>();
+				result.put(edge.getDepartureStation(), edge.getArrivalStation(), ledges);
+			}
+			ledges.add(edge);
 		}
 		
 		return result;

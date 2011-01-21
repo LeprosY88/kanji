@@ -1,21 +1,13 @@
 package andrei.bratuhin.frontend;
 
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
-
-
 
 public class Fahrplan extends JPanel {
 	private final Frontend frontend;
-
-	
-	
 
 	public Fahrplan(Frontend frontend) {
 		super();
@@ -25,15 +17,9 @@ public class Fahrplan extends JPanel {
 		setPreferredSize(new Dimension(200, 200));
 		setLayout(new GridLayout(1, 1));
 
-		
-
-		
-		
-		
 		this.frontend = frontend;
 
 		repaint();
 	}
-
 
 }
