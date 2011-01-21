@@ -26,7 +26,11 @@ public class Station {
 		incidentStations.add(station);
 	}
 	
-	public void setCoordinates(String coordinates){
+	public String getCoordinatesAsString(){
+		return String.valueOf(coordinates.get(0)) + ";" + String.valueOf(coordinates.get(1));
+	}
+	
+	public void setCoordinatesFromString(String coordinates){
 		String[] coords = coordinates.split(";");
 		this.coordinates = new Vector<Double>();
 		this.coordinates.add(Double.parseDouble(coords[0]));
