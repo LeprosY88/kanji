@@ -92,7 +92,7 @@ public class MainWindow extends JFrame implements ActionListener {
 		}
 		else if(ae.getActionCommand().equals("Print")){
 			PrinterJob pj = PrinterJob.getPrinterJob();
-			pj.setPrintable(new Route(StationProviderStub.getStations(), null)); // FIXME
+			pj.setPrintable(fahrplan.getRoute());
 			if (pj.printDialog()) {
 				try {
 					pj.print();

@@ -7,18 +7,24 @@ import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
 import org.abratuhi.bahnde.output.Route;
 import org.apache.commons.collections.map.MultiKeyMap;
+import org.apache.log4j.Logger;
 
 public abstract class Algorithm {
+	private final static Logger LOG = Logger.getLogger(Algorithm.class);
+	
 	public abstract Route getShortestPath(Station from, Station to, List<Station> nodes, MultiKeyMap edges);
 	
 	protected static RouteEdge getLightestKnownEdge(Station from, Station to, MultiKeyMap edges){
+		LOG.debug("getLightestKnownEdge: from="+from.getId() + ", to=" + to.getId());
 		RouteEdge result = RouteEdge.MAX_VALUE;
 		
 		List<RouteEdge> edgs = (List<RouteEdge>) edges.get(from, to);
+		LOG.debug("getLightestKnownEdge: Proceeding " + edges.size() + " edges.");
 		if (edgs != null) {
 			for (RouteEdge edge : edgs) {
 				if (result.getCost() > edge.getCost()) {
 					result = edge;
+					LOG.debug("getLightestKnownEdge: Found " + edge.getId() + " with cost " + edge.getCost() + " closer.");
 				}
 			}
 		}

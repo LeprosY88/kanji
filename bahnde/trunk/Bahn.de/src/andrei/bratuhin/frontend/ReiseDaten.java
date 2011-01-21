@@ -3,6 +3,8 @@ package andrei.bratuhin.frontend;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,6 +34,8 @@ public class ReiseDaten extends JPanel implements ActionListener {
 	private JTextField month;
 	private JTextField year;
 	private JButton compute;
+	private JButton print;
+	private JButton export;
 
 	public ReiseDaten(Frontend frontend) {
 		super();
@@ -57,8 +61,12 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		month = new JTextField();
 		year = new JTextField();
 		compute = new JButton("Compute");
+		print = new JButton("Print");
+		export = new JButton("Export");
 
 		compute.addActionListener(this);
+		print.addActionListener(this);
+		export.addActionListener(this);
 		
 		Box box1 = new Box(BoxLayout.X_AXIS);
 		box1.add(new JLabel("From"));
@@ -84,6 +92,8 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		
 		Box box5 = new Box(BoxLayout.X_AXIS);
 		box5.add(compute);
+		box5.add(print);
+		box5.add(export);
 		
 		add(box1);
 		add(box2);
@@ -108,6 +118,17 @@ public class ReiseDaten extends JPanel implements ActionListener {
 			Route route = new RouteComputer().getRoute(sfrom, sto, date, null, null);
 			
 			frontend.getWindow().getFahrplan().updateRoute(route);
+		}
+		else if (e.getSource().equals(print)) {
+			PrinterJob pj = PrinterJob.getPrinterJob();
+			pj.setPrintable(frontend.getWindow().getFahrplan().getRoute());
+			if (pj.printDialog()) {
+				try {
+					pj.print();
+				} catch (PrinterException ex) {
+					System.out.println(e);
+				}
+			}
 		}
 	}
 }

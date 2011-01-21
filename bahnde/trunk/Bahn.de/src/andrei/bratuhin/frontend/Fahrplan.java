@@ -50,4 +50,8 @@ public class Fahrplan extends JPanel {
 		repaint();
 	}
 
+	public Route getRoute() {
+		return route;
+	}
+
 }
