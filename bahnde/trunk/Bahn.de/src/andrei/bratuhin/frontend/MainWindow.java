@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+
 import org.abratuhi.bahnde.output.PrintableRoute;
 
 import andrei.bratuhin.model.StationProviderStub;
@@ -28,19 +29,19 @@ public class MainWindow extends JFrame implements KeyListener{
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setLayout (new GridLayout(1, 2));		
-		
+		setLayout (new GridLayout(1,2));	
+				
 		addKeyListener(this);
 
 		this.frontend = frontend;
 
 		JPanel sub = new JPanel();
-		sub.setLayout(new GridLayout(2, 1));
+		sub.setLayout(new GridLayout(2,1));
 
 		add(sub);
 		panel2 = new VisualizationPanel2(this.frontend);
 		sub.add(new JScrollPane(new ReiseDaten(this.frontend)));
-		sub.add(new JScrollPane(new InfoPanel(this.frontend)));
+		sub.add(new JScrollPane(new Fahrplan(this.frontend)));
 		// add(new JScrollPane(new VisualizationPanel(this.frontend)));
 		add(panel2);
 		
@@ -50,13 +51,18 @@ public class MainWindow extends JFrame implements KeyListener{
 		repaint();
 		
 	}	
-	public void paint(Graphics g) {
-		super.paint(g);
-
-		if (panel2 != null) {
-			panel2.myrepaint();
-		}
+		private void putConstraint() {
+		// TODO Auto-generated method stub
+		
 	}
+		public void paint(Graphics g) {
+			super.paint(g);
+
+			if (panel2 != null) {
+				panel2.myrepaint();
+			}
+		}
+		
 	
 
 	@Override
@@ -66,6 +72,7 @@ public class MainWindow extends JFrame implements KeyListener{
 			new SQLConsole();
 		}
 		else if(ke.getKeyChar() == 'p'){
+			System.out.println("Bring up the print window");
 			PrinterJob pj = PrinterJob.getPrinterJob();
 		    pj.setPrintable(new PrintableRoute(StationProviderStub.getStations()));
 		    if (pj.printDialog()) {
