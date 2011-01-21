@@ -18,7 +18,7 @@ public class Station {
 	
 	/** Coordinates for presentation purposes only.
 	 * These coordinates are not used to compute any kind of distance between the stations.
-	 * See {@link EdgeRoute#getDuration()}**/
+	 * See {@link RouteEdge#getDuration()}**/
 	private List<Double> coordinates;
 	
 	

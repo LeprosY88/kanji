@@ -3,7 +3,7 @@ package org.abratuhi.bahnde.util;
 import java.util.List;
 import java.util.Vector;
 
-import org.abratuhi.bahnde.model.EdgeRoute;
+import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
 import org.apache.commons.collections.map.MultiKeyMap;
 import org.apache.log4j.Logger;
@@ -13,7 +13,7 @@ public class FloydWarshall extends Algorithm{
 
 	@Override
 	public List<Station> getShortestPath(Station from, Station to,
-			List<Station> nodes, List<EdgeRoute> edges) {
+			List<Station> nodes, MultiKeyMap edges) {
 		
 		
 		MultiKeyMap path = new MultiKeyMap();
@@ -21,7 +21,8 @@ public class FloydWarshall extends Algorithm{
 		
 		for(Station station1 : nodes){
 			for(Station station2 : nodes){
-				Integer dist = distance(station1, station2, edges);
+				RouteEdge edge = getLightestKnownEdge(station1, station2, edges);
+				Integer dist = edge.getCost();
 				path.put(station1, station2, dist);
 				
 				//if(station1.getIncidentStations().contains(station2)){

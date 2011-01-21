@@ -5,6 +5,7 @@ import java.util.List;
 import junit.framework.TestCase;
 
 import org.abratuhi.bahnde.util.FloydWarshall;
+import org.apache.commons.collections.map.MultiKeyMap;
 import org.apache.log4j.BasicConfigurator;
 
 import andrei.bratuhin.model.EdgeRouteProviderStub;
@@ -18,7 +19,7 @@ public class FloydWarshallTest extends TestCase {
 	
 	public void testGetShortestPath_1_2(){
 		List<Station> stations = StationProviderStub.getStations();
-		List<EdgeRoute> edges = EdgeRouteProviderStub.getEdges();
+		MultiKeyMap edges = EdgeRouteProviderStub.getEdges();
 		Station from = stations.get(0);
 		Station to = stations.get(1);
 		
@@ -31,7 +32,7 @@ public class FloydWarshallTest extends TestCase {
 	
 	public void testGetShortestPath_4_1(){
 		List<Station> stations = StationProviderStub.getStations();
-		List<EdgeRoute> edges = EdgeRouteProviderStub.getEdges();
+		MultiKeyMap edges = EdgeRouteProviderStub.getEdges();
 		Station from = stations.get(4-1);
 		Station to = stations.get(1-1);
 		
@@ -46,7 +47,7 @@ public class FloydWarshallTest extends TestCase {
 	
 	public void testGetShortestPath_6_14(){
 		List<Station> stations = StationProviderStub.getStations();
-		List<EdgeRoute> edges = EdgeRouteProviderStub.getEdges();
+		MultiKeyMap edges = EdgeRouteProviderStub.getEdges();
 		Station from = stations.get(6-1);
 		Station to = stations.get(14-1);
 		

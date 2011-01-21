@@ -7,7 +7,7 @@ import inf.v3d.view.ViewerPanel;
 
 import java.util.List;
 
-import org.abratuhi.bahnde.model.EdgeRoute;
+import org.abratuhi.bahnde.model.RouteEdge;
 import org.abratuhi.bahnde.model.Station;
 
 import andrei.bratuhin.model.StationProviderStub;
