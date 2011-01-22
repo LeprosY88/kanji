@@ -48,7 +48,7 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		setPreferredSize(new Dimension(50, 50));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		String[] items = { "", "Bochum", "Essen", "Muelheim/Ruhr", "Duisburg",
+		String[] items = { "", "Bochum", "Essen", "MuelheimRuhr", "Duisburg",
 				"Oberhausen", "Bottrop", "Gelsenkirchen", "Hattingen",
 				"Witten", "Dortmund", "Unna", "Schwerte", "Hagen", "Herne" };
 
