@@ -20,7 +20,7 @@ public class StationProviderStub {
 		
 		Station station3 = new Station();
 		station3.setId(3);
-		station3.setName("MuelheimRuhr");
+		station3.setName("Muelheim/Ruhr");
 		station3.setCoordinatesFromString("-25;-4");
 		
 		Station station4 = new Station();
