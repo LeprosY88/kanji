@@ -78,10 +78,6 @@ public class DbUtilTest extends TestCase {
 			try{bw.flush();} catch(Throwable t){};
 			try{bw.close();} catch(Throwable t){};
 		}
-		
-		
-		
-		
 	}
 
 	public void testGenerateTrainsSqlScript() {

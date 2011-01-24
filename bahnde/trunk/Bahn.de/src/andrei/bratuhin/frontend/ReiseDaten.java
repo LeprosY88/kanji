@@ -8,6 +8,8 @@ import java.awt.print.PrinterJob;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Vector;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -49,9 +51,12 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		setPreferredSize(new Dimension(50, 50));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		String[] items = { "", "Bochum", "Essen", "MuelheimRuhr", "Duisburg",
-				"Oberhausen", "Bottrop", "Gelsenkirchen", "Hattingen",
-				"Witten", "Dortmund", "Unna", "Schwerte", "Hagen", "Herne" };
+		List<Station> stations = DbDataGetter.getStations();
+		List<String> stationNames = new Vector<String>();
+		for(Station station : stations){
+			stationNames.add(station.getName());
+		}
+		String[] items = stationNames.toArray(new String[0]);
 
 
 		start = new JComboBox(items);
