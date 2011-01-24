@@ -39,6 +39,12 @@ public class ReiseDaten extends JPanel implements ActionListener {
 	private JButton compute;
 	private JButton print;
 	private JButton export;
+	private JCheckBox boxS;
+	private JCheckBox boxRE;
+	private JCheckBox boxIRE;
+	private JCheckBox boxIC;
+	private JCheckBox boxEC;
+	private JCheckBox boxICE;
 
 	public ReiseDaten(Frontend frontend) {
 		super();
@@ -83,18 +89,24 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		box2.add(ziel);
 		
 		Box box3 = new Box (BoxLayout.X_AXIS);
+		boxS = new JCheckBox();
+		boxRE = new JCheckBox();
+		boxIRE = new JCheckBox();
+		boxIC = new JCheckBox();
+		boxEC = new JCheckBox();
+		boxICE = new JCheckBox();
 		box3.add(new JLabel("S"));
-		box3.add(new JCheckBox ());
+		box3.add(boxS);
 		box3.add(new JLabel("RE"));
-		box3.add(new JCheckBox ());
+		box3.add(boxRE);
 		box3.add(new JLabel("IRE"));
-		box3.add(new JCheckBox ());
+		box3.add(boxIRE);
 		box3.add(new JLabel("IC"));
-		box3.add(new JCheckBox ());
+		box3.add(boxIC);
 		box3.add(new JLabel("EC"));
-		box3.add(new JCheckBox ());
+		box3.add(boxEC);
 		box3.add(new JLabel("ICE"));
-		box3.add(new JCheckBox ());
+		box3.add(boxICE);
 		
 		Box box4 = new Box(BoxLayout.X_AXIS);
 		box4.add(new JLabel("Departure time (HH:mm)"));
