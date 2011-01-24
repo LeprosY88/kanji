@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -76,30 +77,47 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		box2.add(new JLabel("To"));
 		box2.add(ziel);
 		
-		Box box3 = new Box(BoxLayout.X_AXIS);
-		box3.add(new JLabel("Departure time (HH:mm)"));
-		box3.add(hours);
-		box3.add(new JLabel(":"));
-		box3.add(minutes);
+		Box box3 = new Box (BoxLayout.X_AXIS);
+		box3.add(new JLabel("S"));
+		box3.add(new JCheckBox ());
+		box3.add(new JLabel("RE"));
+		box3.add(new JCheckBox ());
+		box3.add(new JLabel("IRE"));
+		box3.add(new JCheckBox ());
+		box3.add(new JLabel("IC"));
+		box3.add(new JCheckBox ());
+		box3.add(new JLabel("EC"));
+		box3.add(new JCheckBox ());
+		box3.add(new JLabel("ICE"));
+		box3.add(new JCheckBox ());
 		
 		Box box4 = new Box(BoxLayout.X_AXIS);
-		box4.add(new JLabel("Departure date (yyyy-MM-dd)"));
-		box4.add(year);
-		box4.add(new JLabel("-"));
-		box4.add(month);
-		box4.add(new JLabel("-"));
-		box4.add(day);
+		box4.add(new JLabel("Departure time (HH:mm)"));
+		box4.add(hours);
+		box4.add(new JLabel(":"));
+		box4.add(minutes);
 		
 		Box box5 = new Box(BoxLayout.X_AXIS);
-		box5.add(compute);
-		box5.add(print);
-		box5.add(export);
+		box5.add(new JLabel("Departure date (yyyy-MM-dd)"));
+		box5.add(year);
+		box5.add(new JLabel("-"));
+		box5.add(month);
+		box5.add(new JLabel("-"));
+		box5.add(day);
+		
+		Box box6 = new Box(BoxLayout.X_AXIS);
+		box6.add(compute);
+		box6.add(print);
+		box6.add(export);
+		
+		
 		
 		add(box1);
 		add(box2);
 		add(box3);
 		add(box4);
 		add(box5);
+		add(box6);
 
 		repaint();
 	}
