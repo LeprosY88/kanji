@@ -84,6 +84,10 @@ public class MainWindow extends JFrame implements ActionListener {
 	public Fahrplan getFahrplan() {
 		return fahrplan;
 	}
+	
+	public VisualizationPanel2 getVisualizationPanel(){
+		return panel2;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent ae) {

@@ -109,7 +109,7 @@ public class DbDataGetter {
 		return result;
 	}
 	
-	public static List<RouteEdge> getRouteEdges(Map<Integer, Station> stations){
+	public static List<RouteEdge> getRouteEdges(Map<Integer, Station> stations, Date startingFrom){
 		List<RouteEdge> result = new Vector<RouteEdge>();
 		
 		try{
@@ -145,9 +145,11 @@ public class DbDataGetter {
 				edge.setDeparture(departure);
 				edge.setDuration(duration);
 				edge.setType(type);
-				edge.setCost(duration);
+				edge.setCost((int) (duration + (departure.getTime() - startingFrom.getTime())/1000/60));
 				
-				result.add(edge);
+				if(startingFrom != null && departure.after(startingFrom)){
+					result.add(edge);
+				}
 				
 			}
 			
@@ -164,13 +166,13 @@ public class DbDataGetter {
 		return result;
 	}
 	
-	public static List<RouteEdge> getRouteEdges(){
-		return getRouteEdges(getStationsAsMap());
+	public static List<RouteEdge> getRouteEdges(Date start){
+		return getRouteEdges(getStationsAsMap(), start);
 	}
 	
 	
-	public static MultiKeyMap getRouteEdgesAsMKMap(){
-		List<RouteEdge> edges = getRouteEdges();
+	public static MultiKeyMap getRouteEdgesAsMKMap(Date start){
+		List<RouteEdge> edges = getRouteEdges(start);
 		
 		MultiKeyMap result = new MultiKeyMap();
 		

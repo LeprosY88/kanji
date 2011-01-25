@@ -12,7 +12,7 @@ public class RouteComputer {
 	
 	public Route getRoute(Station from, Station to, Date start, Date end, String types){
 		List<Station> stations = DbDataGetter.getStations();
-		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap();
+		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap(start);
 		
 		Route result = new Dijkstra().getShortestPath(from, to, stations, edges);
 		
