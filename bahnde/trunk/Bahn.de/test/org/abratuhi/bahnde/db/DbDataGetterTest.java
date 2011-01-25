@@ -39,7 +39,7 @@ public class DbDataGetterTest extends TestCase {
 		}
 	}
 	public void testGetRouteEdgesAsList(){
-		List<RouteEdge> edges = DbDataGetter.getRouteEdges();
+		List<RouteEdge> edges = DbDataGetter.getRouteEdges(null);
 		assertNotNull(edges);
 		assertEquals(4088, edges.size());
 		
@@ -51,7 +51,7 @@ public class DbDataGetterTest extends TestCase {
 	}
 	public void testGetRouteEdgesAsMap(){
 		List<Station> stations = DbDataGetter.getStations();
-		MultiKeyMap map = DbDataGetter.getRouteEdgesAsMKMap();
+		MultiKeyMap map = DbDataGetter.getRouteEdgesAsMKMap(null);
 		assertNotNull(map);
 		
 		assertNotNull(map.get(stations.get(1-1), stations.get(2-1)));

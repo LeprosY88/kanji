@@ -153,6 +153,8 @@ public class ReiseDaten extends JPanel implements ActionListener {
 			Route route = new RouteComputer().getRoute(sfrom, sto, date, null, null);
 			
 			frontend.getWindow().getFahrplan().updateRoute(route);
+			
+			frontend.getWindow().getVisualizationPanel().repaint();
 		}
 		else if (e.getSource().equals(print)) {
 			PrinterJob pj = PrinterJob.getPrinterJob();
