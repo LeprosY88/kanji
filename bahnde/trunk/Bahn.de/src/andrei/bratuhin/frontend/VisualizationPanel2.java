@@ -31,7 +31,7 @@ public class VisualizationPanel2 extends ViewerPanel {
 			List<Double> coords = station.getCoordinates();
 			Sphere sph = new Sphere(coords.get(0), coords.get(1), 0);
 			sph.setRadius(0.5);
-			sph.setColor(255, 0, 0);
+			sph.setColor(50, 205,  50);
 			sph.register();
 
 			addObject3D(sph);
@@ -39,7 +39,7 @@ public class VisualizationPanel2 extends ViewerPanel {
 			Text t = new Text(station.getName());
 			t.setHeight(1);
 			t.setOrigin(coords.get(0) + 0.005, coords.get(1) + 0.005, 0);
-			t.setColor(255, 0, 0);
+			t.setColor(0, 0, 255);
 
 			addObject3D(t);
 
@@ -47,8 +47,8 @@ public class VisualizationPanel2 extends ViewerPanel {
 				List<Double> coords1 = neighbour.getCoordinates();
 				Line line = new Line(coords.get(0), coords.get(1), 0,
 						coords1.get(0), coords1.get(1), 0);
-				line.setLinewidth(0.5);
-				line.setColor(255, 0, 0);
+				line.setLinewidth(1);
+				line.setColor(0, 0, 0);
 
 				line.register();
 
@@ -65,7 +65,7 @@ public class VisualizationPanel2 extends ViewerPanel {
 				Line line = new Line(coords.get(0), coords.get(1), 0,
 						coords1.get(0), coords1.get(1), 0);
 				line.setLinewidth(0.75);
-				line.setColor(127, 255, 0);
+				line.setColor(255, 0, 0);
 
 				line.register();
 
