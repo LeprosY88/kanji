@@ -20,7 +20,7 @@ public class DijkstraDbTest extends TestCase {
 	
 	public void testGetShortestPath_1_2(){
 		List<Station> stations = DbDataGetter.getStations();
-		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap(null);
+		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap(null, null);
 		Station from = stations.get(0);
 		Station to = stations.get(1);
 		
@@ -38,7 +38,7 @@ public class DijkstraDbTest extends TestCase {
 	
 	public void testGetShortestPath_4_1(){
 		List<Station> stations = DbDataGetter.getStations();
-		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap(null);
+		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap(null, null);
 		Station from = stations.get(4-1);
 		Station to = stations.get(1-1);
 		
@@ -58,7 +58,7 @@ public class DijkstraDbTest extends TestCase {
 	
 	public void testGetShortestPath_6_14(){
 		List<Station> stations = DbDataGetter.getStations();
-		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap(null);
+		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap(null, null);
 		Station from = stations.get(6-1);
 		Station to = stations.get(14-1);
 		
