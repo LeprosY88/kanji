@@ -167,5 +167,25 @@ public class ReiseDaten extends JPanel implements ActionListener {
 				}
 			}
 		}
+      else (e.getSource().equals(export)) {
+          Route route = frontend.getWindow().getFahrplan().getRoute();
+          
+			JFileChooser fc = new JFileChooser();
+         int result = fc.showSaveDialog(this.frontend.getWindow());
+         
+        if(result == JFileChooser.APPROVE_OPTION){
+          File file = fc.getSelectedFile();
+          try{
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            bw.write(route.getText());
+            bw.flush();
+            bw.close();
+          }
+          catch(Throwable t){
+            t.printStackTrace();
+          }
+        }
+         
+		}
 	}
 }
