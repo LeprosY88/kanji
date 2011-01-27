@@ -14,7 +14,7 @@ public class RouteComputer {
 		List<Station> stations = DbDataGetter.getStations();
 		MultiKeyMap edges = DbDataGetter.getRouteEdgesAsMKMap(start);
 		
-		Route result = new Dijkstra().getShortestPath(from, to, stations, edges);
+		Route result = new Dijkstra().getShortestPath(from, to, start, stations, edges);
 		
 		return result;
 	}

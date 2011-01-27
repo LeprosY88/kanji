@@ -1,5 +1,7 @@
 package org.abratuhi.bahnde.model;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import junit.framework.TestCase;
@@ -24,7 +26,11 @@ public class FloydWarshallTest extends TestCase {
 		Station from = stations.get(0);
 		Station to = stations.get(1);
 		
-		Route route = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.YEAR, 2000);
+		Date starting = calendar.getTime();
+		
+		Route route = new FloydWarshall().getShortestPath(from, to, starting, stations, edges);
 		List<Station> result = route.getStations();
 		
 		assertEquals(2, result.size());
@@ -38,7 +44,11 @@ public class FloydWarshallTest extends TestCase {
 		Station from = stations.get(4-1);
 		Station to = stations.get(1-1);
 		
-		Route route = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.YEAR, 2000);
+		Date starting = calendar.getTime();
+		
+		Route route = new FloydWarshall().getShortestPath(from, to, starting, stations, edges);
 		List<Station> result = route.getStations();
 		
 		assertEquals(4, result.size());
@@ -54,7 +64,11 @@ public class FloydWarshallTest extends TestCase {
 		Station from = stations.get(6-1);
 		Station to = stations.get(14-1);
 		
-		Route route = new FloydWarshall().getShortestPath(from, to, stations, edges);
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.YEAR, 2000);
+		Date starting = calendar.getTime();
+		
+		Route route = new FloydWarshall().getShortestPath(from, to, starting, stations, edges);
 		List<Station> result = route.getStations();
 		
 		assertEquals(5, result.size());

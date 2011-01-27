@@ -135,6 +135,7 @@ public class DbDataGetter {
 					departure = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(start);
 				}
 				catch(ParseException e){
+					e.printStackTrace();
 					// do nothing
 				}
 				
