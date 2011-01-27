@@ -5,6 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,6 +20,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -50,7 +55,7 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		super();
 
 		this.frontend = frontend;
-		
+
 		setVisible(true);
 		setBorder(new TitledBorder("Reisedaten"));
 		setSize(new Dimension(200, 50));
@@ -59,11 +64,10 @@ public class ReiseDaten extends JPanel implements ActionListener {
 
 		List<Station> stations = DbDataGetter.getStations();
 		List<String> stationNames = new Vector<String>();
-		for(Station station : stations){
+		for (Station station : stations) {
 			stationNames.add(station.getName());
 		}
 		String[] items = stationNames.toArray(new String[0]);
-
 
 		start = new JComboBox(items);
 		ziel = new JComboBox(items);
@@ -79,16 +83,16 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		compute.addActionListener(this);
 		print.addActionListener(this);
 		export.addActionListener(this);
-		
+
 		Box box1 = new Box(BoxLayout.X_AXIS);
 		box1.add(new JLabel("From"));
 		box1.add(start);
-		
+
 		Box box2 = new Box(BoxLayout.X_AXIS);
 		box2.add(new JLabel("To"));
 		box2.add(ziel);
-		
-		Box box3 = new Box (BoxLayout.X_AXIS);
+
+		Box box3 = new Box(BoxLayout.X_AXIS);
 		boxS = new JCheckBox();
 		boxRE = new JCheckBox();
 		boxIRE = new JCheckBox();
@@ -107,13 +111,13 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		box3.add(boxEC);
 		box3.add(new JLabel("ICE"));
 		box3.add(boxICE);
-		
+
 		Box box4 = new Box(BoxLayout.X_AXIS);
 		box4.add(new JLabel("Departure time (HH:mm)"));
 		box4.add(hours);
 		box4.add(new JLabel(":"));
 		box4.add(minutes);
-		
+
 		Box box5 = new Box(BoxLayout.X_AXIS);
 		box5.add(new JLabel("Departure date (yyyy-MM-dd)"));
 		box5.add(year);
@@ -121,14 +125,12 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		box5.add(month);
 		box5.add(new JLabel("-"));
 		box5.add(day);
-		
+
 		Box box6 = new Box(BoxLayout.X_AXIS);
 		box6.add(compute);
 		box6.add(print);
 		box6.add(export);
-		
-		
-		
+
 		add(box1);
 		add(box2);
 		add(box3);
@@ -143,20 +145,25 @@ public class ReiseDaten extends JPanel implements ActionListener {
 		if (e.getSource().equals(compute)) {
 			String from = (String) start.getSelectedItem();
 			String to = (String) ziel.getSelectedItem();
-			String time = year.getText() + "-" + month.getText() + "-" + day.getText() + " " + hours.getText() + ":" + minutes.getText();
-			
+			String time = year.getText() + "-" + month.getText() + "-"
+					+ day.getText() + " " + hours.getText() + ":"
+					+ minutes.getText();
+
 			Station sfrom = DbDataGetter.getStation(from);
 			Station sto = DbDataGetter.getStation(to);
 			Date date = new Date();
-			try{date = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time);}catch(ParseException ex){}
-			
-			Route route = new RouteComputer().getRoute(sfrom, sto, date, null, null);
-			
+			try {
+				date = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time);
+			} catch (ParseException ex) {
+			}
+
+			Route route = new RouteComputer().getRoute(sfrom, sto, date, null,
+					null);
+
 			frontend.getWindow().getFahrplan().updateRoute(route);
-			
+
 			frontend.getWindow().getVisualizationPanel().repaint();
-		}
-		else if (e.getSource().equals(print)) {
+		} else if (e.getSource().equals(print)) {
 			PrinterJob pj = PrinterJob.getPrinterJob();
 			pj.setPrintable(frontend.getWindow().getFahrplan().getRoute());
 			if (pj.printDialog()) {
@@ -166,26 +173,25 @@ public class ReiseDaten extends JPanel implements ActionListener {
 					System.out.println(e);
 				}
 			}
-		}
-      else (e.getSource().equals(export)) {
-          Route route = frontend.getWindow().getFahrplan().getRoute();
-          
+		} else if (e.getSource().equals(export)) {
+			Route route = frontend.getWindow().getFahrplan().getRoute();
+
 			JFileChooser fc = new JFileChooser();
-         int result = fc.showSaveDialog(this.frontend.getWindow());
-         
-        if(result == JFileChooser.APPROVE_OPTION){
-          File file = fc.getSelectedFile();
-          try{
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
-            bw.write(route.getText());
-            bw.flush();
-            bw.close();
-          }
-          catch(Throwable t){
-            t.printStackTrace();
-          }
-        }
-         
+			int result = fc.showSaveDialog(this.frontend.getWindow());
+
+			if (result == JFileChooser.APPROVE_OPTION) {
+				File file = fc.getSelectedFile();
+				try {
+					BufferedWriter bw = new BufferedWriter(
+							new OutputStreamWriter(new FileOutputStream(file)));
+					bw.write(route.getText());
+					bw.flush();
+					bw.close();
+				} catch (Throwable t) {
+					t.printStackTrace();
+				}
+			}
+
 		}
 	}
 }
