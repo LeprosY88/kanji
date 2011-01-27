@@ -1,5 +1,6 @@
 package andrei.bratuhin.frontend;
 
+import org.abratuhi.bahnde.db.DbUtil;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
@@ -15,7 +16,9 @@ public class Frontend
 		BasicConfigurator.configure();
 		
 		String pathDb = System.getProperty("bahndb");
-		LOG.debug("bahn.db = " + pathDb);
+		if(pathDb != null && pathDb.length() > 0){
+			DbUtil.DB_NAME = pathDb;
+		}
 		
 		new Frontend();
 	}
