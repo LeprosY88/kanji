@@ -1,5 +1,6 @@
 package org.abratuhi.bahnde.util;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
@@ -13,7 +14,7 @@ public class FloydWarshall extends Algorithm{
 	private final static Logger LOG = Logger.getLogger(Dijkstra.class);
 
 	@Override
-	public Route getShortestPath(Station from, Station to,
+	public Route getShortestPath(Station from, Station to, Date starting,
 			List<Station> nodes, MultiKeyMap edges) {
 		
 		
@@ -22,7 +23,7 @@ public class FloydWarshall extends Algorithm{
 		
 		for(Station station1 : nodes){
 			for(Station station2 : nodes){
-				RouteEdge edge = getLightestKnownEdge(station1, station2, edges);
+				RouteEdge edge = getLightestKnownEdge(station1, station2, starting, edges);
 				Integer dist = edge.getCost();
 				path.put(station1, station2, dist);
 				

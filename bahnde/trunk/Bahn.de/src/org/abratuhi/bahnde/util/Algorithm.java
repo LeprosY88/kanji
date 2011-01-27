@@ -1,5 +1,7 @@
 package org.abratuhi.bahnde.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -12,9 +14,9 @@ import org.apache.log4j.Logger;
 public abstract class Algorithm {
 	private final static Logger LOG = Logger.getLogger(Algorithm.class);
 	
-	public abstract Route getShortestPath(Station from, Station to, List<Station> nodes, MultiKeyMap edges);
+	public abstract Route getShortestPath(Station from, Station to, Date starting, List<Station> nodes, MultiKeyMap edges);
 	
-	protected static RouteEdge getLightestKnownEdge(Station from, Station to, MultiKeyMap edges){
+	protected static RouteEdge getLightestKnownEdge(Station from, Station to, Date starting, MultiKeyMap edges){
 		LOG.debug("getLightestKnownEdge: from="+from.getId() + ", to=" + to.getId());
 		RouteEdge result = RouteEdge.MAX_VALUE;
 		
@@ -22,9 +24,9 @@ public abstract class Algorithm {
 		LOG.debug("getLightestKnownEdge: Proceeding " + edges.size() + " edges.");
 		if (edgs != null) {
 			for (RouteEdge edge : edgs) {
-				if (result.getCost() > edge.getCost()) {
+				if (edge.getDeparture().after(starting) && result.getCost() > edge.getCost()) {
 					result = edge;
-					LOG.debug("getLightestKnownEdge: Found " + edge.getId() + " with cost " + edge.getCost() + " closer.");
+					LOG.debug("getLightestKnownEdge: Found " + edge.getId() + " with cost " + edge.getCost() + " closer and after " + new SimpleDateFormat("yyyy-MM-dd HH:mm").format(starting) + ".");
 				}
 			}
 		}

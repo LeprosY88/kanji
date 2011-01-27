@@ -1,5 +1,8 @@
 package org.abratuhi.bahnde.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,19 +18,25 @@ public class Dijkstra extends Algorithm {
 	
 	private final static Logger LOG = Logger.getLogger(Dijkstra.class);
 	
-	public Route getShortestPath(Station from, Station to, List<Station> nodes, MultiKeyMap edges){
+	public Route getShortestPath(Station from, Station to, Date starting, List<Station> nodes, MultiKeyMap edges){
 		List<Station> result = new Vector<Station>();
 		List<RouteEdge> route = new Vector<RouteEdge>();
 		
 		List<Station> q = new Vector<Station>(nodes);
 		Map<Station, Integer> dist = new HashMap<Station, Integer>();
 		Map<Station, Station> previous = new HashMap<Station, Station>();
+		Map<Station, Date> departures = new HashMap<Station, Date>();
 		
 		MultiKeyMap connections = new MultiKeyMap();
 		
 		for(Station node : q){
 			dist.put(node, Integer.MAX_VALUE);
 			previous.put(node, null);
+			
+//			Calendar calendar = Calendar.getInstance();
+//			calendar.add(Calendar.YEAR, 1);
+//			departures.put(node, calendar.getTime());
+			departures.put(node, starting);
 		}
 		
 		dist.put(from, 0);
@@ -42,13 +51,19 @@ public class Dijkstra extends Algorithm {
 			
 			List<Station> neighbours = u.getIncidentStations();
 			for(Station neighbour : neighbours){
-				RouteEdge edge = getLightestKnownEdge(u, neighbour, edges);
-				if(edge.getCost() != Integer.MAX_VALUE){
+				RouteEdge edge = getLightestKnownEdge(u, neighbour, departures.get(u), edges);
+				if(edge != null && edge.getCost() != Integer.MAX_VALUE){
 					int alt = dist.get(u) + edge.getCost();
 					if(alt < dist.get(neighbour)){
 						dist.put(neighbour, alt);
 						previous.put(neighbour, u);
 						connections.put(u, neighbour, edge);
+						
+						Calendar calendar = Calendar.getInstance();
+						calendar.setTime(edge.getDeparture());
+						calendar.add(Calendar.MINUTE, edge.getDuration());
+						departures.put(neighbour, calendar.getTime());
+						
 						LOG.debug("Dijkstra: prev[" + neighbour.getId() + "]="+u.getId());
 					}
 				}
