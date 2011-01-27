@@ -30,8 +30,11 @@ import org.abratuhi.bahnde.db.DbDataGetter;
 import org.abratuhi.bahnde.model.RouteComputer;
 import org.abratuhi.bahnde.model.Station;
 import org.abratuhi.bahnde.output.Route;
+import org.apache.log4j.Logger;
 
 public class ReiseDaten extends JPanel implements ActionListener {
+	private final static Logger LOG = Logger.getLogger(ReiseDaten.class);
+	
 	private final Frontend frontend;
 
 	private JComboBox start;
@@ -155,10 +158,34 @@ public class ReiseDaten extends JPanel implements ActionListener {
 			try {
 				date = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time);
 			} catch (ParseException ex) {
+				LOG.error("Date bad format", ex);
+			}
+			
+			String types = "";
+			if(boxS.isSelected()){
+				types += ",'S'";
+			}
+			if(boxRE.isSelected()){
+				types += ",'RE'";
+			}
+			if(boxIRE.isSelected()){
+				types += ",'IRE'";
+			}
+			if(boxIC.isSelected()){
+				types += ",'IC'";
+			}
+			if(boxEC.isSelected()){
+				types += ",'EC'";
+			}
+			if(boxICE.isSelected()){
+				types += ",'ICE'";
+			}
+			if(types.length() > 0){
+				types = types.substring(1);
 			}
 
 			Route route = new RouteComputer().getRoute(sfrom, sto, date, null,
-					null);
+					types);
 
 			frontend.getWindow().getFahrplan().updateRoute(route);
 

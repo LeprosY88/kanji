@@ -109,7 +109,7 @@ public class DbDataGetter {
 		return result;
 	}
 	
-	public static List<RouteEdge> getRouteEdges(Map<Integer, Station> stations, Date startingFrom){
+	public static List<RouteEdge> getRouteEdges(Map<Integer, Station> stations, Date startingFrom, String types){
 		List<RouteEdge> result = new Vector<RouteEdge>();
 		
 		try{
@@ -117,10 +117,16 @@ public class DbDataGetter {
 			
 			Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			
-			ResultSet rs = stmt.executeQuery("" +
-					"SELECT routes.\"id\", inci_st.\"id_start\", inci_st.\"id_end\", routes.\"start\", routes.\"duration\", routes.\"type\" " +
-					"FROM \"incident_stations\" inci_st, \"routes\" routes " +
-					"WHERE inci_st.\"id\" = routes.\"edge_id\"");
+			String stmtString = "" +
+			"SELECT routes.\"id\", inci_st.\"id_start\", inci_st.\"id_end\", routes.\"start\", routes.\"duration\", routes.\"type\" " +
+			"FROM \"incident_stations\" inci_st, \"routes\" routes " +
+			"WHERE inci_st.\"id\" = routes.\"edge_id\"";
+			
+			if(types != null){
+				stmtString += " AND routes.\"type\" in (" + types + ")";
+			}
+			
+			ResultSet rs = stmt.executeQuery(stmtString);
 			
 			while(rs.next()){
 				int id = rs.getInt("id");
@@ -167,13 +173,13 @@ public class DbDataGetter {
 		return result;
 	}
 	
-	public static List<RouteEdge> getRouteEdges(Date start){
-		return getRouteEdges(getStationsAsMap(), start);
+	public static List<RouteEdge> getRouteEdges(Date start, String types){
+		return getRouteEdges(getStationsAsMap(), start, types);
 	}
 	
 	
-	public static MultiKeyMap getRouteEdgesAsMKMap(Date start){
-		List<RouteEdge> edges = getRouteEdges(start);
+	public static MultiKeyMap getRouteEdgesAsMKMap(Date start, String types){
+		List<RouteEdge> edges = getRouteEdges(start, types);
 		
 		MultiKeyMap result = new MultiKeyMap();
 		

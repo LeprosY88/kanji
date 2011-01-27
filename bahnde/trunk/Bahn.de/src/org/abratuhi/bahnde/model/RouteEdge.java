@@ -48,7 +48,11 @@ public class RouteEdge {
 	}
 	
 	public String getText(){
-		return getDepartureStation().getName() + " at " + new SimpleDateFormat("yyyy-MM-dd HH:mm").format(getDeparture()) + " --- " + getDuration() + "min --> " + getArrivalStation().getName();
+		return getDepartureStation().getName() + 
+		" at " + new SimpleDateFormat("yyyy-MM-dd HH:mm").format(getDeparture()) + 
+		" --- " + getDuration() + "min --> " + 
+		getArrivalStation().getName() + 
+		" using [" + getType() + "]";
 	}
 	
 	
