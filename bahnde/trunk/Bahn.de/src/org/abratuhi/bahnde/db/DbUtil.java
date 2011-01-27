@@ -3,22 +3,14 @@ package org.abratuhi.bahnde.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Random;
-import java.util.Vector;
 
-import org.abratuhi.bahnde.model.Station;
 import org.apache.log4j.Logger;
-
-import andrei.bratuhin.model.StationProviderStub;
 
 public class DbUtil {
 	
 	private final static Logger LOG = Logger.getLogger(DbUtil.class);
 	
-	private final static String DB_NAME = "bahndb";
+	public static String DB_NAME = "bahndb";
 
 	public static Connection getConnection() {
 		Connection connection = null;
