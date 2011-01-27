@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,9 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import org.abratuhi.bahnde.db.DbDataGetter;
 import org.abratuhi.bahnde.db.DbUtil;
-import org.abratuhi.bahnde.model.Station;
 
 public class SQLConsole extends JFrame implements ActionListener{
 	
@@ -67,12 +65,10 @@ public class SQLConsole extends JFrame implements ActionListener{
 				
 				Connection connection = DbUtil.getConnection();
 				
-				/*Statement stmt = connection.createStatement();
+				Statement stmt = connection.createStatement();
 				for(int i=0; i<sqls.length; i++){
 					stmt.execute(sqls[i]);
-				}*/
-				
-				List<Station> stations = DbDataGetter.getStations();
+				}
 				
 				connection.close();
 				DbUtil.shutdown();
